@@ -1,12 +1,12 @@
-## About
+# About
 
 This is the source of my personal website to be served at [j3.re](j3.re).
 
 Also serves as Full Stack Open 2020 ([MOOC](https://fullstackopen.com/) by University of Helsinki) personal final project. For that reason a working hours' tracking document is included in the repository under [school/](https://github.com/jalho/j3.re/blob/master/school/Työaikakirjanpito.md).
 
-## Available Scripts
+## Available scripts
 
-#### react-scripts, [documentation](https://create-react-app.dev/docs/available-scripts/)
+#### react-scripts, [documentation](https://create-react-app.dev/docs/available-scripts/):
 
 * `npm start`
 
