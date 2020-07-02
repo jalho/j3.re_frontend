@@ -71,7 +71,7 @@ Also serves as Full Stack Open 2020 ([MOOC](https://fullstackopen.com/) by Unive
       More similarity to previous languages I've programmed with (Java and C) when compared to the other option, JavaScript. Enforced typing supports my desire of documenting well.
     </details>
 * Deployment platform: **Vercel**
-  * Documentation: [vercel.com/docs](https://vercel.com/docs)
+  * Documentation: [vercel.com/docs](https://vercel.com/docs) (platform), [create-react-app.dev/docs/deployment](https://create-react-app.dev/docs/deployment/#zeit-now) (use with CRA)
     <details>
       <summary>Motivation</summary>
 
