@@ -1,8 +1,5 @@
 {
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": "./client/tsconfig.json"
-  },
   "plugins": ["@typescript-eslint"],
   "extends": [
     "eslint:recommended",
@@ -11,10 +8,13 @@
     "plugin:react/recommended"
   ],
   "rules": {
-    "@typescript-eslint/no-unused-vars": 1,
-    "@typescript-eslint/no-use-before-define": 1,
-    "@typescript-eslint/explicit-function-return-type": 1,
-    "@typescript-eslint/no-explicit-any": 1,
-    "semi": 1
+    "@typescript-eslint/no-use-before-define": 2,
+    "@typescript-eslint/explicit-function-return-type": 2,
+    "@typescript-eslint/no-explicit-any": 2,
+    "@typescript-eslint/semi": ["error"],
+    "@typescript-eslint/no-unused-vars": [
+        "error", { "argsIgnorePattern": "^_" }
+    ],
+    "no-case-declarations": 2
   }
 }
