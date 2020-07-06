@@ -16,5 +16,10 @@
         "error", { "argsIgnorePattern": "^_" }
     ],
     "no-case-declarations": 2
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
