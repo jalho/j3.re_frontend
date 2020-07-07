@@ -6,8 +6,8 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <div className="Face">
-          <Face heightInEm={10} />
+        <div className="FaceContainer">
+          <div className="Face"><Face /></div>
         </div>
         <p className={"Wip"}>Kesken...</p>
       </header>
