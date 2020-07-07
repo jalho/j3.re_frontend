@@ -1,10 +1,16 @@
+## To do
+
+ - [ ] IPV Reds (and other) easter eggs: Redux, count events within some time window, import dynamically to not burden
+ - [ ] Redux to planned techs
+ - [ ] Modularize Sass (see issue)
+
 # About
+
 Jere Alho, [@jalho](https://github.com/jalho) on GitHub
 
 This is the source of my personal website to be served at [j3.re](http://j3.re/).
 
 Also serves as Full Stack Open 2020 ([MOOC](https://fullstackopen.com/) by University of Helsinki) personal final project. For that reason a working hours' tracking document is included in the repository under [temp/school](https://github.com/jalho/j3.re/blob/master/temp/school/Työaikakirjanpito.md).
-
 
 ## Tech stack (planned)
 
