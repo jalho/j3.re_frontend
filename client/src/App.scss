@@ -1,42 +1,8 @@
-@mixin disable-text-selection() {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 .App {
   text-align: center;
   background: linear-gradient(-45deg, rgb(2, 115, 150), rgb(2, 24, 105));
 	background-size: 400% 400%;
 	animation: background-move 10s ease infinite;
-
-	.Wip {
-		@include disable-text-selection();
-		font-family: "Permanent Marker", cursive;
-		letter-spacing: 0.1em;
-	}
-}
-
-.App-header {
-	min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-	color: white;
-
-	.FaceContainer {
-		height: 15em;
-	
-		.Face {
-			width: 10em;
-			animation: face-gimmicks 3s infinite;
-		}
-	}
 }
 
 @keyframes background-move {
@@ -48,17 +14,5 @@
 	}
 	100% {
 		background-position: 0% 50%;
-	}
-}
-
-@keyframes face-gimmicks {
-	0% {
-		transform: rotate(0deg);
-	}
-	50% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
 	}
 }

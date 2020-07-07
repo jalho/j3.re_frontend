@@ -1,16 +1,12 @@
 import React from "react";
 import "./App.scss";
-import Face from "./Face";
+import Landing from "./landing/index";
 
 const App: React.FC = () => {
+  // TODO: Use Suspense to show Landing while App is getting ready.
   return (
     <div className="App">
-      <header className="App-header">
-        <div className="FaceContainer">
-          <div className="Face"><Face /></div>
-        </div>
-        <p className={"Wip"}>Kesken...</p>
-      </header>
+      <Landing />
     </div>
   );
 };
