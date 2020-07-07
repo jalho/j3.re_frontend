@@ -28,6 +28,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
 	color: white;
+
+	.Face {
+		animation: face-gimmicks 1s ease infinite;
+	}
 }
 
 @keyframes background-move {
@@ -39,5 +43,14 @@
 	}
 	100% {
 		background-position: 0% 50%;
+	}
+}
+
+@keyframes face-gimmicks {
+	0%, 100% {
+		background-color: yellow;
+	}
+	50% {
+		background-color: blue;
 	}
 }

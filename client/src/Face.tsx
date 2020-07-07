@@ -1,11 +1,16 @@
 import React from "react";
 
-const Face: React.FC = () => {
+interface FaceProps {
+  heightInEm: number;
+}
+
+const Face: React.FC<FaceProps> = (props: FaceProps) => {
+  const widthHeightRatio = 619.449/848.336;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="619.449"
-      height="848.336"
+      width={`${props.heightInEm * widthHeightRatio}em`}
+      height={`${props.heightInEm}em`}
       version="1.1"
       viewBox="0 0 619.449 848.336"
     >
