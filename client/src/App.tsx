@@ -1,11 +1,13 @@
 import React from "react";
 import "./App.scss";
+import Face from "./Face";
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <p className={"wip"}>Work in progress...</p>
+        <Face />
+        <p className={"Wip"}>Work in progress...</p>
       </header>
     </div>
   );
