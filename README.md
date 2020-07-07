@@ -8,7 +8,7 @@ Also serves as Full Stack Open 2020 ([MOOC](https://fullstackopen.com/) by Unive
 
 ## Tech stack (planned)
 
-| tech | purpose | docs | actually in use |
+| tech | purpose | docs | implemented |
 | :----:|:-----|:-----|:-----|
 | React | UI library | [reactjs.org](https://reactjs.org/docs/react-api.html) | ✔️ |
 | Create React App | front end bootstrap | [create-react-app.dev](https://create-react-app.dev/docs/getting-started) | ✔️ |
