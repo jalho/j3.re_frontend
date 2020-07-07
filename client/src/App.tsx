@@ -1,11 +1,11 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <p>Työn alla...</p>
+        <p className={"wip"}>Work in progress...</p>
       </header>
     </div>
   );
