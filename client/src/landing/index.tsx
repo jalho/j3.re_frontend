@@ -5,9 +5,7 @@ import "./styles.scss";
 const Landing: React.FC = () => {
   return (
     <div>
-      <header>
-        <p>Landing view.</p>
-      </header>
+      <header>Landing view.</header>
       <div className="Face"><Face /></div>
     </div>
   );

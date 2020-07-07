@@ -1,12 +1,9 @@
 @keyframes background-move {
-  0% {
+  0%, 100% {
     background-position: 0% 50%;
   }
   50% {
     background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
   }
 }
 
@@ -31,7 +28,6 @@ div {
 }
 
 body {
-  @include flexCenter();
 	min-height: 100vh;
   margin: 0;
   background: linear-gradient(-45deg, rgb(2, 115, 150), rgb(2, 24, 105));
@@ -42,7 +38,8 @@ body {
   
   header {
     @include disable-text-selection();
-    letter-spacing: 0.1em;
+    letter-spacing: 1vmin;
     font-size: 10vmin;
+    padding: 10vmin;
   }
 }
