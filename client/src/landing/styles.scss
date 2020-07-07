@@ -10,7 +10,12 @@
 	}
 }
 
-.Face {
-	width: 70vmin;
-	animation: face-gimmicks 3s infinite;
+.Landing {
+	max-height: 100vh;
+
+	.Face {
+		width: 70vmin;
+		animation: face-gimmicks 3s infinite;
+		overflow: hidden;
+	}	
 }
