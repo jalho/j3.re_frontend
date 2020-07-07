@@ -1,14 +1,12 @@
-import React from "react";
-import "./App.scss";
-import Landing from "./landing/index";
+import { lazy } from "react";
 
-const App: React.FC = () => {
-  // TODO: Use Suspense to show Landing while App is getting ready.
-  return (
-    <div className="App">
-      <Landing />
-    </div>
-  );
-};
+const App = lazy(() => {
+  return Promise.all([
+    import("./home/index"),
+    new Promise(resolve => setTimeout(resolve, 3500))
+  ])
+  .then(([moduleExports]) => moduleExports);
+});
+
 
 export default App;

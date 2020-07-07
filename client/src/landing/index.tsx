@@ -4,11 +4,11 @@ import "./styles.scss";
 
 const Landing: React.FC = () => {
   return (
-    <div className="Landing">
-      <header className="Landing-header">
-        <div className="Face"><Face /></div>
-        <p className={"Wip"}>Kesken...</p>
+    <div>
+      <header>
+        <p>Landing view.</p>
       </header>
+      <div className="Face"><Face /></div>
     </div>
   );
 };

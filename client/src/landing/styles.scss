@@ -1,12 +1,3 @@
-@mixin disable-text-selection() {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 @keyframes face-gimmicks {
 	0% {
 		transform: rotate(0deg);
@@ -19,23 +10,7 @@
 	}
 }
 
-.Landing-header {
-	min-height: 100vh; // vh is % of viewport's
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 10vmin;
-	color: white;
-
-	.Face {
-		width: 70vmin;
-		animation: face-gimmicks 3s infinite;
-	}
-
-	.Wip {
-		@include disable-text-selection();
-		font-family: "Permanent Marker", cursive;
-		letter-spacing: 0.1em;
-	}
+.Face {
+	width: 70vmin;
+	animation: face-gimmicks 3s infinite;
 }
