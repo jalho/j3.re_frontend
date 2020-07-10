@@ -1,9 +1,3 @@
-## To do
-
- - [ ] IPV Reds (and other) easter eggs: Redux, count events within some time window, import dynamically to not burden
- - [ ] Redux to planned techs
- - [ ] Modularize Sass (see issue)
-
 # About
 
 Jere Alho, [@jalho](https://github.com/jalho) on GitHub
