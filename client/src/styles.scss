@@ -1,0 +1,80 @@
+@use "./landing/style";
+@use "./home/styles";
+
+$primary-text-color: white;
+
+// prevent text selection (quality of life thing; personal preference)
+@mixin disable-text-selection() {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// center child elements horizontally and vertically
+@mixin flexCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+// use full viewport area
+@mixin fullViewportSize {
+  height: 100vh;
+  width: 100vw;
+}
+
+// moving, linear gradient colored background
+@mixin fancyBackground {
+  @keyframes background-move {
+    0%, 25%, 100% {
+      background-position: 0%;
+    }
+    50% {
+      background-position: 100%;
+    }
+  }
+  
+  margin: 0;
+  background: linear-gradient(-45deg, rgb(2, 115, 150), rgb(2, 24, 105));
+  background-size: 130%;
+  animation: background-move 10s ease infinite;
+}
+
+// general text styles
+@mixin defaultText {
+  // text color
+  color: $primary-text-color;
+  
+  // font
+  font-family: "Permanent Marker";
+  letter-spacing: 0.1em;
+}
+
+/* --------------------------------------------------
+       GENERAL STYLES
+       inside <body>
+-------------------------------------------------- */
+
+body {
+  @include fancyBackground(); // animate background
+  @include fullViewportSize(); // stretch body to maximum
+  @include flexCenter(); // center body's children
+  @include defaultText(); // default text style everywhere
+
+  // centering class
+  .centered {
+    @include flexCenter();
+  }
+
+  // headers' common styles
+  header {
+    @include disable-text-selection(); // I don't like accidentally selecting text
+    font-size: 3em;
+    letter-spacing: 0.15em;
+    padding: 1em;
+  }
+}

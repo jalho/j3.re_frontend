@@ -1,12 +1,13 @@
 import React from "react";
 import Face from "../components/Face";
-import "./styles.scss";
 
 const Landing: React.FC = () => {
   return (
-    <div className="Landing">
+    <div className="centered">
       <header>Landing view.</header>
-      <div className="Face"><Face /></div>
+      <div className="Face">
+        <Face />
+      </div>
     </div>
   );
 };
