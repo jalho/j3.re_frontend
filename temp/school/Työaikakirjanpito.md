@@ -8,11 +8,11 @@
 | 5-Jul-2020 | 1 | `c3c3d95` | Organisoin hakemistot uudelleen tehdäkseni tilaa tulevalle back endille. Nähtävästi *tsconfig* on oltava erikseen sekä frontin että backin hakemistoissa, koska CRA edellyttää omaa configia, eikä voi käyttää parent hakemistossa olevaa jaettua. Tsconfig on myös oltava *JSON* muodossa, eli sitä ei voi exportata yhtäältä toisaalle kuten `.js` voisi. |
 | 6-Jul-2020 | 1 | `56461f9` | Konfiguroin TS:n linttauksen. Deployasin Verceliin ja otin siellä käyttöön domainini [`j3.re`](https://j3.re/). Luovuin back endistä toistaiseksi, koska Verceliin deployattuani sille ei välittömästi ilmennyt mahdollisuutta taikka tarvetta. |
 | 7-Jul-2020 | 4 | `359ade8` | Otin käyttöön *Sass*, tein naamastani vektorigrafiikkaa ja siitä React-komponentin. Toteutin *landing view*, joka näytetään muun osan latautuessa tai ainakin minimiajan. |
-| 10-Jul-2020 | 0,5 | `TODO` | Kokosin eri paikoissa lojuneet TODO-listat yhteen Issue-kuvaukseen (#3) GitHubissa. |
+| 10-Jul-2020 | 0,5 | `8a5fdf6` | Kokosin eri paikoissa lojuneet TODO-listat yhteen Issue-kuvaukseen (#3) GitHubissa. |
+| 13-Jul-2020 | 0,5 | `TODO` | Kyselin Redditissä elegantista GitHub-projektimanageroinnista. Säädin sivun teemaväriä Chrome Androidia varten sekä noscript-näkymää. |
 | | | | |
 | | | | |
 | | | | |
 | | | | |
 | | | | |
-| | | | |
-| **yhteensä**   | 15,5 | | |
+| **yhteensä**   | 16 | | |
