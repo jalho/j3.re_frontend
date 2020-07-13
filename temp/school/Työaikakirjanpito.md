@@ -9,10 +9,10 @@
 | 6-Jul-2020 | 1 | `56461f9` | Konfiguroin TS:n linttauksen. Deployasin Verceliin ja otin siellä käyttöön domainini [`j3.re`](https://j3.re/). Luovuin back endistä toistaiseksi, koska Verceliin deployattuani sille ei välittömästi ilmennyt mahdollisuutta taikka tarvetta. |
 | 7-Jul-2020 | 4 | `359ade8` | Otin käyttöön *Sass*, tein naamastani vektorigrafiikkaa ja siitä React-komponentin. Toteutin *landing view*, joka näytetään muun osan latautuessa tai ainakin minimiajan. |
 | 10-Jul-2020 | 0,5 | `8a5fdf6` | Kokosin eri paikoissa lojuneet TODO-listat yhteen Issue-kuvaukseen (#3) GitHubissa. |
-| 13-Jul-2020 | 0,5 | `TODO` | Kyselin Redditissä elegantista GitHub-projektimanageroinnista. Säädin sivun teemaväriä Chrome Androidia varten sekä noscript-näkymää. |
+| 13-Jul-2020 | 3,5 | `TODO` | Kyselin Redditissä elegantista GitHub-projektimanageroinnista ja otin neuvoista vaarin. Säädin sivun teemaväriä Chrome Androidia varten sekä noscript-näkymää. Modularisoin ja uudelleenkirjoitin Sass-tyylit (Luovuttu Sass:n suosituksen mukaisesti `@import` käytöstä `@use` hyväksi. *Node-sass* ei tue vielä `@use`, joten aliasoitu `"node-sass": "npm:sass@^1.26.10"`). |
 | | | | |
 | | | | |
 | | | | |
 | | | | |
 | | | | |
-| **yhteensä**   | 16 | | |
+| **yhteensä**   | 19 | | |
