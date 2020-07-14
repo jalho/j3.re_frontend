@@ -73,8 +73,12 @@ body {
   // headers' common styles
   header {
     @include disable-text-selection(); // I don't like accidentally selecting text
-    font-size: 3em;
+    @include flexCenter(); // center
     letter-spacing: 0.15em;
-    padding: 1em;
+    padding: 1em 0em 1em 0em; // top right bottom left
+    
+    // relative to viewport to keep layout
+    width: 100vw; // full width to always stay on one line
+    font-size: 5vmax; // font size relative to viewport too
   }
 }
