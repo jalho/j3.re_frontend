@@ -12,6 +12,7 @@ Also serves as Full Stack Open 2020 ([MOOC](https://fullstackopen.com/) by Unive
 | :----:|:-----|:-----|:-----|
 | React | UI library | [reactjs.org](https://reactjs.org/docs/react-api.html) | ✔️ |
 | Create React App | front end bootstrap | [create-react-app.dev](https://create-react-app.dev/docs/getting-started) | ✔️ |
+| Redux | app state management | [redux.js.org](https://redux.js.org/api/api-reference) | ❌ |
 | React Bootstrap | React component library  |[react-bootstrap.github.io](https://react-bootstrap.github.io/) | ❌ |
 | Sass | CSS preprocessor | [sass-lang.com](https://sass-lang.com/documentation) | ✔️ |
 | Node.js | runtime environment | [nodejs.org](https://nodejs.org/en/docs/) | ✔️ |
