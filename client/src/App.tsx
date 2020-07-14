@@ -3,7 +3,7 @@ import { lazy } from "react";
 const App = lazy(() => {
   return Promise.all([
     import("./home/index"),
-    new Promise(resolve => setTimeout(resolve, 3500))
+    new Promise(resolve => setTimeout(resolve, 2500))
   ])
   .then(([moduleExports]) => moduleExports);
 });
