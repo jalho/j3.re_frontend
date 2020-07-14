@@ -28,20 +28,20 @@ $primary-text-color: white;
 }
 
 // moving, linear gradient colored background
-@mixin fancyBackground {
+@mixin breathingBackground {
   @keyframes background-move {
-    0%, 25%, 100% {
+    0%, 100% {
       background-position: 0%;
     }
-    50% {
+    75% {
       background-position: 100%;
     }
   }
   
   margin: 0;
   background: linear-gradient(-45deg, rgb(2, 115, 150), rgb(2, 24, 105));
-  background-size: 130%;
-  animation: background-move 10s ease infinite;
+  background-size: 200%;
+  animation: background-move 7s ease infinite;
 }
 
 // general text styles
@@ -60,7 +60,7 @@ $primary-text-color: white;
 -------------------------------------------------- */
 
 body {
-  @include fancyBackground(); // animate background
+  @include breathingBackground(); // animate background
   @include fullViewportSize(); // stretch body to maximum
   @include flexCenter(); // center body's children
   @include defaultText(); // default text style everywhere
