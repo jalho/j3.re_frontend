@@ -44,8 +44,25 @@ $primary-text-color: white;
   animation: background-move 7s ease infinite;
 }
 
+// customized text selection for the browsers that support it
+@mixin textSelection {
+  $selectionColor: red;
+  $selectionBackground: none;
+
+  ::selection {
+    color: $selectionColor;
+    background-color: $selectionBackground;
+  }
+  ::-moz-selection {
+    color: $selectionColor;
+    background-color: $selectionBackground;
+  }
+}
+
 // general text styles
 @mixin defaultText {
+  @include textSelection();
+
   // text color
   color: $primary-text-color;
   
