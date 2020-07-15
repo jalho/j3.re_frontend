@@ -1,28 +1,13 @@
-// common constants
+// shared constants and mixins
 @use "./constants" as c;
+@use "./mixins" as m;
 
 // misc components
 @use "../components/components";
 
-// views
+// views' styles
 @use "../landing/landing";
 @use "../home/home";
-
-// TODO: Modularize mixins!
-
-// center child elements horizontally and vertically
-@mixin flexCenter {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-// use full viewport area
-@mixin fullViewportSize {
-  height: 100vh;
-  width: 100vw;
-}
 
 // moving, linear gradient colored background
 @mixin breathingBackground {
@@ -72,12 +57,12 @@
 
 body {
   @include breathingBackground(); // animate background
-  @include fullViewportSize(); // stretch body to maximum
-  @include flexCenter(); // center body's children
+  @include m.fullViewportSize(); // stretch body to maximum
+  @include m.flexCenter(); // center body's children
   @include defaultText(); // default text style everywhere
 
   // centering class
   .centered {
-    @include flexCenter();
+    @include m.flexCenter();
   }
 }

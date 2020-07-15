@@ -1,0 +1,13 @@
+// center child elements horizontally and vertically
+@mixin flexCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+// use full viewport area
+@mixin fullViewportSize {
+  height: 100vh;
+  width: 100vw;
+}
