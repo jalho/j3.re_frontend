@@ -1,7 +1,14 @@
 @use "./landing/style";
 @use "./home/styles";
 
+// variables...
 $primary-text-color: white;
+// ...text selection
+$selectionColor: rgb(234, 137, 253);
+$selectionBackground: none;
+// ...font sizes
+$fontSizeHeader: 5vmax;
+$fontSizeDefault: calc(#{$fontSizeHeader} / 3);
 
 // prevent text selection (quality of life thing; personal preference)
 @mixin disable-text-selection() {
@@ -46,9 +53,6 @@ $primary-text-color: white;
 
 // customized text selection for the browsers that support it
 @mixin textSelection {
-  $selectionColor: red;
-  $selectionBackground: none;
-
   ::selection {
     color: $selectionColor;
     background-color: $selectionBackground;
@@ -67,8 +71,8 @@ $primary-text-color: white;
   color: $primary-text-color;
   
   // font
-  font-family: "Permanent Marker";
-  letter-spacing: 0.1em;
+  font-family: "Baloo Da 2";
+  font-size: $fontSizeDefault;
 }
 
 /* --------------------------------------------------
@@ -88,14 +92,17 @@ body {
   }
 
   // headers' common styles
-  header {
+  .header {
     @include disable-text-selection(); // I don't like accidentally selecting text
-    @include flexCenter(); // center
-    letter-spacing: 0.15em;
-    padding: 1em 0em 1em 0em; // top right bottom left
     
-    // relative to viewport to keep layout
-    width: 100vw; // full width to always stay on one line
-    font-size: 5vmax; // font size relative to viewport too
+    // layout
+    @include flexCenter(); // centering
+    width: 100vw; // relative to viewport
+    padding: 0.5em 0em 0.5em 0em; // top right bottom left
+
+    // font; sizing relative to viewport
+    font-size: $fontSizeHeader; // font size relative to viewport too
+    letter-spacing: 0.15em; // relative to font size
+    font-family: "Permanent Marker";
   }
 }

@@ -4,7 +4,7 @@ import Face from "../components/Face";
 const Landing: React.FC = () => {
   return (
     <div className="centered">
-      <header>Landing view.</header>
+      <text className="header">Landing view.</text>
       <div className="Face">
         <Face />
       </div>
