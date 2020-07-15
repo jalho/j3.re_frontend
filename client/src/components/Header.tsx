@@ -9,8 +9,6 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
     <div className="header">
       <svg
         className="container"
-        width="100vw"
-        height="5vmax" // should be equal to header font size
       >
 
         <text

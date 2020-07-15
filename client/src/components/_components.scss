@@ -13,14 +13,15 @@
 // TODO: Animate headers with some kind of drawing effect or something!
 .header {
   .container {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    width: 100vw;
+    height: c.$fontSizeHeader;
+    // background-color: rgb(154, 205, 50, 0.5); // TODO: Remove!
   }
 
   .text {
-    @include disable-text-selection(); // I don't like accidentally selecting text
+    width: 100%;
 
-    // font; sizing relative to viewport
+    @include disable-text-selection(); // I don't like accidentally selecting text
     font-size: c.$fontSizeHeader; // font size relative to viewport too
     letter-spacing: 0.15em; // relative to font size
     font-family: "Permanent Marker";
