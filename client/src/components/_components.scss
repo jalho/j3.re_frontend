@@ -1,5 +1,4 @@
-$fontSizeHeader: 5vmax;
-$headerColor: white;
+@use "../styles/constants" as c;
 
 // prevent text selection (quality of life thing; personal preference)
 @mixin disable-text-selection() {
@@ -21,9 +20,9 @@ $headerColor: white;
     @include disable-text-selection(); // I don't like accidentally selecting text
 
     // font; sizing relative to viewport
-    font-size: $fontSizeHeader; // font size relative to viewport too
+    font-size: c.$fontSizeHeader; // font size relative to viewport too
     letter-spacing: 0.15em; // relative to font size
     font-family: "Permanent Marker";
-    fill: $headerColor; // fill instead of color because SVG <text>
+    fill: c.$primaryTextColor; // fill instead of color because SVG <text>
   }
 }

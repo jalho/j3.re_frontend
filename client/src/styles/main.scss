@@ -1,15 +1,14 @@
-@use "./landing/landing";
-@use "./home/home";
-@use "./components/components";
+// common constants
+@use "./constants" as c;
 
-// variables...
-$primary-text-color: white;
-// ...text selection
-$selectionColor: rgb(234, 137, 253);
-$selectionBackground: none;
-// ...font sizes
-$fontSizeHeader: 5vmax; // TODO: Use the size defined in components!
-$fontSizeDefault: calc(#{$fontSizeHeader} / 3);
+// misc components
+@use "../components/components";
+
+// views
+@use "../landing/landing";
+@use "../home/home";
+
+// TODO: Modularize mixins!
 
 // center child elements horizontally and vertically
 @mixin flexCenter {
@@ -45,12 +44,12 @@ $fontSizeDefault: calc(#{$fontSizeHeader} / 3);
 // customized text selection for the browsers that support it
 @mixin textSelection {
   ::selection {
-    color: $selectionColor;
-    background-color: $selectionBackground;
+    color: c.$selectionColor;
+    background-color: c.$selectionBackground;
   }
   ::-moz-selection {
-    color: $selectionColor;
-    background-color: $selectionBackground;
+    color: c.$selectionColor;
+    background-color: c.$selectionBackground;
   }
 }
 
@@ -59,11 +58,11 @@ $fontSizeDefault: calc(#{$fontSizeHeader} / 3);
   @include textSelection();
 
   // text color
-  color: $primary-text-color;
+  color: c.$primaryTextColor;
   
   // font
   font-family: "Baloo Da 2";
-  font-size: $fontSizeDefault;
+  font-size: c.$fontSizeDefault;
 }
 
 /* --------------------------------------------------
