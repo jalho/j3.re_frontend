@@ -1,0 +1,29 @@
+$fontSizeHeader: 5vmax;
+$headerColor: white;
+
+// prevent text selection (quality of life thing; personal preference)
+@mixin disable-text-selection() {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.header {
+  .container {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .text {
+    @include disable-text-selection(); // I don't like accidentally selecting text
+
+    // font; sizing relative to viewport
+    font-size: $fontSizeHeader; // font size relative to viewport too
+    letter-spacing: 0.15em; // relative to font size
+    font-family: "Permanent Marker";
+    fill: $headerColor; // fill instead of color because SVG <text>
+  }
+}

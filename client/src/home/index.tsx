@@ -1,10 +1,12 @@
 import React from "react";
 
+import Header from "../components/Header";
+
 const Home: React.FC = () => {
   return (
     <div className="centered">
-      <text className="header">Home page.</text>
-      <text>Ääkköset.</text>
+      <Header text="Home page." />
+      <p>Ääkköset.</p>
     </div>
   );
 };

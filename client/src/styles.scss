@@ -1,5 +1,6 @@
-@use "./landing/style";
-@use "./home/styles";
+@use "./landing/landing";
+@use "./home/home";
+@use "./components/components";
 
 // variables...
 $primary-text-color: white;
@@ -7,18 +8,8 @@ $primary-text-color: white;
 $selectionColor: rgb(234, 137, 253);
 $selectionBackground: none;
 // ...font sizes
-$fontSizeHeader: 5vmax;
+$fontSizeHeader: 5vmax; // TODO: Use the size defined in components!
 $fontSizeDefault: calc(#{$fontSizeHeader} / 3);
-
-// prevent text selection (quality of life thing; personal preference)
-@mixin disable-text-selection() {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
 
 // center child elements horizontally and vertically
 @mixin flexCenter {
@@ -89,20 +80,5 @@ body {
   // centering class
   .centered {
     @include flexCenter();
-  }
-
-  // headers' common styles
-  .header {
-    @include disable-text-selection(); // I don't like accidentally selecting text
-    
-    // layout
-    @include flexCenter(); // centering
-    width: 100vw; // relative to viewport
-    padding: 0.5em 0em 0.5em 0em; // top right bottom left
-
-    // font; sizing relative to viewport
-    font-size: $fontSizeHeader; // font size relative to viewport too
-    letter-spacing: 0.15em; // relative to font size
-    font-family: "Permanent Marker";
   }
 }
