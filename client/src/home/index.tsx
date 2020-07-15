@@ -1,12 +1,13 @@
 import React from "react";
 
 import Header from "../components/Header";
+ import { viewportRatio } from "../constants";
 
 const Home: React.FC = () => {
   return (
     <div className="centered">
-      <Header text={`w: ${window.innerWidth}, h: ${window.innerHeight}`} scale={1} />
-      <p>Ääkköset.</p>
+      <Header text={`${viewportRatio.toFixed(2)}`} ratio={viewportRatio} />
+      <p>viewportRatio</p>
     </div>
   );
 };
