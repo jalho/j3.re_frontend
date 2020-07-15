@@ -64,5 +64,6 @@ body {
   // centering class
   .centered {
     @include m.flexCenter();
+    @include m.fullViewportSize();
   }
 }

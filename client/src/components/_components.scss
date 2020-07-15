@@ -1,4 +1,5 @@
 @use "../styles/constants" as c;
+@use "../styles/mixins" as m;
 
 // prevent text selection (quality of life thing; personal preference)
 @mixin disable-text-selection() {
@@ -12,19 +13,11 @@
 
 // TODO: Animate headers with some kind of drawing effect or something!
 .header {
-  .container {
-    width: 100vw;
-    height: c.$fontSizeHeader;
-    // background-color: rgb(154, 205, 50, 0.5); // TODO: Remove!
-  }
-
-  .text {
-    width: 100%;
-
-    @include disable-text-selection(); // I don't like accidentally selecting text
-    font-size: c.$fontSizeHeader; // font size relative to viewport too
-    letter-spacing: 0.15em; // relative to font size
+  text {
+    @include m.disable-text-selection();
+    // font and its color
     font-family: "Permanent Marker";
-    fill: c.$primaryTextColor; // fill instead of color because SVG <text>
+    fill: c.$primaryTextColor;
+    letter-spacing: 0.1em;
   }
 }
