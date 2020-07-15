@@ -10,9 +10,13 @@
 | 7-Jul-2020 | 4 | `359ade8` | Otin käyttöön *Sass*, tein naamastani vektorigrafiikkaa ja siitä React-komponentin. Toteutin *landing view*, joka näytetään muun osan latautuessa tai ainakin minimiajan. |
 | 10-Jul-2020 | 0,5 | `8a5fdf6` | Kokosin eri paikoissa lojuneet TODO-listat yhteen Issue-kuvaukseen (#3) GitHubissa. |
 | 13-Jul-2020 | 3,5 | `999a8ce` | Kyselin Redditissä elegantista GitHub-projektimanageroinnista ja otin neuvoista vaarin. Säädin sivun teemaväriä Chrome Androidia varten sekä noscript-näkymää. Modularisoin ja uudelleenkirjoitin Sass-tyylit (Luovuttu Sass:n suosituksen mukaisesti `@import` käytöstä `@use` hyväksi. *Node-sass* ei tue vielä `@use`, joten aliasoitu `"node-sass": "npm:sass@^1.26.10"`). |
-| 14-Jul-2020 | 1 | `TODO` | Korjasin `.centered`-luokan kokojen määrittelyjen aiheuttaman bugin layoutissa (Issue 4). Parantelin alkuanimaatiota. Dokumentoin koodia, suunnittelin projektin seuraavia vaiheita ja tein muuta projektihallinnointia GitHubissa. |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
+| 14-Jul-2020 | 1 | `c1bc679` | Korjasin `.centered`-luokan kokojen määrittelyjen aiheuttaman bugin layoutissa (Issue 4). Parantelin alkuanimaatiota. Dokumentoin koodia, suunnittelin projektin seuraavia vaiheita ja tein muuta projektihallinnointia GitHubissa. |
+| 15-Jul-2020 | TODO | `TODO` | TODO |
+| 16-Jul-2020 | | | |
+| 17-Jul-2020 | | | |
+| 20-Jul-2020 | | | |
+| 21-Jul-2020 | | | |
+| 22-Jul-2020 | | | |
+| 23-Jul-2020 | | | |
+| 24-Jul-2020 | | | |
 | **yhteensä**   | 20 | | |
