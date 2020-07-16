@@ -12,11 +12,11 @@
 | 13-Jul-2020 | 3,5 | `999a8ce` | Kyselin Redditissä elegantista GitHub-projektimanageroinnista ja otin neuvoista vaarin. Säädin sivun teemaväriä Chrome Androidia varten sekä noscript-näkymää. Modularisoin ja uudelleenkirjoitin Sass-tyylit (Luovuttu Sass:n suosituksen mukaisesti `@import` käytöstä `@use` hyväksi. *Node-sass* ei tue vielä `@use`, joten aliasoitu `"node-sass": "npm:sass@^1.26.10"`). |
 | 14-Jul-2020 | 1 | `c1bc679` | Korjasin `.centered`-luokan kokojen määrittelyjen aiheuttaman bugin layoutissa (Issue 4). Parantelin alkuanimaatiota. Dokumentoin koodia, suunnittelin projektin seuraavia vaiheita ja tein muuta projektihallinnointia GitHubissa. |
 | 15-Jul-2020 | 8 | `02d9156` | Lisäsin tekstinvalintatyylin, modularisoin kaikki tyylit ja niiden yhteiset vakiot ja muutin headerit SVG-elementeiksi tulevaa animointia varten. SVG:n responsiivinen skaalaus vaatii aika paljon opettelua enkä tätä kirjoittaessa vieläkään koe olevani kyllin kykenevä siinä. Lopputulos on tällä hetkellä kuitenkin jokseenkin asiallinen. |
-| 16-Jul-2020 | 8 | `TODO` | Uudelleenjärjestelin projektin arkkitehtuuria (hakemistorakennetta), dokumentoin sen kaavioon ja tein muita yksinkertaistavia ja selkeyttäviä muutoksia ympäriinsä. Laadin [suunnitelman](https://stackoverflow.com/questions/62933283/code-review-ts-react-app-ui-language-state-implementation) käyttöliittymän kielen vaihtamisen toteuttamiselle. Tein pari uutta logoa. Uudelleenkirjoitin tyylit johdonmukaisemmin. |
+| 16-Jul-2020 | 8,5 | `TODO` | Uudelleenjärjestelin projektin arkkitehtuuria (hakemistorakennetta), dokumentoin sen kaavioon ja tein muita yksinkertaistavia ja selkeyttäviä muutoksia ympäriinsä. Laadin [suunnitelman](https://stackoverflow.com/questions/62933283/code-review-ts-react-app-ui-language-state-implementation) käyttöliittymän kielen vaihtamisen toteuttamiselle. Tein pari uutta logoa. Uudelleenkirjoitin tyylit johdonmukaisemmin. |
 | 17-Jul-2020 | | | |
 | 20-Jul-2020 | | | |
 | 21-Jul-2020 | | | |
 | 22-Jul-2020 | | | |
 | 23-Jul-2020 | | | |
 | 24-Jul-2020 | | | |
-| **yhteensä**   | 36 | | |
+| **yhteensä**   | 36,5 | | |
