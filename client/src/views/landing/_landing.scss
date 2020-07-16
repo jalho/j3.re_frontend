@@ -1,8 +1,8 @@
 // face SVG dimensions: 619.45 x 848.333
-.Face {
+.spinning {
 
   // spinning
-  @keyframes face-gimmicks {
+  @keyframes spin {
     0% {
       transform: rotate(0deg);
     }
@@ -14,6 +14,5 @@
     }
   }
 
-  width: 30vmin;
-  animation: face-gimmicks 2s infinite; // spinning animation
+  animation: spin 2s infinite;
 }

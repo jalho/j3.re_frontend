@@ -8,7 +8,7 @@ const App = lazy(() => {
   return Promise.all([
     // dynamically import home page
     import("./views/home"), // resolves with `Module`
-    // minimum delay time of 2.5 secs
+    // minimum delay time
     new Promise((resolve) => setTimeout(resolve, 2500)) // resolves with `undefined`
   ])
   // when the bundle is ready, return the imported module

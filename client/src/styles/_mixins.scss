@@ -1,3 +1,5 @@
+@use "./constants" as c;
+
 // center child elements horizontally and vertically
 @mixin flexCenter {
   display: flex;
@@ -20,4 +22,45 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+// customized text selection for the browsers that support it
+@mixin textSelection {
+  ::selection {
+    color: c.$selectionColor;
+    background-color: c.$selectionBackground;
+  }
+  ::-moz-selection {
+    color: c.$selectionColor;
+    background-color: c.$selectionBackground;
+  }
+}
+
+// moving, linear gradient colored background
+@mixin breathingBackground {
+  @keyframes background-move {
+    0%, 100% {
+      background-position: 0%;
+    }
+    75% {
+      background-position: 100%;
+    }
+  }
+  
+  margin: 0;
+  background: linear-gradient(-45deg, rgb(2, 115, 150), rgb(2, 24, 105));
+  background-size: 200%;
+  animation: background-move 7s ease infinite;
+}
+
+// general text styles
+@mixin defaultText {
+  @include textSelection();
+
+  // text color
+  color: c.$primaryTextColor;
+  
+  // font
+  font-family: "Baloo Da 2";
+  font-size: c.$fontSizeDefault;
 }
