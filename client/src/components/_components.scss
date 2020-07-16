@@ -3,7 +3,7 @@
 
 // SVG element
 .header {
-  height: 3em; // header text size really
+  height: c.$fontSizeHeader; // header text size really
 
   // SVG text element
   text {
@@ -12,4 +12,9 @@
     fill: c.$primaryTextColor;
     letter-spacing: 0.1em;
   }
+}
+
+.face {
+  height: calc(#{c.$fontSizeHeader} * 2.5);
+  margin: inherit;
 }
