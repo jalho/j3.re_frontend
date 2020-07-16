@@ -25,3 +25,8 @@ Also serves as Full Stack Open 2020 ([MOOC](https://fullstackopen.com/) by Unive
 | TypeScript | main programming language | [typescriptlang.org](https://www.typescriptlang.org/docs/home.html) | ✔️ |
 | EuroDNS | domain name registrar | [eurodns.com](https://www.eurodns.com/) | ✔️ |
 
+## Progress snapshots
+
+#### Video demos on YouTube, starting from latest.
+
+ 1. [as of commit 02d9156](https://youtu.be/w4ucXlW8Zhg) - uploaded 16 July 2020 **[latest]**
