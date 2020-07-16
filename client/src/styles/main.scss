@@ -11,6 +11,7 @@
 
 html {
   @include m.breathingBackground();
+  @include m.flexCenter();
 }
 
 body {
@@ -21,11 +22,13 @@ html, svg {
   height: 100%;
 }
 
+// Note: Headers are defined under ../components/
+
 p {
+  margin: 2em;
   max-width: 30em;
 }
 
 .view {
   @include m.flexCenter();
-  margin: 2em;
 }

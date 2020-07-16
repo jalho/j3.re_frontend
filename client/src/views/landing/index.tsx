@@ -7,7 +7,7 @@ const Landing: React.FC = () => {
   return (
     <div className="view">
       <Header text="Landing view." />
-      <Face />
+      <div id="landingFace"><Face /></div>
     </div>
   );
 };

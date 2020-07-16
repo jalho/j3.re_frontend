@@ -14,7 +14,8 @@
   }
 }
 
-.face {
-  height: calc(#{c.$fontSizeHeader} * 2.5);
-  margin: inherit;
+#landingFace {
+  @include m.spinningAnimation();
+  height: calc(#{c.$fontSizeHeader} * 2.5); // face's size
+  margin-top: 2em;
 }
