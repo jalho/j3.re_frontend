@@ -2,7 +2,6 @@ import React from "react";
 
 interface HeaderProps {
   text: string;
-  ratio?: number; // TODO: Use this if it's useful or remove it from everywhere!
 }
 
 const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
