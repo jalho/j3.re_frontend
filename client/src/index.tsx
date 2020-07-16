@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import "./styles/main.scss";
 import App from "./App";
-import Landing from "./landing/index";
+import Landing from "./views/landing/index";
 
 ReactDOM.render(
   <React.StrictMode>

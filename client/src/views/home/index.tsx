@@ -1,7 +1,7 @@
 import React from "react";
 
-import Header from "../components/Header";
- import { viewportRatio } from "../constants";
+import Header from "../../components/Header";
+ import { viewportRatio } from "../../constants";
 
 const Home: React.FC = () => {
   return (

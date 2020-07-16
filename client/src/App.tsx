@@ -7,7 +7,7 @@ const App = lazy(() => {
   // bundle async operations; import home page & arbitrary minimum delay
   return Promise.all([
     // dynamically import home page
-    import("./home/index"), // resolves with `Module`
+    import("./views/home/index"), // resolves with `Module`
     // minimum delay time of 2.5 secs
     new Promise((resolve) => setTimeout(resolve, 2500)) // resolves with `undefined`
   ])

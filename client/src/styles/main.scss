@@ -6,8 +6,8 @@
 @use "../components/components";
 
 // views' styles
-@use "../landing/landing";
-@use "../home/home";
+@use "../views/landing/landing";
+@use "../views/home/home";
 
 // moving, linear gradient colored background
 @mixin breathingBackground {
