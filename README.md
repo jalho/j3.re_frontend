@@ -50,6 +50,7 @@ src
 | Redux | state management | [redux.js.org](https://redux.js.org/api/api-reference) | ❌ |
 | React Bootstrap | component library  |[react-bootstrap.github.io](https://react-bootstrap.github.io/) | ❌ |
 | React Router | app routing | [reactrouter.com](https://reactrouter.com/web/guides/quick-start) | ❌ |
+| react-i18next | internationalization | [react.i18next.com](https://react.i18next.com/guides/quick-start) | ❌ |
 |||||
 | **miscellaneous** ||||
 |||||
