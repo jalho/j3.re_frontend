@@ -6,7 +6,7 @@ const Face: React.FC = () => {
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
       viewBox="0 0 619.449 848.336"
-      className="face"
+      className="spinning face"
     >
       <defs>
         <clipPath clipPathUnits="userSpaceOnUse">
