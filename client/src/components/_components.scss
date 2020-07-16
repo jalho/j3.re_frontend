@@ -1,15 +1,13 @@
 @use "../styles/constants" as c;
 @use "../styles/mixins" as m;
 
-.Header {
-  // width: 100%;
-  height: 3em;
-  background-color: black;
+// SVG element
+.header {
+  height: 3em; // header text size really
 
+  // SVG text element
   text {
     @include m.disable-text-selection();
-
-    // font and its color
     font-family: "Permanent Marker";
     fill: c.$primaryTextColor;
     letter-spacing: 0.1em;

@@ -9,20 +9,23 @@
 @use "../views/landing/landing";
 @use "../views/home/home";
 
-html, body {
+html {
   @include m.breathingBackground();
+}
+
+body {
   @include m.defaultText();
 }
 
-html, body, svg {
+html, svg {
   height: 100%;
 }
 
 p {
-  margin: 2em;
   max-width: 30em;
 }
 
-div {
+.view {
   @include m.flexCenter();
+  margin: 2em;
 }

@@ -57,7 +57,7 @@
 @mixin defaultText {
   @include textSelection();
 
-  // text color
+  // text and decoration color
   color: c.$primaryTextColor;
   
   // font

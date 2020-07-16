@@ -4,7 +4,9 @@ import Header from "../../components/Header";
 
 const Landing: React.FC = () => {
   return (
-    <Header text="Landing view." />
+    <div className="view">
+      <Header text="Landing view." />
+    </div>
   );
 };
 
