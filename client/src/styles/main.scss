@@ -14,12 +14,11 @@ html {
 }
 
 body {
-  @include m.flexCenter();
   @include m.defaultText();
   background: none;
 }
 
-html, svg {
+html, body, #root, svg {
   height: 100%;
 }
 
