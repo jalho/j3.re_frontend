@@ -26,9 +26,10 @@ html, svg {
 
 p {
   margin: c.$marginDefault;
-  max-width: 30em;
+  max-width: 45em;
 }
 
 .view {
   @include m.flexCenter();
+  background-color: rgb(2, 6, 1, 0.1);
 }

@@ -14,7 +14,7 @@
     @include m.disable-text-selection();
     fill: c.$primaryTextColor;
 
-    font-family: "Raleway";
+    font-family: c.$fontHeader;
   }
 }
 
