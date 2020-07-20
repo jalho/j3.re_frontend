@@ -16,7 +16,8 @@
         "error", { "argsIgnorePattern": "^_" }
     ],
     "no-case-declarations": 2,
-    "quotes": [2, "double"]
+    "quotes": [2, "double"],
+    "eol-last": 2
   },
   "settings": {
     "react": {
