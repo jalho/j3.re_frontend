@@ -13,7 +13,7 @@ const App: React.FC = () => {
     <>
       <Navbar variant="dark">
         <Navbar.Brand as={Link} to="/">j3.re</Navbar.Brand>
-        <Nav className="mr-auto">
+        <Nav>
           <Nav.Link as={Link} to="/cv">CV</Nav.Link>
           <Nav.Link as={Link} to="/portfolio">Portfolio</Nav.Link>
           <Nav.Link as={Link} to="/sandbox">Sandbox</Nav.Link>
