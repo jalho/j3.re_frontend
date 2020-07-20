@@ -8,9 +8,9 @@
   // SVG text element
   text {
     @include m.disable-text-selection();
-    font-family: "Permanent Marker";
     fill: c.$primaryTextColor;
-    letter-spacing: 0.1em;
+
+    font-family: "Raleway";
   }
 }
 
