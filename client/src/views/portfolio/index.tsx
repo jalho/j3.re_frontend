@@ -4,12 +4,12 @@ import React from "react";
 
 const Portfiolio: React.FC = () => {
   return (
-    <div>
+    <>
       {/* <Header text="Portfolio" /> */}
       <p>
-        Summaries of things I have made here.
+        {"Here will be summaries of things I have created."}
       </p>
-    </div>
+    </>
   );
 };
 

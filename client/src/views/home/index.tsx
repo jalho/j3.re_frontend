@@ -4,12 +4,12 @@ import React from "react";
 
 const Home: React.FC = () => {
   return (
-    <div>
+    <>
       {/* <Header text="Home page" /> */}
       <p>
-        Some general stuff here. Maybe hide navigation bar and just fill the view with nice buttons?
+        {"Lorem ipsum."}
       </p>
-    </div>
+    </>
   );
 };
 

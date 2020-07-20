@@ -4,12 +4,12 @@ import React from "react";
 
 const CV: React.FC = () => {
   return (
-    <div>
+    <>
       {/* <Header text="CV" /> */}
       <p>
-        Some sort of CV here.
+        {"Here's going to be some sort of CV."}
       </p>
-    </div>
+    </>
   );
 };
 

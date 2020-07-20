@@ -44,7 +44,7 @@ src
 | **React** |
 |||||
 | Create React App | bootstrapping | [create-react-app.dev](https://create-react-app.dev/docs/getting-started) | ✔️ |
-| Redux | state management | [redux.js.org](https://redux.js.org/api/api-reference) | ❌ |
+| React Redux | state management | [react-redux.js.org](https://react-redux.js.org/) | ✔️ |
 | React Bootstrap | component library  |[react-bootstrap.github.io](https://react-bootstrap.github.io/) | ✔️ |
 | React Router | app routing | [reactrouter.com](https://reactrouter.com/web/guides/quick-start) | ✔️ |
 | react-i18next | internationalization | [react.i18next.com](https://react.i18next.com/guides/quick-start) | ❌ |

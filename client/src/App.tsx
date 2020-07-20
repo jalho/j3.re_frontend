@@ -1,24 +1,28 @@
 import React from "react";
-import { Switch, Route, Link } from "react-router-dom";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
+import { Switch, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 
+// views
 import Home from "./views/home";
 import CV from "./views/cv";
 import Portfolio from "./views/portfolio";
 import Sandbox from "./views/sandbox";
 
+// components
+import NavigationBar from "./components/NavigationBar";
+
+// types
+import { StateCombinedFromReducers } from "./types/state";
+
 const App: React.FC = () => {
+
+  const navbarVisible = useSelector((state: StateCombinedFromReducers) => {
+    return state.navbarReducer.navbarVisible;
+  });
+
   return (
     <>
-      <Navbar variant="dark">
-        <Navbar.Brand as={Link} to="/">j3.re</Navbar.Brand>
-        <Nav>
-          <Nav.Link as={Link} to="/cv">CV</Nav.Link>
-          <Nav.Link as={Link} to="/portfolio">Portfolio</Nav.Link>
-          <Nav.Link as={Link} to="/sandbox">Sandbox</Nav.Link>
-        </Nav>
-      </Navbar>
+      {navbarVisible && <NavigationBar />}
       
       <div className="view">
 
