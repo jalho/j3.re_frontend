@@ -1,3 +1,6 @@
+// React Bootstrap's styles
+@use "~bootstrap/scss/bootstrap";
+
 // shared constants and mixins
 @use "./constants" as c;
 @use "./mixins" as m;
@@ -5,17 +8,14 @@
 // misc components
 @use "../components/components";
 
-// views' styles
-@use "../views/landing/landing";
-@use "../views/home/home";
-
 html {
   @include m.breathingBackground();
-  @include m.flexCenter();
 }
 
 body {
+  @include m.flexCenter();
   @include m.defaultText();
+  background: none;
 }
 
 html, svg {
@@ -25,7 +25,7 @@ html, svg {
 // Note: Headers are defined under ../components/
 
 p {
-  margin: 2em;
+  margin: c.$marginDefault;
   max-width: 30em;
 }
 

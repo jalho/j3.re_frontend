@@ -3,14 +3,14 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 
 import "./styles/main.scss";
-import App from "./App";
+import AppLoader from "./AppLoader";
 import Landing from "./views/landing";
 
 ReactDOM.render(
   <React.StrictMode>
     <Suspense fallback={<Landing />}>
       <BrowserRouter>
-        <App />
+        <AppLoader />
       </BrowserRouter>
     </Suspense>
   </React.StrictMode>,

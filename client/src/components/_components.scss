@@ -1,10 +1,14 @@
 @use "../styles/constants" as c;
 @use "../styles/mixins" as m;
 
-// SVG element
 .header {
-  height: c.$fontSizeHeader; // header text size really
-
+  // alignment and margin
+  @include m.flexCenter();
+  margin: c.$marginDefault 0 0 0;
+  
+  // SVG element container's height; i. e. header text size really
+  height: c.$fontSizeHeader;
+  
   // SVG text element
   text {
     @include m.disable-text-selection();
@@ -17,5 +21,5 @@
 #landingFace {
   @include m.spinningAnimation();
   height: calc(#{c.$fontSizeHeader} * 2.5); // face's size
-  margin-top: 2em;
+  margin-top: c.$marginDefault;
 }

@@ -13,8 +13,7 @@
 | 14-Jul-2020 | 1 | `c1bc679` | Korjasin `.centered`-luokan kokojen määrittelyjen aiheuttaman bugin layoutissa (Issue 4). Parantelin alkuanimaatiota. Dokumentoin koodia, suunnittelin projektin seuraavia vaiheita ja tein muuta projektihallinnointia GitHubissa. |
 | 15-Jul-2020 | 8 | `02d9156` | Lisäsin tekstinvalintatyylin, modularisoin kaikki tyylit ja niiden yhteiset vakiot ja muutin headerit SVG-elementeiksi tulevaa animointia varten. SVG:n responsiivinen skaalaus vaatii aika paljon opettelua enkä tätä kirjoittaessa vieläkään koe olevani kyllin kykenevä siinä. Lopputulos on tällä hetkellä kuitenkin jokseenkin asiallinen. |
 | 16-Jul-2020 | 8,5 | `82e4359` | Uudelleenjärjestelin projektin arkkitehtuuria (hakemistorakennetta), dokumentoin sen kaavioon ja tein muita yksinkertaistavia ja selkeyttäviä muutoksia ympäriinsä. Laadin [suunnitelman](https://stackoverflow.com/questions/62933283/code-review-ts-react-app-ui-language-state-implementation) käyttöliittymän kielen vaihtamisen toteuttamiselle. Tein pari uutta logoa. Uudelleenkirjoitin tyylit johdonmukaisemmin. |
-| 17-Jul-2020 | TODO | `TODO` | TODO |
-| 20-Jul-2020 | | | |
+| 20-Jul-2020 | TODO | `TODO` | TODO |
 | 21-Jul-2020 | | | |
 | 22-Jul-2020 | | | |
 | 23-Jul-2020 | | | |
