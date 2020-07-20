@@ -5,8 +5,9 @@
 @use "./constants" as c;
 @use "./mixins" as m;
 
-// misc components
+// components and view specific styles
 @use "../components/components";
+@use "../views/landing/landing";
 
 html {
   @include m.breathingBackground();
@@ -25,11 +26,16 @@ html, svg {
 // Note: Headers are defined under ../components/
 
 p {
+  max-width: c.$contentMaxWidth;
   margin: c.$marginDefault;
-  max-width: 45em;
 }
 
 .view {
   @include m.flexCenter();
-  background-color: rgb(2, 6, 1, 0.1);
+  padding: c.$paddingDefault;
+  width: 100vw;
+}
+
+nav {
+  padding: c.$paddingDefault;
 }

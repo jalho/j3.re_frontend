@@ -4,14 +4,17 @@
 .header {
   // alignment and margin
   @include m.flexCenter();
-  margin: c.$marginDefault 0 0 0;
+  margin-bottom: c.$marginDefault;
   
   // SVG element container's height; i. e. header text size really
   height: c.$fontSizeHeader;
+
+  // background-color: rgba(255, 255, 255, 0.1);
+  // border-radius: 0.5em;
   
   // SVG text element
   text {
-    @include m.disable-text-selection();
+    @include m.disableTextSelection();
     fill: c.$primaryTextColor;
 
     font-family: c.$fontHeader;
@@ -20,6 +23,5 @@
 
 #landingFace {
   @include m.spinningAnimation();
-  height: calc(#{c.$fontSizeHeader} * 2.5); // face's size
-  margin-top: c.$marginDefault;
+  height: calc(#{c.$fontSizeHeader} * 4); // face's size
 }

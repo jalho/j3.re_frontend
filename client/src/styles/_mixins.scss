@@ -8,14 +8,8 @@
   align-items: center;
 }
 
-// use full viewport area
-@mixin fullViewportSize {
-  height: 100vh;
-  width: 100vw;
-}
-
 // prevent text selection (quality of life thing; personal preference)
-@mixin disable-text-selection() {
+@mixin disableTextSelection {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;

@@ -1,16 +1,13 @@
 import React from "react";
 
-import Header from "../../components/Header";
+// import Header from "../../components/Header";
 
 const Home: React.FC = () => {
   return (
     <div>
-      <Header text="Home page" />
+      {/* <Header text="Home page" /> */}
       <p>
-        Here is going to be some general stuff perhaps.
-      </p>
-      <p>
-        In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used before final copy is available, but it may also be used to temporarily replace copy in a process called greeking, which allows designers to consider form without the meaning of the text influencing the design.
+        Some general stuff here. Maybe hide navigation bar and just fill the view with nice buttons?
       </p>
     </div>
   );

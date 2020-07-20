@@ -13,5 +13,9 @@ $fontHeader: $fontDefault;
 $fontSizeDefault: 1em;
 $fontSizeHeader: 3em;
 
-// margins, alignment
+// margins, paddings
 $marginDefault: 1.5em;
+$paddingDefault: 0.5rem 1rem;
+
+// maximum dimensions
+$contentMaxWidth: 45em;
