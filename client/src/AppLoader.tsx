@@ -17,7 +17,7 @@ const AppLoader = lazy(
     // bundle promises; import home page & arbitrary minimum delay
     const resolvedResults = await Promise.all([
       // two promises; one for dynamic import and another for arbitrary delay
-      import("./App"),
+      import("./App"), // --> Module (exports `App: React.FC`)
       new Promise((resolve) => setTimeout(resolve, minimumDelay)) // --> `undefined`
     ]);
     return resolvedResults[0];

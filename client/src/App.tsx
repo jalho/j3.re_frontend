@@ -26,7 +26,8 @@ const App: React.FC = () => {
       
       <div className="view">
 
-        {/* TODO: Consider dynamic imports here! */}
+        {/* TODO: Consider dynamic imports here!
+            example: https://reactjs.org/docs/code-splitting.html#route-based-code-splitting */}
         <Switch>
 
           <Route path="/cv">
