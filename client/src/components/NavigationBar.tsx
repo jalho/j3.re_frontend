@@ -15,6 +15,7 @@ const NavigationBar: React.FC = () => {
     i18n.changeLanguage(lng);
   };
 
+  // TODO: Change "Language" dropdown title to some international icon
   return (
      <Navbar variant="dark" sticky="bottom">
 
