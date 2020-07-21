@@ -5,7 +5,7 @@ import UTU from "../../components/UTU";
 import Header from "../../components/Header";
 
 const CV: React.FC = () => {
-const { t } = useTranslation();
+const { t, i18n } = useTranslation();
 
   return (
     <>
@@ -13,9 +13,7 @@ const { t } = useTranslation();
         <div>
           <Header text={t("Education")} />
           <div className="CV_item">
-            <div id="CV_UTU">
-              <UTU />
-            </div>
+            <UTU language={i18n.language} />
             <em className="CV_item_disclaimer">
               {t("not yet graduated")}
             </em>

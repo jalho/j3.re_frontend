@@ -14,11 +14,11 @@
   max-width: 95vw;
   overflow: hidden;
   margin: c.$marginDefault;
-}
-
-#CV_UTU {
   fill: c.$primaryTextColor;
-  height: calc(#{c.$fontSizeDefault} * 4); // UTU logo's size
+  
+  svg {
+    height: c.$fontSizeDefault * 4;
+  }
 }
 
 .CV_item_disclaimer {
