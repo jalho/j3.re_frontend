@@ -1,13 +1,16 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 // import Header from "../../components/Header";
 
 const Portfiolio: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       {/* <Header text="Portfolio" /> */}
       <p>
-        {"Here will be summaries of things I have created."}
+        {t("Here will be summaries of things I have created.")}
       </p>
     </>
   );

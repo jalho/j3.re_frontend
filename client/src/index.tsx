@@ -8,6 +8,7 @@ import AppLoader from "./AppLoader";
 import Landing from "./views/landing";
 
 import store from "./state/store";
+import "./i18n"; // internationalization
 
 ReactDOM.render(
   <React.StrictMode>
