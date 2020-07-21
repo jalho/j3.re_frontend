@@ -17,21 +17,25 @@ const NavigationBar: React.FC = () => {
 
   return (
      <Navbar variant="dark" sticky="bottom">
-   
+
        <Navbar.Brand as={Link} to="/">j3.re</Navbar.Brand>
    
        <Nav>
-   
+
         <Nav.Link as={Link} to="/cv">{t("CV")}</Nav.Link>
         <Nav.Link as={Link} to="/portfolio">{t("Portfolio")}</Nav.Link>
-  
+
         <NavDropdown title={t("Language")} id="basic-nav-dropdown">
-          <NavDropdown.Item onClick={(): void => changeLanguage("en")}>English</NavDropdown.Item>
-          <NavDropdown.Item onClick={(): void => changeLanguage("fi")}>Finnish</NavDropdown.Item>
+          <NavDropdown.Item onClick={(): void => changeLanguage("en")} disabled={i18n.language === "en"}>
+            {t("English")}
+          </NavDropdown.Item>
+          <NavDropdown.Item onClick={(): void => changeLanguage("fi")} disabled={i18n.language === "fi"}>
+            {t("Finnish")}
+          </NavDropdown.Item>
         </NavDropdown>
-   
+
        </Nav>
-       
+
      </Navbar>
    );
 };
