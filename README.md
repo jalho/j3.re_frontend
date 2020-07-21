@@ -47,7 +47,8 @@ src
 | React Redux | state management | [react-redux.js.org](https://react-redux.js.org/) | ✔️ |
 | React Bootstrap | component library  |[react-bootstrap.github.io](https://react-bootstrap.github.io/) | ✔️ |
 | React Router | app routing | [reactrouter.com](https://reactrouter.com/web/guides/quick-start) | ✔️ |
-| react-i18next | internationalization | [react.i18next.com](https://react.i18next.com/guides/quick-start) | ❌ |
+| React i18next | internationalization | [react.i18next.com](https://react.i18next.com/guides/quick-start) | ✔️ |
+| React Icons | icons | [react-icons.github.io](https://react-icons.github.io/react-icons/) | ✔️ |
 |||||
 | **miscellaneous** ||||
 |||||
