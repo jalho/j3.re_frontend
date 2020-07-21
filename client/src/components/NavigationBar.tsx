@@ -2,10 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
+// language selection icon
+import { MdTranslate } from "react-icons/md";
+
 // React Bootstrap components
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import Dropdown from "react-bootstrap/Dropdown";
+import Button from "react-bootstrap/Button";
+
 
 const NavigationBar: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -15,29 +20,33 @@ const NavigationBar: React.FC = () => {
     i18n.changeLanguage(lng);
   };
 
-  // TODO: Change "Language" dropdown title to some international icon
   return (
-     <Navbar variant="dark" sticky="bottom">
+    <div id="navbarContainer">
+      <Navbar variant="dark" sticky="bottom">
+        <Navbar.Brand as={Link} to="/">j3.re</Navbar.Brand>
+    
+        <Nav>
+          <Nav.Link as={Link} to="/cv">{t("CV")}</Nav.Link>
+          <Nav.Link as={Link} to="/portfolio">{t("Portfolio")}</Nav.Link>
+        </Nav>
+      </Navbar>
+      
+      <Dropdown id="languageSelector">
+        <Dropdown.Toggle as={Button} variant="outline-light">
+          <MdTranslate />
+        </Dropdown.Toggle>
 
-       <Navbar.Brand as={Link} to="/">j3.re</Navbar.Brand>
-   
-       <Nav>
-
-        <Nav.Link as={Link} to="/cv">{t("CV")}</Nav.Link>
-        <Nav.Link as={Link} to="/portfolio">{t("Portfolio")}</Nav.Link>
-
-        <NavDropdown title={t("Language")} id="basic-nav-dropdown">
-          <NavDropdown.Item onClick={(): void => changeLanguage("en")} disabled={i18n.language === "en"}>
+        <Dropdown.Menu>
+          <Dropdown.Item onClick={(): void => changeLanguage("en")} disabled={i18n.language === "en"}>
             {`${t("English")}${i18n.language === "en" ? ` (${t("current")})` : ""}`}
-          </NavDropdown.Item>
-          <NavDropdown.Item onClick={(): void => changeLanguage("fi")} disabled={i18n.language === "fi"}>
+          </Dropdown.Item>
+          <Dropdown.Item onClick={(): void => changeLanguage("fi")} disabled={i18n.language === "fi"}>
             {`${t("Finnish")}${i18n.language === "fi" ? ` (${t("current")})` : ""}`}
-          </NavDropdown.Item>
-        </NavDropdown>
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
 
-       </Nav>
-
-     </Navbar>
+    </div>
    );
 };
 

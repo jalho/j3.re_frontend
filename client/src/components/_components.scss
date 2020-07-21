@@ -13,10 +13,29 @@
   // border-radius: 0.5em;
   
   // SVG text element
-  text {
-    @include m.disableTextSelection();
-    fill: c.$primaryTextColor;
+  svg {
+    text {
+      @include m.disableTextSelection();
+      fill: c.$primaryTextColor;
 
-    font-family: c.$fontHeader;
+      font-family: c.$fontHeader;
+    }
+  }
+}
+
+#navbarContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#languageSelector {
+  /* "free space is distributed to auto margins in that dimension", i. e. to the left
+  of the button, making the button go to the right end */
+  margin: 0 0.5rem 0 auto; // top right bottom left
+  
+  .dropdown-toggle {
+    border: none;
+    background: none;
   }
 }
