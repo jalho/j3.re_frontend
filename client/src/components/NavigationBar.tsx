@@ -28,7 +28,6 @@ const NavigationBar: React.FC = () => {
         <NavDropdown title={t("Language")} id="basic-nav-dropdown">
           <NavDropdown.Item onClick={(): void => changeLanguage("en")}>English</NavDropdown.Item>
           <NavDropdown.Item onClick={(): void => changeLanguage("fi")}>Finnish</NavDropdown.Item>
-          <NavDropdown.Item onClick={(): void => changeLanguage("es")}>Spanish (beta)</NavDropdown.Item>
         </NavDropdown>
    
        </Nav>

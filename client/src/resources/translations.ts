@@ -22,18 +22,6 @@ export const translations = {
       "Here will be summaries of things I have created.": "Yhteenvedot tekemistäni jutuista tulevat tähän.",
       "Here will be the main view.": "Tähän tulee päänäkymä."
     }
-  },
-
-  "es": {
-    "translation": {
-      "Work in progress.": "Los Pollos Hermanos.",
-      "CV": "🤪",
-      "Portfolio": "😎",
-      "Language": "¡Ay, caramba!",
-      "Here's going to be some sort of CV.": "Los Pollos Hermanos.",
-      "Here will be summaries of things I have created.": "Jajajajaja!",
-      "Here will be the main view.": "Sombrero."
-    }
   }
 
 };
