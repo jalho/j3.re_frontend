@@ -2,6 +2,7 @@ export const translations = {
 
   "en": {
     "translation": {
+      "current": "current",
       "CV": "CV",
       "English": "English",
       "Finnish": "suomi",
@@ -16,6 +17,7 @@ export const translations = {
 
   "fi": {
     "translation": {
+      "current": "nykyinen",
       "CV": "Ansioluettelo",
       "English": "English",
       "Finnish": "suomi",
