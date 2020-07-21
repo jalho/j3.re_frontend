@@ -14,8 +14,8 @@
 | 15-Jul-2020 | 8 | `02d9156` | Lisäsin tekstinvalintatyylin, modularisoin kaikki tyylit ja niiden yhteiset vakiot ja muutin headerit SVG-elementeiksi tulevaa animointia varten. SVG:n responsiivinen skaalaus vaatii aika paljon opettelua enkä tätä kirjoittaessa vieläkään koe olevani kyllin kykenevä siinä. Lopputulos on tällä hetkellä kuitenkin jokseenkin asiallinen. |
 | 16-Jul-2020 | 8,5 | `82e4359` | Uudelleenjärjestelin projektin arkkitehtuuria (hakemistorakennetta), dokumentoin sen kaavioon ja tein muita yksinkertaistavia ja selkeyttäviä muutoksia ympäriinsä. Laadin [suunnitelman](https://stackoverflow.com/questions/62933283/code-review-ts-react-app-ui-language-state-implementation) käyttöliittymän kielen vaihtamisen toteuttamiselle. Tein pari uutta logoa. Uudelleenkirjoitin tyylit johdonmukaisemmin. |
 | 20-Jul-2020 | 8 | `c5cd1fb` | Toteutin projektiin React Routerin, React Bootstrapin ja Reduxin. Refaktoroin ja parantelin juttuja ympäriinsä. |
-| 21-Jul-2020 | 8 | `TODO` | Toteutin sovellukseen kielikäännökset käyttäen *React i18next*. Refaktoroin ja parantelin juttuja ympäriinsä. |
+| 21-Jul-2020 | 9,5 | `TODO` | Toteutin sovellukseen kielikäännökset käyttäen *React i18next*. Refaktoroin ja parantelin juttuja ympäriinsä. |
 | 22-Jul-2020 | | | |
 | 23-Jul-2020 | | | |
 | 24-Jul-2020 | | | |
-| **yhteensä**   | 52,5 | | | 
+| **yhteensä**   | 54 | | | 
