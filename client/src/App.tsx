@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import Home from "./views/home";
 import CV from "./views/cv";
 import Portfolio from "./views/portfolio";
-import Sandbox from "./views/sandbox";
 
 // components
 import NavigationBar from "./components/NavigationBar";
@@ -36,10 +35,6 @@ const App: React.FC = () => {
 
           <Route path="/portfolio">
             <Portfolio />
-          </Route>
-
-          <Route path="/sandbox">
-            <Sandbox />
           </Route>
 
           <Route path="/">
