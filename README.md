@@ -8,32 +8,47 @@ Also serves as Full Stack Open 2020 ([MOOC](https://fullstackopen.com/) by Unive
 
 ## Directory structure of `/src/`
 
-*as of ~ 16 July 2020*
+*as of 21 July 2020*
 
 ```
 src
-¦   App.tsx                     // React application base
-¦   index.tsx                   // main entry point
-¦   react-app-env.d.ts          // CRA types
+¦   App.tsx                 # single page app's base
+¦   AppLoader.tsx           # load "App", and meanwhile render "Landing" as fallback
+¦   i18n.ts                 # internationalization of the UI
+¦   index.tsx               # entry point
+¦   react-app-env.d.ts      # CRA types
+¦   
++---components              # components and their styles
+¦       ...
 ¦       
-+---components                  // shared components and their styles
-¦       Face.tsx                // a shared component (used in 'Landing' view)
-¦       Header.tsx              // a shared component (used in multiple places)
-¦       _components.scss        // the shared components' styles
++---resources               
+¦       translations.ts     # UI texts in available languages
 ¦       
-+---styles                      // main styles
-¦       main.scss               // Sass main stylesheet (uses all the rest of them)
-¦       _constants.scss         // variables used in stylesheets
-¦       _mixins.scss            // mixins used in stylesheets
++---state                   # Redux utility
+¦       actionCreators.ts   # dispatchable actions
+¦       rootReducer.ts      # combined reducers
+¦       store.ts            # Redux store
 ¦       
-+---views                       // view modules
-    +---home                    // 'Home' view module
-    ¦       index.tsx           // module base
-    ¦       _home.scss          // module styles (used by the main stylesheet)
++---styles                  # main styles location
+¦       main.scss           # the main Sass file
+¦       _constants.scss     # variables used across stylesheets
+¦       _mixins.scss        # mixins used across stylesheets
+¦       
++---types                   # own types
+¦       state.d.ts          # types for Redux implementation
+¦       
++---views                   # modules for different views in the UI
+    +---cv                  # "CV" view and its styles
+    ¦       ...
     ¦       
-    +---landing                 // 'Landing' view module
-            index.tsx           // module base
-            _landing.scss       // module styles (used by the main stylesheet)
+    +---home                # "Home" view, rendered after "Landing"
+    ¦       ...
+    ¦       
+    +---landing             # "Landing" view and its styles
+    ¦       ...             # (shown fixed minimum time and as `Suspense` fallback if needed)
+    ¦       
+    +---portfolio           # "Portfolio" view
+            ...
 ```
 
 ## Planned tech stack
@@ -70,4 +85,5 @@ src
 
 #### Video demos on YouTube, starting from latest.
 
- 1. [as of commit 02d9156](https://youtu.be/w4ucXlW8Zhg) - uploaded 16 July 2020 **[latest]**
+ 1. [as of commit 407f3ad](https://youtu.be/r0ZoqIL1H2g) - uploaded 21 July 2020 **[latest]**
+ 2. [as of commit 02d9156](https://youtu.be/w4ucXlW8Zhg) - uploaded 16 July 2020
