@@ -12,6 +12,7 @@
 
 html {
   @include m.breathingBackground();
+  min-height: max-content;
 }
 
 body {
@@ -19,7 +20,11 @@ body {
   background: none;
 }
 
-html, body, #root, svg {
+body, #root {
+  min-height: 100vh;
+}
+
+svg {
   height: 100%;
 }
 

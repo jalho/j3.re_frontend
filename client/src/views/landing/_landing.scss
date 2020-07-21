@@ -2,8 +2,8 @@
 @use "../../styles/mixins" as m;
 
 .landingContainer {
-  height: 100%;
   @include m.flexCenter();
+  height: 100vh;
 
   .landingContent {
     @include m.flexCenter();

@@ -19,10 +19,9 @@
 #CV_UTU {
   fill: c.$primaryTextColor;
   height: calc(#{c.$fontSizeDefault} * 4); // UTU logo's size
-  // margin-bottom: c.$fontSizeDefault;
 }
 
-#notGraduated {
+.CV_item_disclaimer {
   margin-bottom: c.$fontSizeDefault / 3;
   color: rgb(255, 255, 255, 0.3);
 }
