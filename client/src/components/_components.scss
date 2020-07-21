@@ -20,8 +20,3 @@
     font-family: c.$fontHeader;
   }
 }
-
-#landingFace {
-  @include m.spinningAnimation();
-  height: calc(#{c.$fontSizeHeader} * 4); // face's size
-}

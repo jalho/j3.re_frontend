@@ -8,6 +8,7 @@
 // components and view specific styles
 @use "../components/components";
 @use "../views/landing/landing";
+@use "../views/cv/cv";
 
 html {
   @include m.breathingBackground();

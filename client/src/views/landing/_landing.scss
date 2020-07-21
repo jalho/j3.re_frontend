@@ -1,3 +1,4 @@
+@use "../styles/constants" as c;
 @use "../../styles/mixins" as m;
 
 .landingContainer {
@@ -7,4 +8,9 @@
   .landingContent {
     @include m.flexCenter();
   }
+}
+
+#landingFace {
+  @include m.spinningAnimation();
+  height: calc(#{c.$fontSizeHeader} * 4); // face's size
 }

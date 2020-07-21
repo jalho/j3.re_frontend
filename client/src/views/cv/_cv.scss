@@ -1,0 +1,17 @@
+@use "../styles/constants" as c;
+@use "../styles/mixins" as m;
+
+.CV_container {
+  @include m.flexCenter();
+  background-color: rgb(1, 2, 3, 0.1);
+  border-radius: 0.5em;
+  padding: c.$fontSizeDefault;
+  max-width: 95vw;
+  overflow: hidden;
+}
+
+#CV_UTU {
+  fill: c.$primaryTextColor;
+  height: calc(#{c.$fontSizeDefault} * 4); // UTU logo's size
+  margin-bottom: c.$fontSizeDefault;
+}
