@@ -13,8 +13,11 @@ export const translations = {
       "Language": "Language",
       "major in computer Science": "major in computer science",
       "minor in mathematics": "minor in mathematics",
+      "None yet relevant to the field.": "None yet relevant to the field.",
+      "not yet graduated": "not yet graduated",
       "Portfolio": "Portfolio",
       "start year 2019": "start year 2019",
+      "Work experience": "Work experience",
       "Work in progress.": "Work in progress."
     }
   },
@@ -32,8 +35,11 @@ export const translations = {
       "Language": "Kieli",
       "major in computer science": "pääaineena tietojenkäsittelytiede",
       "minor in mathematics": "sivuaineena matematiikka",
+      "None yet relevant to the field.": "Ei vielä mitään alalta.",
+      "not yet graduated": "valmistumatta vielä",
       "Portfolio": "Työt",
       "start year 2019": "aloitusvuosi 2019",
+      "Work experience": "Työkokemus",
       "Work in progress.": "Työn alla."
     }
   }

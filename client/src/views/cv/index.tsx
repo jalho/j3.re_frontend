@@ -9,18 +9,30 @@ const { t } = useTranslation();
 
   return (
     <>
-      <Header text={t("Education")} />
-
-      <div className="CV_container">
-        <div id="CV_UTU">
-          <UTU />
+      <div id="CV_container" className="view">
+        <div>
+          <Header text={t("Education")} />
+          <div className="CV_item">
+            <div id="CV_UTU">
+              <UTU />
+            </div>
+            <em id="notGraduated">
+              {t("not yet graduated")}
+            </em>
+            <ul>
+              <li>{t("major in computer science")}</li>
+              <li>{t("minor in mathematics")}</li>
+              <li>{t("start year 2019")}</li>
+            </ul>
+          </div>
         </div>
 
-        <ul>
-          <li>{t("major in computer science")}</li>
-          <li>{t("minor in mathematics")}</li>
-          <li>{t("start year 2019")}</li>
-        </ul>
+        <div>
+          <Header text={t("Work experience")} />
+          <div className="CV_item">
+            {t("None yet relevant to the field.")}
+          </div>
+        </div>
       </div>
     </>
   );
