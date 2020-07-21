@@ -6,7 +6,7 @@ i18n
   .use(initReactI18next) // pass i18n to react-i18next
   .init({
     resources: translations,
-    lng: "en", // default language
+    lng: localStorage.getItem("lng") || "en", // default language
     keySeparator: false, // e. g. "messages.welcome"
     interpolation: {
       escapeValue: false // XSS protection is already managed by React

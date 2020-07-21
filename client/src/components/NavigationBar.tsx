@@ -11,6 +11,7 @@ const NavigationBar: React.FC = () => {
   const { t, i18n } = useTranslation();
 
   const changeLanguage = (lng: string): void => {
+    localStorage.setItem("lng", lng);
     i18n.changeLanguage(lng);
   };
 
@@ -23,7 +24,6 @@ const NavigationBar: React.FC = () => {
    
         <Nav.Link as={Link} to="/cv">{t("CV")}</Nav.Link>
         <Nav.Link as={Link} to="/portfolio">{t("Portfolio")}</Nav.Link>
-        {/* <Nav.Link as={Link} to="/sandbox">{t("Sandbox")}</Nav.Link> */}
   
         <NavDropdown title={t("Language")} id="basic-nav-dropdown">
           <NavDropdown.Item onClick={(): void => changeLanguage("en")}>English</NavDropdown.Item>
