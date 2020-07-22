@@ -15,7 +15,7 @@ The project also serves as Full Stack Open 2020 ([MOOC](https://fullstackopen.co
 
 *as of 21 July 2020*
 ```
-j3.re/client/src
+src
 ¦   App.tsx                 # single page app's base
 ¦   AppLoader.tsx           # load "App", and meanwhile render "Landing" as fallback
 ¦   i18n.ts                 # internationalization of the UI
