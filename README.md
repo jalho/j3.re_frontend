@@ -4,14 +4,43 @@ Jere Alho, [@jalho](https://github.com/jalho) on GitHub
 
 This is the source of my personal website to be served at [j3.re](http://j3.re/).
 
-Also serves as Full Stack Open 2020 ([MOOC](https://fullstackopen.com/) by University of Helsinki) personal final project. For that reason a working hours' tracking document is included in the repository under [temp/school](https://github.com/jalho/j3.re/blob/master/temp/school/Työaikakirjanpito.md).
+The project also serves as Full Stack Open 2020 ([MOOC](https://fullstackopen.com/) by University of Helsinki) personal final project. For that reason a working hours' tracking document is included in the repository under [temp/school](https://github.com/jalho/j3.re/blob/master/temp/school/Työaikakirjanpito.md).
 
-## Directory structure of `/src/`
+## Scripts
+
+<details>
+<summary>client</summary>
+
+*All the usual CRA scripts. Documentation here: [create-react-app.dev/docs](https://create-react-app.dev/docs/available-scripts/#npm-start).*
+* `npm start`
+
+    *See the documentation above.*
+</details>
+
+<details>
+<summary>server</summary>
+
+* `npm start`
+    
+    *Run `dist/index.js` with Node, i. e. the TypeScript source compiled.*
+
+* `npm run build`
+
+    *Run `tsc`, i. e. compile TypeScript and output the compiled source to directory `dist`.*
+
+* `npm run dev`
+
+    *Run the server app in continuous watch & restart mode using nodemon and ts-node.*
+</details>
+
+## Project structure
+
+<details>
+    <summary>client</summary>
 
 *as of 21 July 2020*
-
 ```
-src
+j3.re/client/src
 ¦   App.tsx                 # single page app's base
 ¦   AppLoader.tsx           # load "App", and meanwhile render "Landing" as fallback
 ¦   i18n.ts                 # internationalization of the UI
@@ -50,8 +79,22 @@ src
     +---portfolio           # "Portfolio" view
             ...
 ```
+</details>
 
-## Planned tech stack
+<details>
+    <summary>server</summary>
+
+*TODO!*
+```
+j3.re/server/src
+¦   ...
+```
+</details>
+
+## Tech stack (planned)
+
+<details>
+<summary>Expand</summary>
 
 | *tech* | *utility* | *docs* | *implemented* |
 |--|--|--|--|
@@ -80,6 +123,7 @@ src
 | EuroDNS | domain name registrar | [eurodns.com](https://www.eurodns.com/) | ✔️ |
 
 ---
+</details>
 
 ## Progress snapshots
 
