@@ -2,11 +2,13 @@
 
 Jere Alho, [@jalho](https://github.com/jalho) on GitHub
 
-This is the source of my personal website to be served at [j3.re](http://j3.re/).
+This is the source of my personal website's **frontend** to be served at [j3.re](http://j3.re/).
+
+The project's GraphQL **backend** can be found in its own repository at [jalho/j3.re_backend](https://github.com/jalho/j3.re_backend).
 
 The project also serves as Full Stack Open 2020 ([MOOC](https://fullstackopen.com/) by University of Helsinki) personal final project. For that reason a working hours' tracking document is included in the repository under [temp/school](https://github.com/jalho/j3.re/blob/master/temp/school/Työaikakirjanpito.md).
 
-## Project structure
+## Frontend source structure
 
 <details>
     <summary>Expand</summary>
@@ -54,7 +56,7 @@ j3.re/client/src
 ```
 </details>
 
-## Tech stack (planned)
+## Project tech stack (planned)
 
 <details>
 <summary>Expand</summary>
@@ -74,15 +76,16 @@ j3.re/client/src
 | **miscellaneous** ||||
 |||||
 | Sass | style preprocessor | [sass-lang.com](https://sass-lang.com/documentation) | ✔️ |
-| GraphQL | data query language | see *Apollo* | ❌ |
-| Apollo | GraphQL implementation | [apollographql.com](https://www.apollographql.com/docs/) | ❌ |
+| GraphQL | data query language | see *Apollo* | ✔️ |
+| Apollo | GraphQL implementation | [apollographql.com](https://www.apollographql.com/docs/) | ✔️ |
 | Express.js | back end framework | [expressjs.com](https://expressjs.com/en/4x/api.html) | ❌ |
 | TypeScript | main programming language | [typescriptlang.org](https://www.typescriptlang.org/docs/home.html) | ✔️ |
 |||||
 | **deployment** ||||
 |||||
 | Buddy | CI/CD | [buddy.works](https://buddy.works/docs) | ❌ |
-| Vercel | hosting | [vercel.com](https://vercel.com/docs) | ✔️ |
+| Vercel | hosting frontend | [vercel.com](https://vercel.com/docs) | ✔️ |
+| Heroku | hosting backend | [devcenter.heroku.com](https://devcenter.heroku.com/) | ✔️ |
 | EuroDNS | domain name registrar | [eurodns.com](https://www.eurodns.com/) | ✔️ |
 
 ---
