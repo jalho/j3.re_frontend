@@ -73,13 +73,18 @@ src
 | React i18next | internationalization | [react.i18next.com](https://react.i18next.com/guides/quick-start) | ✔️ |
 | React Icons | icons | [react-icons.github.io](https://react-icons.github.io/react-icons/) | ✔️ |
 |||||
+| **database** ||||
+|||||
+| GraphQL | data query language | see *Apollo* | ✔️ |
+| Apollo | GraphQL implementation | [apollographql.com](https://www.apollographql.com/docs/) | ✔️ |
+| MongoDB | database | [docs.mongodb.com](https://docs.mongodb.com/) | ❌ |
+| mongoose | MongoDB implementation | [mongoosejs.com](https://mongoosejs.com/docs/) | ❌ |
+|||||
 | **miscellaneous** ||||
 |||||
 | Sass | style preprocessor | [sass-lang.com](https://sass-lang.com/documentation) | ✔️ |
-| GraphQL | data query language | see *Apollo* | ✔️ |
-| Apollo | GraphQL implementation | [apollographql.com](https://www.apollographql.com/docs/) | ✔️ |
-| Express.js | back end framework | [expressjs.com](https://expressjs.com/en/4x/api.html) | ❌ |
 | TypeScript | main programming language | [typescriptlang.org](https://www.typescriptlang.org/docs/home.html) | ✔️ |
+| Node.js | runtime environment | [nodejs.org](https://nodejs.org/en/docs/) | ✔️ |
 |||||
 | **deployment** ||||
 |||||
