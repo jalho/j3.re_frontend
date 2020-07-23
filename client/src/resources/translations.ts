@@ -4,6 +4,7 @@ export const translations = {
     "translation": {
       "current": "current",
       "CV": "CV",
+      "degree level BSc": "degree level BSc",
       "Education": "Education",
       "English": "English",
       "ENGLISH NATIVE": "English", // language name in the language, for language menu
@@ -34,6 +35,7 @@ export const translations = {
     "translation": {
       "current": "nykyinen",
       "CV": "Ansioluettelo",
+      "degree level BSc": "tutkintotaso LuK",
       "Education": "Koulutus",
       "English": "englanti",
       "ENGLISH NATIVE": "English", // language name in the language, for language menu

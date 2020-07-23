@@ -20,6 +20,7 @@ const { t, i18n } = useTranslation();
             <ul>
               <li>{t("major in computer science")}</li>
               <li>{t("minor in mathematics")}</li>
+              <li>{t("degree level BSc")}</li>
               <li>{t("start year 2019")}</li>
             </ul>
           </div>
