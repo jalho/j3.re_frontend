@@ -19,9 +19,29 @@
   svg {
     height: c.$fontSizeDefault * 4;
   }
+
+  ul {
+    padding-inline-start: c.$fontSizeDefault;
+    margin: 0 c.$fontSizeDefault;
+  }
+
+  #spokenLanguages {
+    @include m.flexCenter();
+    display: flex;
+    flex-direction: column;
+
+    #spokenLanguage {
+      display: flex;
+      margin: 0 c.$fontSizeDefault / 3;
+      
+      .CV_item_info {
+        margin: inherit;
+      }
+    }
+  }
 }
 
-.CV_item_disclaimer {
+.CV_item_info {
   margin-bottom: c.$fontSizeDefault / 3;
   color: rgb(255, 255, 255, 0.3);
 }

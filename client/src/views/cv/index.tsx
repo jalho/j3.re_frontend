@@ -14,7 +14,7 @@ const { t, i18n } = useTranslation();
           <Header text={t("Education")} />
           <div className="CV_item">
             <UTU language={i18n.language} />
-            <em className="CV_item_disclaimer">
+            <em className="CV_item_info">
               {t("not yet graduated")}
             </em>
             <ul>
@@ -35,11 +35,13 @@ const { t, i18n } = useTranslation();
         <div>
           <Header text={t("Spoken languages")} />
           <div className="CV_item">
-            <em className="CV_item_disclaimer">
+            <em className="CV_item_info">
               {t("in order of fluency")}
             </em>
-            {t("FIN native")} <br />
-            {t("ENG C1")}
+            <div id="spokenLanguages">
+              <div id="spokenLanguage"><span>{t("Finnish")}</span><span className="CV_item_info">{t("native")}</span></div>
+              <div id="spokenLanguage"><span>{t("English")}</span><span className="CV_item_info">{t("C1")}</span></div>
+            </div>
           </div>
         </div>
       </div>

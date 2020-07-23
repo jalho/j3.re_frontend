@@ -38,10 +38,10 @@ const NavigationBar: React.FC = () => {
 
         <Dropdown.Menu>
           <Dropdown.Item onClick={(): void => changeLanguage("en")} disabled={i18n.language === "en"}>
-            {`${t("English")}${i18n.language === "en" ? ` (${t("current")})` : ""}`}
+            {`${t("ENGLISH NATIVE")}${i18n.language === "en" ? ` (${t("current")})` : ""}`}
           </Dropdown.Item>
           <Dropdown.Item onClick={(): void => changeLanguage("fi")} disabled={i18n.language === "fi"}>
-            {`${t("Finnish")}${i18n.language === "fi" ? ` (${t("current")})` : ""}`}
+            {`${t("FINNISH NATIVE")}${i18n.language === "fi" ? ` (${t("current")})` : ""}`}
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
