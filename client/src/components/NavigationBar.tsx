@@ -21,6 +21,9 @@ const NavigationBar: React.FC = () => {
     i18n.changeLanguage(lng);
   };
 
+  const emojis = ["🌌", "🌠", "⭐", "✨"];
+  const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+
   return (
     <div id="navbarContainer">
       <Navbar variant="dark" sticky="bottom">
@@ -29,7 +32,7 @@ const NavigationBar: React.FC = () => {
         <Nav>
           <Nav.Link as={Link} to="/cv">{t("CV")}</Nav.Link>
           <Nav.Link as={Link} to="/portfolio">{t("Portfolio")}</Nav.Link>
-          <NavDropdown title="🌌" id="basic-nav-dropdown">
+          <NavDropdown title={randomEmoji} id="basic-nav-dropdown">
             <NavDropdown.Item onClick={() => history.push("/leave-note")}>Leave a note</NavDropdown.Item>
           </NavDropdown>
         </Nav>
