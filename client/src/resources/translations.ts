@@ -23,6 +23,8 @@ export const translations = {
       "Portfolio": "Portfolio",
       "Spoken languages": "Spoken languages",
       "start year 2019": "start year 2019",
+      "Swedish": "Swedish",
+      "DUOLINGO JOKE": "Duolingo says I'm the best :D",
       "Work experience": "Work experience",
       "Work in progress.": "Work in progress."
     }
@@ -51,6 +53,8 @@ export const translations = {
       "Portfolio": "Työt",
       "Spoken languages": "Kielitaito",
       "start year 2019": "aloitusvuosi 2019",
+      "Swedish": "ruotsi",
+      "DUOLINGO JOKE": "Duolingo sanoo, että olen paras :D",
       "Work experience": "Työkokemus",
       "Work in progress.": "Työn alla."
     }

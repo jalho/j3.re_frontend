@@ -30,13 +30,17 @@
     display: flex;
     flex-direction: column;
 
-    #spokenLanguage {
+    .spokenLanguage {
       display: flex;
       margin: 0 c.$fontSizeDefault / 3;
       
       .CV_item_info {
         margin: inherit;
       }
+    }
+
+    #Duolingo_joke {
+      font-size: c.$fontSizeDefault / 2;
     }
   }
 }

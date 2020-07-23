@@ -39,8 +39,9 @@ const { t, i18n } = useTranslation();
               {t("in order of fluency")}
             </em>
             <div id="spokenLanguages">
-              <div id="spokenLanguage"><span>{t("Finnish")}</span><span className="CV_item_info">{t("native")}</span></div>
-              <div id="spokenLanguage"><span>{t("English")}</span><span className="CV_item_info">{t("C1")}</span></div>
+              <div className="spokenLanguage"><span>{t("Finnish")}</span><span className="CV_item_info">{t("native")}</span></div>
+              <div className="spokenLanguage"><span>{t("English")}</span><span className="CV_item_info">{t("C1")}</span></div>
+              <div className="spokenLanguage" id="Duolingo_joke"><span>{t("Swedish")}</span><span className="CV_item_info">{t("DUOLINGO JOKE")}</span></div>
             </div>
           </div>
         </div>
