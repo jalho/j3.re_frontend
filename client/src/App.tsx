@@ -19,32 +19,47 @@ const App: React.FC = () => {
     return state.navbarReducer.navbarVisible;
   });
 
-  return (
-    <>
-      {navbarVisible && <NavigationBar />}
-      
-      <div className="view">
+  const appMode = useSelector((state: StateCombinedFromReducers) => {
+    return state.appModeReducer.appMode;
+  });
 
-        {/* TODO: Consider dynamic imports here!
-            example: https://reactjs.org/docs/code-splitting.html#route-based-code-splitting */}
-        <Switch>
+  switch (appMode) {
+    default:
+      return <div>TODO!</div>;
+    case "DEFAULT":
+      return (
+        <>
+          {navbarVisible && <NavigationBar />}
+          
+          <div className="view">
+    
+            {/* TODO: Consider dynamic imports here!
+                example: https://reactjs.org/docs/code-splitting.html#route-based-code-splitting */}
+            <Switch>
+    
+              <Route path="/cv">
+                <CV />
+              </Route>
+    
+              <Route path="/portfolio">
+                <Portfolio />
+              </Route>
+    
+              <Route path="/">
+                <Home />
+              </Route>
+    
+            </Switch>
+          </div>
+        </>
+      );
+    case "LEAVE_NOTE":
+      return <div>TODO!</div>;
+    case "EASTER_EGG":
+      return <div>TODO!</div>;
+  }
 
-          <Route path="/cv">
-            <CV />
-          </Route>
 
-          <Route path="/portfolio">
-            <Portfolio />
-          </Route>
-
-          <Route path="/">
-            <Home />
-          </Route>
-
-        </Switch>
-      </div>
-    </>
-  );
 };
 
 export default App;

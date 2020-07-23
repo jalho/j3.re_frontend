@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
 
 // language selection icon
 import { MdTranslate } from "react-icons/md";
@@ -10,10 +11,13 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Dropdown from "react-bootstrap/Dropdown";
 import Button from "react-bootstrap/Button";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
+import { switchAppMode } from "../state/actionCreators";
 
 const NavigationBar: React.FC = () => {
   const { t, i18n } = useTranslation();
+  const dispatch = useDispatch();
 
   const changeLanguage = (lng: string): void => {
     localStorage.setItem("lng", lng);
@@ -28,6 +32,9 @@ const NavigationBar: React.FC = () => {
         <Nav>
           <Nav.Link as={Link} to="/cv">{t("CV")}</Nav.Link>
           <Nav.Link as={Link} to="/portfolio">{t("Portfolio")}</Nav.Link>
+          <NavDropdown title="🌌" id="basic-nav-dropdown">
+            <NavDropdown.Item onClick={() => dispatch(switchAppMode("LEAVE_NOTE"))}>Leave a note</NavDropdown.Item>
+          </NavDropdown>
         </Nav>
       </Navbar>
       

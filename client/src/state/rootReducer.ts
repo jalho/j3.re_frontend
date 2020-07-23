@@ -4,7 +4,8 @@ import { Reducer } from "react";
 import { State, Action } from "../types/state";
 
 const initialState: State = {
-  navbarVisible: true
+  navbarVisible: true,
+  appMode: "DEFAULT"
 };
 
 const navbarReducer: Reducer<State, Action> = (state, action) => {
@@ -13,14 +14,17 @@ const navbarReducer: Reducer<State, Action> = (state, action) => {
   switch (action.type) {
     case "TOGGLE_NAVBAR_VISIBILITY":
       return {
+        ...state,
         navbarVisible: !state.navbarVisible
       };
     case "HIDE_NAVBAR": 
       return {
+        ...state,
         navbarVisible: false
       };
     case "SHOW_NAVBAR":
       return {
+        ...state,
         navbarVisible: true
       };
     default:
@@ -28,8 +32,23 @@ const navbarReducer: Reducer<State, Action> = (state, action) => {
   }
 };
 
+const appModeReducer: Reducer<State, Action> = (state, action) => {
+  if (typeof state === "undefined") return initialState;
+
+  switch (action.type) {
+    case "LEAVE_NOTE":
+      return {
+        ...state,
+        appMode: "LEAVE_NOTE"
+      };
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
-  navbarReducer
+  navbarReducer,
+  appModeReducer
 });
 
 export default rootReducer;
