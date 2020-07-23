@@ -9,6 +9,7 @@ export const translations = {
       "ENGLISH NATIVE": "English", // language name in the language, for language menu
       "Finnish": "Finnish",
       "FINNISH NATIVE": "suomi", // language name in the language, for language menu
+      "Here's going to be an option to leave a public note.": "Here's going to be an option to leave a public note.",
       "Here's going to be some sort of CV.": "Here's going to be some sort of CV.",
       "Here will be summaries of things I have created.": "Here will be summaries of things I have created.",
       "Here will be the main view.": "Here will be the main view.",
@@ -36,6 +37,7 @@ export const translations = {
       "ENGLISH NATIVE": "English", // language name in the language, for language menu
       "Finnish": "suomi",
       "FINNISH NATIVE": "suomi", // language name in the language, for language menu
+      "Here's going to be an option to leave a public note.": "Tähän tulee mahdollisuus jättää julkinen viesti.",
       "Here's going to be some sort of CV.": "Tähän tulee jonkinlainen ansioluettelo.",
       "Here will be summaries of things I have created.": "Yhteenvedot tekemistäni jutuista tulevat tähän.",
       "Here will be the main view.": "Tähän tulee päänäkymä.",
