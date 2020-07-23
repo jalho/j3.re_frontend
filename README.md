@@ -95,5 +95,5 @@ src
 
 #### Video demos on YouTube, starting from latest.
 
- 1. [as of commit 407f3ad](https://youtu.be/r0ZoqIL1H2g) - uploaded 21 July 2020 **[latest]**
- 2. [as of commit 02d9156](https://youtu.be/w4ucXlW8Zhg) - uploaded 16 July 2020
+ 1. [as of commit `407f3ad`](https://youtu.be/r0ZoqIL1H2g) - uploaded 21 July 2020 **[latest]**
+ 2. [as of commit `02d9156`](https://youtu.be/w4ucXlW8Zhg) - uploaded 16 July 2020
