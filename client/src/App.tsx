@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import Home from "./views/home";
 import CV from "./views/cv";
 import Portfolio from "./views/portfolio";
+import LeaveNote from "./views/leave_note"; // TODO: Make dynamic!
 
 // components
 import NavigationBar from "./components/NavigationBar";
@@ -18,7 +19,6 @@ const App: React.FC = () => {
   const navbarVisible = useSelector((state: StateCombinedFromReducers) => {
     return state.navbarReducer.navbarVisible;
   });
-
   const appMode = useSelector((state: StateCombinedFromReducers) => {
     return state.appModeReducer.appMode;
   });
@@ -43,6 +43,10 @@ const App: React.FC = () => {
               <Route path="/portfolio">
                 <Portfolio />
               </Route>
+
+              <Route path="/leave-note">
+                <LeaveNote />
+              </Route>
     
               <Route path="/">
                 <Home />
@@ -52,8 +56,6 @@ const App: React.FC = () => {
           </div>
         </>
       );
-    case "LEAVE_NOTE":
-      return <div>TODO!</div>;
     case "EASTER_EGG":
       return <div>TODO!</div>;
   }

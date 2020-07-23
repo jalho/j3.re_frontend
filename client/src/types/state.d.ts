@@ -1,9 +1,9 @@
 import { Reducer } from "react";
 
 /**
- * Different options about how to render the app.
+ * Different options for how to render the app.
  */
-export type AppMode = "DEFAULT" | "EASTER_EGG" | "LEAVE_NOTE";
+export type AppMode = "DEFAULT" | "EASTER_EGG";
 
 /**
  * The form in which the state is to be saved to Redux store.

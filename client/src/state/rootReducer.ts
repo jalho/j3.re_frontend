@@ -36,11 +36,6 @@ const appModeReducer: Reducer<State, Action> = (state, action) => {
   if (typeof state === "undefined") return initialState;
 
   switch (action.type) {
-    case "LEAVE_NOTE":
-      return {
-        ...state,
-        appMode: "LEAVE_NOTE"
-      };
     default:
       return state;
   }
