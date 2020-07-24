@@ -36,7 +36,7 @@ const LeaveNote: React.FC = () => {
       {noteElements.length > 0 
         && [
           <p key="info" style={{ textAlign: "center", maxWidth: "30em" }}>
-            {t("Below are some example fetched from a database.")}
+            {t("Below are some examples fetched from a database.")}
           </p>,
           ...noteElements
         ]}

@@ -2,7 +2,7 @@ export const translations = {
 
   "en": {
     "translation": {
-      "Below are some example fetched from a database.": "Below are some example fetched from a database.",
+      "Below are some examples fetched from a database.": "Below are some examples fetched from a database.",
       "current": "current",
       "CV": "CV",
       "degree level BSc": "degree level BSc",
@@ -34,7 +34,7 @@ export const translations = {
 
   "fi": {
     "translation": {
-      "Below are some example fetched from a database.": "Alla joitakin esimerkkejä tietokannasta noudettuna.",
+      "Below are some examples fetched from a database.": "Alla joitakin esimerkkejä tietokannasta noudettuna.",
       "current": "nykyinen",
       "CV": "Ansioluettelo",
       "degree level BSc": "tutkintotaso LuK",
