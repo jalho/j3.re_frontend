@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import Home from "./views/home";
 import CV from "./views/cv";
 import Portfolio from "./views/portfolio";
-import LeaveNote from "./views/leave_note"; // TODO: Make dynamic!
+import LeaveNote from "./views/leave_note";
 
 // components
 import NavigationBar from "./components/NavigationBar";
@@ -32,8 +32,6 @@ const App: React.FC = () => {
           
           <div className="view">
     
-            {/* TODO: Consider dynamic imports here!
-                example: https://reactjs.org/docs/code-splitting.html#route-based-code-splitting */}
             <Switch>
     
               <Route path="/cv">
