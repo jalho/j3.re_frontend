@@ -32,8 +32,15 @@ const LeaveNote: React.FC = () => {
       <div style={{ textAlign: "center", maxWidth: "30em" }}>
         <p>{t("Here's going to be a notes leaving feature. The notes won't be translated, instead they will remain in their original language.")}</p>
       </div>
+      
       {/* render info text & notes only if there are some notes */}
-      {noteElements.length > 0 && [<p style={{ textAlign: "center", maxWidth: "30em" }}>{t("Below are some example fetched from a database.")}</p>, ...noteElements]}
+      {noteElements.length > 0 
+        && [
+          <p key="info" style={{ textAlign: "center", maxWidth: "30em" }}>
+            {t("Below are some example fetched from a database.")}
+          </p>,
+          ...noteElements
+        ]}
     </>
   );
 };
