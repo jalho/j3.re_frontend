@@ -2,6 +2,7 @@ export const translations = {
 
   "en": {
     "translation": {
+      "Below are some example fetched from a database.": "Below are some example fetched from a database.",
       "current": "current",
       "CV": "CV",
       "degree level BSc": "degree level BSc",
@@ -10,7 +11,7 @@ export const translations = {
       "ENGLISH NATIVE": "English", // language name in the language, for language menu
       "Finnish": "Finnish",
       "FINNISH NATIVE": "suomi", // language name in the language, for language menu
-      "Here's going to be an option to leave a public note.": "Here's going to be an option to leave a public note.",
+      "Here's going to be a notes leaving feature. The notes won't be translated, instead they will remain in their original language.": "Here's going to be a notes leaving feature. The notes won't be translated, instead they will remain in their original language.",
       "Here's going to be some sort of CV.": "Here's going to be some sort of CV.",
       "Here will be summaries of things I have created.": "Here will be summaries of things I have created.",
       "Here will be the main view.": "Here will be the main view.",
@@ -33,6 +34,7 @@ export const translations = {
 
   "fi": {
     "translation": {
+      "Below are some example fetched from a database.": "Alla joitakin esimerkkejä tietokannasta noudettuna.",
       "current": "nykyinen",
       "CV": "Ansioluettelo",
       "degree level BSc": "tutkintotaso LuK",
@@ -41,7 +43,7 @@ export const translations = {
       "ENGLISH NATIVE": "English", // language name in the language, for language menu
       "Finnish": "suomi",
       "FINNISH NATIVE": "suomi", // language name in the language, for language menu
-      "Here's going to be an option to leave a public note.": "Tähän tulee mahdollisuus jättää julkinen viesti.",
+      "Here's going to be a notes leaving feature. The notes won't be translated, instead they will remain in their original language.": "Tähän tulee viestinjättöominaisuus. Viestejä ei käännetä, vaan ne pysyvät alkuperäisellä kielellään.",
       "Here's going to be some sort of CV.": "Tähän tulee jonkinlainen ansioluettelo.",
       "Here will be summaries of things I have created.": "Yhteenvedot tekemistäni jutuista tulevat tähän.",
       "Here will be the main view.": "Tähän tulee päänäkymä.",
