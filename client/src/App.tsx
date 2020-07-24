@@ -57,7 +57,7 @@ const App: React.FC = () => {
         </>
       );
     case "EASTER_EGG":
-      return <div>TODO!</div>;
+      return <div>Easter egg!</div>;
   }
 
 

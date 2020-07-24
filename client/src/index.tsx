@@ -11,8 +11,10 @@ import Landing from "./views/landing";
 import store from "./state/store";
 import "./i18n"; // internationalization
 
+import { getBackendURI } from "./utils/helpers";
+
 const apolloClient = new ApolloClient({
-  uri: "https://j3re-backend.herokuapp.com/", // TODO: Get from environment!
+  uri: getBackendURI(),
   cache: new InMemoryCache()
 });
 
