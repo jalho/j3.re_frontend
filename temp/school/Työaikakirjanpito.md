@@ -17,11 +17,11 @@
 | 21-Jul-2020 | 9,5 | `dd829e6` | Toteutin sovellukseen kielikäännökset käyttäen *React i18next*. Refaktoroin ja parantelin juttuja ympäriinsä. |
 | 22-Jul-2020 | 9 | `3fdef1a`, `5c01274`* | Aloitin GraphQL backendin rakentamisen [omassa repositoriossaan](https://github.com/jalho/j3.re_backend). Yritin ensin pitkään [monoreporatkaisua](https://stackoverflow.com/questions/63033756/how-to-deploy-front-and-back-end-on-vercel-from-the-same-monorepo) ja opiskelin asiaa kunnes lopulta päätin siirtyä elämässä eteenpäin ja tehdä rehellisesti omat repot frontille ja backille, ainakin toistaiseksi. Tein ensimmäisen *proof of concept* toteutuksen ja testasin toimivuutta Postmanilla. Backendiä ei vielä ole yhdistetty fronttiin. |
 | 23-Jul-2020 | 10 | `f8d4f71`, `970f4a3`* | Aloin työstämään "seinää" sovellukseen, eli paikkaa johon sivulla kävijät voivat jättää julkisia viestejä. Tein pieniä ehostuksia ympäriinsä. Päätin luopua Express.js suunnitelluista projektin teknologioista [arvioituani sen tarkoituksenmukaisuutta](https://www.reddit.com/r/webdev/comments/hvyzlo/when_is_standalone_apollo_server_not_sufficient/). Backendin (rajapintana datalle) voi toteuttaa tämän sovelluksen tapauksessa pelkällä *standalone* Apollo Serverillä, kun varsinainen *single page app* on hostattu Vercelissä. Laadin alustavan rakenteen [backendiin](https://github.com/jalho/j3.re_backend). |
-| 24-Jul-2020 | 5 | `TODO`, `e71ba2b`* | Korjasin eilisiä bugeja. Toteutin GraphQL backendin tietokantayhteydellä. Deployattu Herokussa ja kaikki toimii, testattu manuaalisesti Postmanilla. Lisäsin Apollo Clientin frontendiin GraphQL toteutuksena. |
+| 24-Jul-2020 | 6 | `TODO`, `e71ba2b`* | Korjasin eilisiä bugeja. Toteutin GraphQL backendin tietokantayhteydellä. Deployattu Herokussa ja kaikki toimii, testattu manuaalisesti Postmanilla. Lisäsin Apollo Clientin frontendiin GraphQL toteutuksena, ja lisäsin alustavan muistiinpanojen haun *dummy datalla*. Tein yleistä projektinhallinnointia GitHubissa. |
 | 27-Jul-2020 | | | |
 | 28-Jul-2020 | | | |
 | 29-Jul-2020 | | | |
 | 30-Jul-2020 | | | |
 | 31-Jul-2020 | | | |
 | 3-Aug-2020 | | | |
-| **yhteensä**   | 78 | \* [backend](https://github.com/jalho/j3.re_backend) | | 
+| **yhteensä**   | 79 | \* [backend](https://github.com/jalho/j3.re_backend) | | 
