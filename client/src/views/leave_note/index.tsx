@@ -1,20 +1,12 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 
-const NOTES = gql`
-  query Notes {
-    notes {
-      id
-      content
-      time
-    }
-  }
-`;
+import { GET_ALL_NOTES } from "../../utils/graphql";
 
 const LeaveNote: React.FC = () => {
   const { t } = useTranslation();
-  const { /* loading, error, */ data } = useQuery(NOTES);
+  const { data } = useQuery(GET_ALL_NOTES);
 
   // create JSX elements of fetched notes
   let noteElements: Array<JSX.Element> = [];
