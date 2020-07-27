@@ -8,6 +8,25 @@ The project's GraphQL **backend** can be found in its own repository at [jalho/j
 
 The project also serves as Full Stack Open 2020 ([MOOC](https://fullstackopen.com/) by University of Helsinki) personal final project. For that reason a working hours' tracking document is included in the repository under [temp/school](https://github.com/jalho/j3.re/blob/master/temp/school/Työaikakirjanpito.md).
 
+## Required environment variables
+
+<details>
+<summary>Expand</summary>
+
+Environment variables are excluded from version control by convention. They must be added manually to the environment.
+
+Create a `.env` file in the root directory of the client with content of shape:
+
+    REACT_APP_KEY1=VALUE1
+    REACT_APP_KEY2=VALUE2
+
+> [Note:](https://create-react-app.dev/docs/adding-custom-environment-variables/) You must create custom environment variables beginning with `REACT_APP_`.
+
+| required for | key | value | note |
+|-|-|-|-|
+| backend use | `REACT_APP_BACKEND_URI` | `https://j3re-backend.herokuapp.com/` | may change |
+</details>
+
 ## Frontend source structure
 
 <details>
