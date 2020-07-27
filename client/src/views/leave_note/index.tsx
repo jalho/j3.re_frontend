@@ -19,25 +19,29 @@ const LeaveNote: React.FC = () => {
   // create JSX elements of fetched notes
   let noteElements: Array<JSX.Element> = [];
   if (data) noteElements = data.notes.map((note: { id: any; time: any; content: any; }) => (
-    <p key={note.id} style={{ backgroundColor: "rgb(1, 2, 3, 0.1)", borderRadius: "0.5em", padding: "1em" }}>
-      <b>{`${new Date(note.time).getUTCDate()}.${new Date(note.time).getUTCMonth()+1}.${new Date(note.time).getUTCFullYear()}`}</b>
-      <br/>
-      <i>{note.content}</i>
-    </p>
+    <div key={note.id} className="note">
+      <p>
+        <b>{`${new Date(note.time).getUTCDate()}.${new Date(note.time).getUTCMonth()+1}.${new Date(note.time).getUTCFullYear()}`}</b>
+        <br/>
+        <i>{note.content}</i>
+      </p>
+    </div>
   ));
 
   return (
     <>
-      <div style={{ textAlign: "center", maxWidth: "30em" }}>
+      <div id="leaveNoteInfoText">
         <p>{t("Here's going to be a notes leaving feature. The notes won't be translated, instead they will remain in their original language.")}</p>
       </div>
       
       {/* render info text & notes only if there are some notes */}
       {noteElements.length > 0 
         && [
-          <p key="info" style={{ textAlign: "center", maxWidth: "30em" }}>
-            {t("Below are some examples fetched from a database.")}
-          </p>,
+          <div key="info" id="leaveNoteInfoText">
+            <p>
+              {t("Below are some examples fetched from a database.")}
+            </p>
+          </div>,
           ...noteElements
         ]}
     </>

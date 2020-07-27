@@ -1,0 +1,16 @@
+@use "../styles/constants" as c;
+
+#leaveNoteInfoText {
+  text-align: center;
+}
+
+.note {
+  background-color: rgb(1, 2, 3, 0.1);
+  border-radius: 1em;
+  margin: c.$marginDefault / 2 0;
+  padding: c.$marginDefault / 2;
+  
+  p {
+    margin-bottom: 0;
+  }
+}

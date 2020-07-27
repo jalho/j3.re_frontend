@@ -9,6 +9,7 @@
 @use "../components/components";
 @use "../views/landing/landing";
 @use "../views/cv/cv";
+@use "../views/leave_note/leave_note";
 
 html {
   @include m.breathingBackground();
