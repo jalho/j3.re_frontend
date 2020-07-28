@@ -7,6 +7,7 @@ import Home from "./views/home";
 import CV from "./views/cv";
 import Portfolio from "./views/portfolio";
 import LeaveNote from "./views/leave_note";
+import Login from "./views/login";
 
 // components
 import NavigationBar from "./components/NavigationBar";
@@ -44,6 +45,10 @@ const App: React.FC = () => {
 
               <Route path="/leave-note">
                 <LeaveNote />
+              </Route>
+
+              <Route path="/login">
+                <Login />
               </Route>
     
               <Route path="/">
