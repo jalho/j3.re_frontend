@@ -8,12 +8,10 @@ const Landing: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="landingContainer">
-      <div className="landingContent">
-        <Header text="j3.re" />
-        <div id="landingFace"><Face /></div>
-        <em style={{ marginTop: "1.5em" }}>{t("Work in progress.")}</em>
-      </div>
+    <div className="view">
+      <Header text="j3.re" />
+      <div id="landingFace"><Face /></div>
+      <em id="landingSubText">{t("Work in progress.")}</em>
     </div>
   );
 };

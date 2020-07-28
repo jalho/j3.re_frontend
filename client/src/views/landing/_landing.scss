@@ -1,17 +1,11 @@
 @use "../styles/constants" as c;
 @use "../../styles/mixins" as m;
 
-// TODO: Use view class here too!
-.landingContainer {
-  @include m.flexCenter();
-  height: 100vh;
-
-  .landingContent {
-    @include m.flexCenter();
-  }
-}
-
 #landingFace {
   @include m.spinningAnimation();
   height: calc(#{c.$fontSizeHeader} * 4); // face's size
+}
+
+#landingSubText {
+  margin-top: c.$marginDefault;
 }
