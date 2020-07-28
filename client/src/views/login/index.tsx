@@ -4,11 +4,13 @@ import Button from "react-bootstrap/Button";
 import bcrypt from "bcryptjs";
 import { useQuery } from '@apollo/client';
 import { GET_ALL_USERS } from "../../utils/graphql";
+import { useTranslation } from "react-i18next";
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const { error, data } = useQuery(GET_ALL_USERS);
+  const { t } = useTranslation();
 
   /**
    * Clear the login form's input fields.
@@ -45,21 +47,21 @@ const Login: React.FC = () => {
     <>
       <Form onSubmit={loginHandler}>
         <Form.Group>
-          <Form.Label>Username</Form.Label>
-          <Form.Control type="text" placeholder="For example email" onChange={e => setUsername(e.target.value)} value={username} />
+          <Form.Label>{t("Username")}</Form.Label>
+          <Form.Control type="text" onChange={e => setUsername(e.target.value)} value={username} />
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} value={password} />
+          <Form.Label>{t("Password")}</Form.Label>
+          <Form.Control type="password" onChange={e => setPassword(e.target.value)} value={password} />
         </Form.Group>
 
         <Button variant="primary" type="submit" disabled={!data}>
-          Log in
+          {t("Log in")}
         </Button>
         {error && (
           <Form.Text>
-            Server is not operational.
+            {t("Server is not operational.")}
           </Form.Text>)}
       </Form>
     </>
