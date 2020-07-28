@@ -1,16 +1,16 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import bcrypt from "bcryptjs";
-import { useQuery } from '@apollo/client';
-import { GET_ALL_USERS } from "../../utils/graphql";
+import { GET_ONE_USER } from "../../utils/graphql";
 import { useTranslation } from "react-i18next";
+import { useLazyQuery } from '@apollo/client';
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const { error, data } = useQuery(GET_ALL_USERS);
   const { t } = useTranslation();
+  const [ getOneUser, { data } ] = useLazyQuery(GET_ONE_USER);
 
   /**
    * Clear the login form's input fields.
@@ -21,27 +21,22 @@ const Login: React.FC = () => {
   }
 
   /**
-   * Find the correct username's details from previously fetched users list, and if found,
-   * compare the entered password to the username's associated password hash.
+   * TODO: Document.
    * @param e event emitted from login form
    */
   const loginHandler = (e: FormEvent) => {
     e.preventDefault(); // prevent reloading
-    const userLoggingIn = data.users.find((user: { username: string; }) => user.username === username);
-    if (!userLoggingIn) {
-      console.log("No such user!"); // TODO: Add notification to UI.
-      clearFields();
-      return;
-    }
-    bcrypt.compare(password, userLoggingIn.passwordHash, (_error, result) => {
-      if (result) {
-        console.log("Correct password!"); // TODO: Add notification to UI. Generate a token and use that in requests.
-      } else {
-        console.log("Incorrect password!"); // TODO: Add notification to UI.
-      }
-    });
+    getOneUser({ variables: { username: username } }); // goes to `data` -> triggers `useEffect`
     clearFields();
   };
+
+  // TODO: Document.
+  useEffect(() => {
+    if (data && data.oneUser) {
+      console.log("Trying to log in a user...", data);
+      // TODO: Compare password to data's hash. Generate token.
+    }
+  }, [data]);
 
   return (
     <>
@@ -56,13 +51,9 @@ const Login: React.FC = () => {
           <Form.Control type="password" onChange={e => setPassword(e.target.value)} value={password} />
         </Form.Group>
 
-        <Button variant="primary" type="submit" disabled={!data}>
+        <Button variant="primary" type="submit">
           {t("Log in")}
         </Button>
-        {error && (
-          <Form.Text>
-            {t("Server is not operational.")}
-          </Form.Text>)}
       </Form>
     </>
   );

@@ -19,3 +19,13 @@ export const GET_ALL_USERS = gql`
     }
   }
 `;
+
+export const GET_ONE_USER = gql`
+  query OneUser($username: String!) {
+    oneUser(username: $username) {
+      id
+      username
+      passwordHash
+    }
+  }
+`;
