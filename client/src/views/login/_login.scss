@@ -1,15 +1,15 @@
 @use "../styles/constants" as c;
 
 .form-control {
-  background-color: black;
-  color: white;
+  background-color: rgb(0, 0, 0, 0.7);
+  color: c.$primaryTextColor;
 
   &::placeholder {
     color: gray;
   }
 
   &:focus {
-    background-color: black;
-    color: white;
+    background-color: rgb(0, 0, 0, 0.7);
+    color: c.$primaryTextColor;
   }
 }
