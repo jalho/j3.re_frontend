@@ -19,9 +19,9 @@
 | 23-Jul-2020 | 10 | `f8d4f71`, `970f4a3`* | Aloin työstämään "seinää" sovellukseen, eli paikkaa johon sivulla kävijät voivat jättää julkisia viestejä. Tein pieniä ehostuksia ympäriinsä. Päätin luopua Express.js suunnitelluista projektin teknologioista [arvioituani sen tarkoituksenmukaisuutta](https://www.reddit.com/r/webdev/comments/hvyzlo/when_is_standalone_apollo_server_not_sufficient/). Backendin (rajapintana datalle) voi toteuttaa tämän sovelluksen tapauksessa pelkällä *standalone* Apollo Serverillä, kun varsinainen *single page app* on hostattu Vercelissä. Laadin alustavan rakenteen [backendiin](https://github.com/jalho/j3.re_backend). |
 | 24-Jul-2020 | 6 | `89f1555`, `e71ba2b`* | Korjasin eilisiä bugeja. Toteutin GraphQL backendin tietokantayhteydellä. Deployattu Herokussa ja kaikki toimii, testattu manuaalisesti Postmanilla. Lisäsin Apollo Clientin frontendiin GraphQL toteutuksena, ja lisäsin alustavan muistiinpanojen haun *dummy datalla*. Tein yleistä projektinhallinnointia GitHubissa. |
 | 27-Jul-2020 | 8 | `c36dd4a`, `0112c60`* | Tyhjensin GitHubin projektinhallintaan kirjattua To do -listaa. Toteutin mm. ensimmäisen GraphQL-mutaation tuen backendiin. |
-| 28-Jul-2020 | | | |
+| 28-Jul-2020 | 8 | `TODO`, `37c3884`* | Lisäsin käyttäjät projektin skeemaan ja ryhdyin toteuttamaan tunnistautumista niin frontin kuin palvelimenkin puolella. |
 | 29-Jul-2020 | | | |
 | 30-Jul-2020 | | | |
 | 31-Jul-2020 | | | |
 | 3-Aug-2020 | | | |
-| **yhteensä**   | 87 | \* [backend](https://github.com/jalho/j3.re_backend) | | 
+| **yhteensä**   | 95 | \* [backend](https://github.com/jalho/j3.re_backend) | | 
