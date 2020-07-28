@@ -1,5 +1,15 @@
 @use "../styles/constants" as c;
 
 .form-control {
-  background-color: inherit;
+  background-color: black;
+  color: white;
+
+  &::placeholder {
+    color: gray;
+  }
+
+  &:focus {
+    background-color: black;
+    color: white;
+  }
 }
