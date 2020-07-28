@@ -23,6 +23,8 @@ body {
 
 body, #root {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 svg {
@@ -39,4 +41,5 @@ p {
   @include m.flexCenter();
   padding: c.$paddingDefault;
   width: 100vw;
+  flex: auto;
 }
