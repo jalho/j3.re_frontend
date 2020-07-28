@@ -10,6 +10,7 @@
 @use "../views/landing/landing";
 @use "../views/cv/cv";
 @use "../views/leave_note/leave_note";
+@use "../views/login/login";
 
 html {
   @include m.breathingBackground();

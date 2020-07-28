@@ -7,8 +7,8 @@ const Login: React.FC = () => {
     <>
       <Form>
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>Username (email address)</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Label>Username</Form.Label>
+          <Form.Control type="email" placeholder="For example email" />
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
@@ -17,7 +17,7 @@ const Login: React.FC = () => {
         </Form.Group>
 
         <Button variant="primary" type="submit">
-          Submit
+          Log in
         </Button>
       </Form>
     </>
