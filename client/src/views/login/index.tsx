@@ -16,8 +16,10 @@ const Login: React.FC = () => {
     setPassword("");
   };
 
+  // TODO: Implement token fetching with `useMutation`.
+  // TODO: Get token from localStorage in an auth link. Example: https://www.apollographql.com/docs/react/networking/authentication/#header.
   /**
-   * TODO: Implement. Document.
+   * TODO: Document.
    * @param e event emitted from login form
    */
   const loginHandler = (e: FormEvent): void => {
