@@ -20,7 +20,7 @@
 | 24-Jul-2020 | 6 | `89f1555`, `e71ba2b`* | Korjasin eilisiä bugeja. Toteutin GraphQL backendin tietokantayhteydellä. Deployattu Herokussa ja kaikki toimii, testattu manuaalisesti Postmanilla. Lisäsin Apollo Clientin frontendiin GraphQL toteutuksena, ja lisäsin alustavan muistiinpanojen haun *dummy datalla*. Tein yleistä projektinhallinnointia GitHubissa. |
 | 27-Jul-2020 | 8 | `c36dd4a`, `0112c60`* | Tyhjensin GitHubin projektinhallintaan kirjattua To do -listaa. Toteutin mm. ensimmäisen GraphQL-mutaation tuen backendiin. |
 | 28-Jul-2020 | 8 | `215157f`, `37c3884`* | Lisäsin käyttäjät projektin skeemaan ja ryhdyin toteuttamaan tunnistautumista niin frontin kuin palvelimenkin puolella. |
-| 29-Jul-2020 | | | Uudelleentoteutin GraphQL-operaatiot käyttäen järkevämpää funktioiden välistä vastuunjakoa. Siirsin salasanojen "tiivistämisen" (*hashing*) clientistä palvelimen puolelle, ja poistin tiivisteet GraphQL-kyselyistä. Motivaatio tiivistämiseen palvelimen puolella tuli [täältä](https://security.stackexchange.com/a/8600/239271). |
+| 29-Jul-2020 | | | Uudelleentoteutin GraphQL-operaatiot käyttäen järkevämpää funktioiden välistä vastuunjakoa. Siirsin salasanojen "tiivistämisen" (*hashing*) clientistä palvelimen puolelle, ja poistin tiivisteet GraphQL-kyselyistä. Motivaatio tiivistämiseen palvelimen puolella tuli [täältä](https://security.stackexchange.com/a/8600/239271). Toteutin käyttäjän tunnistautumisen ja tokenin generoinnin palvelimen puolella. Ynnä muuta kirjautumiseen liittyvää... |
 | 30-Jul-2020 | | | |
 | 31-Jul-2020 | | | |
 | 3-Aug-2020 | | | |
