@@ -14,13 +14,13 @@ const Login: React.FC = () => {
   const clearFields = (): void => {
     setUsername("");
     setPassword("");
-  }
+  };
 
   /**
    * TODO: Implement. Document.
    * @param e event emitted from login form
    */
-  const loginHandler = (e: FormEvent) => {
+  const loginHandler = (e: FormEvent): void => {
     e.preventDefault(); // prevent reloading
     clearFields();
   };
@@ -30,12 +30,12 @@ const Login: React.FC = () => {
       <Form onSubmit={loginHandler}>
         <Form.Group>
           <Form.Label>{t("Username")}</Form.Label>
-          <Form.Control type="text" onChange={e => setUsername(e.target.value)} value={username} />
+          <Form.Control type="text" onChange={(e): void => setUsername(e.target.value)} value={username} />
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
           <Form.Label>{t("Password")}</Form.Label>
-          <Form.Control type="password" onChange={e => setPassword(e.target.value)} value={password} />
+          <Form.Control type="password" onChange={(e): void => setPassword(e.target.value)} value={password} />
         </Form.Group>
 
         <Button variant="primary" type="submit">
