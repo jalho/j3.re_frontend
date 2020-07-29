@@ -1,8 +1,8 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
-export const GET_ALL_NOTES = gql`
-  query Notes {
-    notes {
+export const GET_ALL_APPROVED_NOTES = gql`
+  query ApprovedNotes {
+    approvedNotes {
       id
       content
       time
