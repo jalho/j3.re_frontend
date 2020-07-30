@@ -1,5 +1,4 @@
 import { Reducer } from "react";
-import { type } from "os";
 
 /**
  * Different options for how to render the app.
