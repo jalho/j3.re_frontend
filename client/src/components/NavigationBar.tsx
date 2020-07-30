@@ -14,8 +14,8 @@ import Button from "react-bootstrap/Button";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
 // own
-import { StateCombinedFromReducers, Action } from "../types";
-import { clearToken } from "../state/actionCreators";
+import { StateCombinedFromReducers } from "../types";
+import { clearToken, clearAuthenticatedUser } from "../state/actionCreators";
 
 const NavigationBar: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -29,6 +29,14 @@ const NavigationBar: React.FC = () => {
   const changeLanguage = (lng: string): void => {
     localStorage.setItem("lng", lng);
     i18n.changeLanguage(lng);
+  };
+
+  /**
+   * Clear token and authenticated user information from Redux state.
+   */
+  const logOut = (): void => {
+    dispatch(clearToken());
+    dispatch(clearAuthenticatedUser());
   };
 
   const emojis = ["🌌", "🌠", "⭐", "✨"];
@@ -46,7 +54,7 @@ const NavigationBar: React.FC = () => {
             <NavDropdown.Item onClick={(): void => history.push("/leave-note")}>{t("Leave a note")}</NavDropdown.Item>
             {
               token
-                ? <NavDropdown.Item onClick={(): Action => dispatch(clearToken())}>{t("Log out")}</NavDropdown.Item>
+                ? <NavDropdown.Item onClick={(): void => logOut()}>{t("Log out")}</NavDropdown.Item>
                 : <NavDropdown.Item onClick={(): void => history.push("/login")}>{t("Log in")}</NavDropdown.Item>
             }
           </NavDropdown>

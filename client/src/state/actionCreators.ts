@@ -1,4 +1,4 @@
-import { Action, AppMode } from "../types";
+import { Action, AppMode, User } from "../types";
 
 export const toggleNavbar = (): Action => ({
   type: "TOGGLE_NAVBAR_VISIBILITY"
@@ -20,5 +20,18 @@ export const setToken = (token: string): Action => {
 export const clearToken = (): Action => {
   return {
     type: "REMOVE_TOKEN"
+  };
+};
+
+export const setAuthenticatedUser = (user: User): Action => {
+  return {
+    type: "SET_AUTHENTICATED_USER",
+    data: user
+  };
+};
+
+export const clearAuthenticatedUser = (): Action => {
+  return {
+    type: "CLEAR_AUTHENTICATED_USER"
   };
 };

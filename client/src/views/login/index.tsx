@@ -6,7 +6,7 @@ import { useMutation } from "@apollo/client";
 import { useDispatch } from "react-redux";
 
 import { LOGIN } from "../../utils/graphql";
-import { setToken } from "../../state/actionCreators";
+import { setToken, setAuthenticatedUser } from "../../state/actionCreators";
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>("");
@@ -37,7 +37,10 @@ const Login: React.FC = () => {
   useEffect(() => {
     if (data && data.login) {
       localStorage.setItem("token", data.login.token);
+      /* the two actions below could just as well be one, but for now
+      (for historical reasons :D) they are separate */
       dispatch(setToken(data.login.token));
+      dispatch(setAuthenticatedUser(data.login.user));
     }
   }, [data, dispatch]);
 
