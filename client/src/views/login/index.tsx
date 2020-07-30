@@ -36,8 +36,8 @@ const Login: React.FC = () => {
   // save received token to local storage
   useEffect(() => {
     if (data && data.login) {
-      localStorage.setItem("token", data.login);
-      dispatch(setToken(data.login));
+      localStorage.setItem("token", data.login.token);
+      dispatch(setToken(data.login.token));
     }
   }, [data, dispatch]);
 
