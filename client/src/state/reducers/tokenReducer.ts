@@ -1,6 +1,7 @@
 import { Reducer } from "react";
 import { State, Action } from "../../types";
 import { initialState } from "../rootReducer";
+import tg from "../../utils/typeguards";
 
 export const tokenReducer: Reducer<State, Action> = (state, action) => {
   if (typeof state === "undefined") return initialState;
@@ -9,7 +10,7 @@ export const tokenReducer: Reducer<State, Action> = (state, action) => {
     case "ADD_TOKEN":
       return {
         ...state,
-        token: typeof action.data === "string" ? action.data : null // TODO: Use type guard.
+        token: tg.isString(action.data) ? action.data : null
       };
     case "REMOVE_TOKEN":
       return {

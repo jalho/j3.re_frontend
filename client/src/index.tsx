@@ -30,7 +30,6 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
-// TODO: Get token from localStorage in an auth link. Example: https://www.apollographql.com/docs/react/networking/authentication/#header.
 const apolloClient = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache()
