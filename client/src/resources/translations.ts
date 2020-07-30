@@ -4,6 +4,7 @@ export const translations = {
     "translation": {
       "Below are some examples fetched from a database.": "Below are some examples fetched from a database.",
       "current": "current",
+      "Currently logged in as": "Currently logged in as",
       "CV": "CV",
       "degree level BSc": "degree level BSc",
       "DUOLINGO JOKE": "Duolingo says I'm the best :D",
@@ -42,6 +43,7 @@ export const translations = {
     "translation": {
       "Below are some examples fetched from a database.": "Alla joitakin esimerkkejä tietokannasta noudettuna.",
       "current": "nykyinen",
+      "Currently logged in as": "Nyt kirjautuneena",
       "CV": "Ansioluettelo",
       "degree level BSc": "tutkintotaso LuK",
       "DUOLINGO JOKE": "Duolingo sanoo, että olen paras :D",

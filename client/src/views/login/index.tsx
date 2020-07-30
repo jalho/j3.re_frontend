@@ -67,10 +67,9 @@ const Login: React.FC = () => {
   if (authenticatedUser) {
     return (
       <>
-        <p>
-          <span>{"Currently logged in as "}</span>
+        <p id="loginInformation">
+          <span>{t("Currently logged in as")}</span>
           <span id="loggedInUsername">{authenticatedUser.username}</span>
-          <span>.</span>
         </p>
         <Button onClick={(): void => logOut()}>
           {t("Log out")}
