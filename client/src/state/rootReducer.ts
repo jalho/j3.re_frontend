@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { Reducer } from "react";
 
-import { State, Action } from "../types/state";
+import { State, Action } from "../types";
 
 const initialState: State = {
   navbarVisible: true,

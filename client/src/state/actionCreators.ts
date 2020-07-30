@@ -1,4 +1,4 @@
-import { Action, AppMode } from "../types/state";
+import { Action, AppMode } from "../types";
 
 export const toggleNavbar = (): Action => ({
   type: "TOGGLE_NAVBAR_VISIBILITY"

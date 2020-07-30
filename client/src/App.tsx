@@ -13,7 +13,7 @@ import Login from "./views/login";
 import NavigationBar from "./components/NavigationBar";
 
 // types
-import { StateCombinedFromReducers } from "./types/state";
+import { StateCombinedFromReducers } from "./types";
 
 const App: React.FC = () => {
 

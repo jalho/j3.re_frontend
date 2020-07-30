@@ -13,7 +13,6 @@ export interface State {
   appMode: AppMode;
 }
 
-
 /**
  * All possible options for action type concerning navbar visibility.
  */
