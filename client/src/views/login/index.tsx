@@ -3,14 +3,17 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useTranslation } from "react-i18next";
 import { useMutation } from "@apollo/client";
+import { useDispatch } from "react-redux";
 
 import { LOGIN } from "../../utils/graphql";
+import { setToken } from "../../state/actionCreators";
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const { t } = useTranslation();
   const [login, { data }] = useMutation(LOGIN);
+  const dispatch = useDispatch();
 
   /**
    * Clear the login form's input fields.
@@ -34,8 +37,9 @@ const Login: React.FC = () => {
   useEffect(() => {
     if (data && data.login) {
       localStorage.setItem("token", data.login);
+      dispatch(setToken(data.login));
     }
-  }, [data]);
+  }, [data, dispatch]);
 
   return (
     <>

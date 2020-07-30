@@ -9,3 +9,16 @@ export const switchAppMode = (mode: AppMode): Action => {
     type: mode
   };
 };
+
+export const setToken = (token: string): Action => {
+  return {
+    type: "ADD_TOKEN",
+    data: token
+  };
+};
+
+export const clearToken = (): Action => {
+  return {
+    type: "REMOVE_TOKEN"
+  };
+};

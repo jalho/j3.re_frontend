@@ -11,6 +11,7 @@ export type AppMode = "DEFAULT" | "EASTER_EGG";
 export interface State {
   navbarVisible: boolean;
   appMode: AppMode;
+  token: string|null;
 }
 
 /**
@@ -18,8 +19,10 @@ export interface State {
  */
 export type ActionTypeNavbar = "TOGGLE_NAVBAR_VISIBILITY" | "SHOW_NAVBAR" | "HIDE_NAVBAR";
 
+export type TokenAction = "ADD_TOKEN" | "REMOVE_TOKEN";
+
 export interface Action {
-  type: ActionTypeNavbar | AppMode;
+  type: ActionTypeNavbar | AppMode | TokenAction;
   data?: unknown;
 }
 
@@ -28,5 +31,6 @@ export interface Action {
  */
 export interface StateCombinedFromReducers {
   navbarReducer: Reducer,
-  appModeReducer: Reducer
+  appModeReducer: Reducer,
+  tokenReducer: Reducer
 }

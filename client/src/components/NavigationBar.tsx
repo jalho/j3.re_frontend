@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useSelector, useDispatch } from "react-redux";
 
 // language selection icon
 import { MdTranslate } from "react-icons/md";
@@ -12,9 +13,18 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Button from "react-bootstrap/Button";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
+// own
+import { StateCombinedFromReducers, Action } from "../types";
+import { clearToken } from "../state/actionCreators";
+
 const NavigationBar: React.FC = () => {
   const { t, i18n } = useTranslation();
   const history = useHistory();
+  const dispatch = useDispatch();
+  
+  const token = useSelector((state: StateCombinedFromReducers) => {
+    return state.tokenReducer.token;
+  });
 
   const changeLanguage = (lng: string): void => {
     localStorage.setItem("lng", lng);
@@ -34,7 +44,11 @@ const NavigationBar: React.FC = () => {
           <Nav.Link as={Link} to="/portfolio">{t("Portfolio")}</Nav.Link>
           <NavDropdown title={randomEmoji} id="basic-nav-dropdown">
             <NavDropdown.Item onClick={(): void => history.push("/leave-note")}>{t("Leave a note")}</NavDropdown.Item>
-            <NavDropdown.Item onClick={(): void => history.push("/login")}>{t("Log in")}</NavDropdown.Item>
+            {
+              token
+                ? <NavDropdown.Item onClick={(): Action => dispatch(clearToken())}>{t("Log out")}</NavDropdown.Item>
+                : <NavDropdown.Item onClick={(): void => history.push("/login")}>{t("Log in")}</NavDropdown.Item>
+            }
           </NavDropdown>
         </Nav>
       </Navbar>

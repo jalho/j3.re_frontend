@@ -5,7 +5,8 @@ import { State, Action } from "../types";
 
 const initialState: State = {
   navbarVisible: true,
-  appMode: "DEFAULT"
+  appMode: "DEFAULT",
+  token: null
 };
 
 const navbarReducer: Reducer<State, Action> = (state, action) => {
@@ -41,9 +42,29 @@ const appModeReducer: Reducer<State, Action> = (state, action) => {
   }
 };
 
+const tokenReducer: Reducer<State, Action> = (state, action) => {
+  if (typeof state === "undefined") return initialState;
+
+  switch (action.type) {
+    case "ADD_TOKEN":
+      return {
+        ...state,
+        token: typeof action.data === "string" ? action.data : null // TODO: Use type guard.
+      };
+    case "REMOVE_TOKEN":
+      return {
+        ...state,
+        token: null
+      };
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   navbarReducer,
-  appModeReducer
+  appModeReducer,
+  tokenReducer
 });
 
 export default rootReducer;
