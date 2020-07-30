@@ -3,10 +3,17 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useTranslation } from "react-i18next";
 import { useMutation } from "@apollo/client";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
+// own
 import { LOGIN } from "../../utils/graphql";
-import { setToken, setAuthenticatedUser } from "../../state/actionCreators";
+import { StateCombinedFromReducers } from "../../types";
+import {
+  setToken,
+  setAuthenticatedUser,
+  clearToken,
+  clearAuthenticatedUser
+} from "../../state/actionCreators";
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>("");
@@ -14,6 +21,10 @@ const Login: React.FC = () => {
   const { t } = useTranslation();
   const [login, { data }] = useMutation(LOGIN);
   const dispatch = useDispatch();
+
+  const authenticatedUser = useSelector((state: StateCombinedFromReducers) => {
+    return state.authenticatedUserReducer.authenticatedUser;
+  });
 
   /**
    * Clear the login form's input fields.
@@ -44,25 +55,49 @@ const Login: React.FC = () => {
     }
   }, [data, dispatch]);
 
-  return (
-    <>
-      <Form onSubmit={loginHandler}>
-        <Form.Group>
-          <Form.Label>{t("Username")}</Form.Label>
-          <Form.Control type="text" onChange={(e): void => setUsername(e.target.value)} value={username} />
-        </Form.Group>
+  /**
+   * Clear logged in user information from Redux state, i. e. the token and user details.
+   * A similar function was first declared in NavigationBar.tsx; TODO: Remove duplicate.
+   */
+  const logOut = (): void => {
+    dispatch(clearToken());
+    dispatch(clearAuthenticatedUser());
+  };
 
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>{t("Password")}</Form.Label>
-          <Form.Control type="password" onChange={(e): void => setPassword(e.target.value)} value={password} />
-        </Form.Group>
-
-        <Button variant="primary" type="submit">
-          {t("Log in")}
+  if (authenticatedUser) {
+    return (
+      <>
+        <p>
+          <span>{"Currently logged in as "}</span>
+          <span id="loggedInUsername">{authenticatedUser.username}</span>
+          <span>.</span>
+        </p>
+        <Button onClick={(): void => logOut()}>
+          {t("Log out")}
         </Button>
-      </Form>
-    </>
-  );
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Form onSubmit={loginHandler}>
+          <Form.Group>
+            <Form.Label>{t("Username")}</Form.Label>
+            <Form.Control type="text" onChange={(e): void => setUsername(e.target.value)} value={username} />
+          </Form.Group>
+  
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>{t("Password")}</Form.Label>
+            <Form.Control type="password" onChange={(e): void => setPassword(e.target.value)} value={password} />
+          </Form.Group>
+  
+          <Button variant="primary" type="submit">
+            {t("Log in")}
+          </Button>
+        </Form>
+      </>
+    );
+  }
 };
 
 export default Login;
