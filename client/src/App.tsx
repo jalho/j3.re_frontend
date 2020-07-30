@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 // views
 import Home from "./views/home";
@@ -15,7 +15,10 @@ import NavigationBar from "./components/NavigationBar";
 // types
 import { StateCombinedFromReducers } from "./types";
 
+import { setAuthentication } from "./state/actionCreators";
+
 const App: React.FC = () => {
+  const dispatch = useDispatch();
 
   const navbarVisible = useSelector((state: StateCombinedFromReducers) => {
     return state.navbarReducer.navbarVisible;
@@ -24,16 +27,12 @@ const App: React.FC = () => {
     return state.appModeReducer.appMode;
   });
 
-  /* Hotfix to a bug: If page is reloaded without logging out, the token remains in local storage
-  and keeps authenticating requests with it. This hotfix clears token from local storage at first
-  render, i. e. on reload too.
-    TODO (better fix ideas for later):
-      - Merge localStorage's state somehow to app's state, so that a logout button would be
-        available when there is still a token in localStorage.
-  */
+  // get authentication from localStorage on render, if there's any
   useEffect(() => {
-    localStorage.removeItem("token");
-  }, []);
+    const authStringFromStorage = localStorage.getItem("authentication");
+    const authentication = authStringFromStorage ? JSON.parse(authStringFromStorage) : null;
+    if (authentication) dispatch(setAuthentication(authentication));
+  }, [dispatch]);
 
   switch (appMode) {
     default:

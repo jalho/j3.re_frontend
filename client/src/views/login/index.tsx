@@ -3,10 +3,13 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useTranslation } from "react-i18next";
 import { useMutation } from "@apollo/client";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 // own
 import { LOGIN } from "../../utils/graphql";
+import { setAuthentication } from "../../state/actionCreators";
+import { StateCombinedFromReducers } from "../../types";
+import { clearAuthInformation } from "../../utils/helpers";
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>("");
@@ -14,6 +17,9 @@ const Login: React.FC = () => {
   const { t } = useTranslation();
   const [login, { data }] = useMutation(LOGIN);
   const dispatch = useDispatch();
+  const authentication = useSelector((state: StateCombinedFromReducers) => {
+    return state.authenticationReducer.authentication;
+  });
 
   /**
    * Clear the login form's input fields.
@@ -36,11 +42,24 @@ const Login: React.FC = () => {
   // save received token to local storage
   useEffect(() => {
     if (data && data.login) {
-      console.log("TODO!");
+      dispatch(setAuthentication(data.login));
+      localStorage.setItem("authentication", JSON.stringify(data.login));
     }
   }, [data, dispatch]);
 
-  return (
+  if (authentication) {
+    return (
+      <>
+        <p id="loginInformation">
+          <span>{t("Currently logged in as")}</span>
+          <span id="loggedInUsername">{authentication.user.username}</span>
+        </p>
+        <Button onClick={(): void => clearAuthInformation()}>
+          Log out
+        </Button>
+      </>
+    );
+  } else return (
     <>
       <Form onSubmit={loginHandler}>
         <Form.Group>

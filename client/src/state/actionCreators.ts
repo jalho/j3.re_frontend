@@ -9,3 +9,16 @@ export const switchAppMode = (mode: AppModeAction): Action => {
     type: mode
   };
 };
+
+export const setAuthentication = (auth: unknown): Action => {
+  return {
+    type: "SET_AUTHENTICATION",
+    data: auth
+  };
+};
+
+export const clearAuthentication = (): Action => {
+  return {
+    type: "CLEAR_AUTHENTICATION"
+  };
+};
