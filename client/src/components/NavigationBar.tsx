@@ -37,6 +37,7 @@ const NavigationBar: React.FC = () => {
   const logOut = (): void => {
     dispatch(clearToken());
     dispatch(clearAuthenticatedUser());
+    localStorage.removeItem("token");
   };
 
   const emojis = ["🌌", "🌠", "⭐", "✨"];

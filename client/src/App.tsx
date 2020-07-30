@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -23,6 +23,17 @@ const App: React.FC = () => {
   const appMode = useSelector((state: StateCombinedFromReducers) => {
     return state.appModeReducer.appMode;
   });
+
+  /* Hotfix to a bug: If page is reloaded without logging out, the token remains in local storage
+  and keeps authenticating requests with it. This hotfix clears token from local storage at first
+  render, i. e. on reload too.
+    TODO (better fix ideas for later):
+      - Merge localStorage's state somehow to app's state, so that a logout button would be
+        available when there is still a token in localStorage.
+  */
+  useEffect(() => {
+    localStorage.removeItem("token");
+  }, []);
 
   switch (appMode) {
     default:

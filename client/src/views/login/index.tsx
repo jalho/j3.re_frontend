@@ -62,6 +62,7 @@ const Login: React.FC = () => {
   const logOut = (): void => {
     dispatch(clearToken());
     dispatch(clearAuthenticatedUser());
+    localStorage.removeItem("token");
   };
 
   if (authenticatedUser) {
