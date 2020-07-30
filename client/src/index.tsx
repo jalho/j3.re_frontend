@@ -13,6 +13,7 @@ import "./i18n"; // internationalization
 
 import { getBackendURI } from "./utils/helpers";
 
+// TODO: Get token from localStorage in an auth link. Example: https://www.apollographql.com/docs/react/networking/authentication/#header.
 const apolloClient = new ApolloClient({
   uri: getBackendURI(),
   cache: new InMemoryCache()

@@ -1,12 +1,16 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useTranslation } from "react-i18next";
+import { useMutation } from "@apollo/client";
+
+import { LOGIN } from "../../utils/graphql";
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const { t } = useTranslation();
+  const [login, { data }] = useMutation(LOGIN);
 
   /**
    * Clear the login form's input fields.
@@ -16,16 +20,22 @@ const Login: React.FC = () => {
     setPassword("");
   };
 
-  // TODO: Implement token fetching with `useMutation`.
-  // TODO: Get token from localStorage in an auth link. Example: https://www.apollographql.com/docs/react/networking/authentication/#header.
   /**
-   * TODO: Document.
+   * Send a token request as mutation to GraphQL backend and clear input fields.
    * @param e event emitted from login form
    */
   const loginHandler = (e: FormEvent): void => {
     e.preventDefault(); // prevent reloading
+    login({ variables: { username: username, password: password } });
     clearFields();
   };
+
+  // save received token to local storage
+  useEffect(() => {
+    if (data && data.login) {
+      localStorage.setItem("token", data.login);
+    }
+  }, [data]);
 
   return (
     <>
