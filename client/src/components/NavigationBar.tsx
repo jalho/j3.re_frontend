@@ -33,8 +33,8 @@ const NavigationBar: React.FC = () => {
           <Nav.Link as={Link} to="/cv">{t("CV")}</Nav.Link>
           <Nav.Link as={Link} to="/portfolio">{t("Portfolio")}</Nav.Link>
           <NavDropdown title={randomEmoji} id="basic-nav-dropdown">
-            <NavDropdown.Item onClick={() => history.push("/leave-note")}>{t("Leave a note")}</NavDropdown.Item>
-            <NavDropdown.Item onClick={() => history.push("/login")}>{t("Log in")}</NavDropdown.Item>
+            <NavDropdown.Item onClick={(): void => history.push("/leave-note")}>{t("Leave a note")}</NavDropdown.Item>
+            <NavDropdown.Item onClick={(): void => history.push("/login")}>{t("Log in")}</NavDropdown.Item>
           </NavDropdown>
         </Nav>
       </Navbar>
