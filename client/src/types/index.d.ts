@@ -21,10 +21,9 @@ export interface AuthPayload {
 export type AppModeAction = "DEFAULT" | "EASTER_EGG";
 export type AuthenticationAction = "SET_AUTHENTICATION" | "CLEAR_AUTHENTICATION";
 export type NavBarAction = "TOGGLE_NAVBAR_VISIBILITY" | "SHOW_NAVBAR" | "HIDE_NAVBAR";
-export type TokenAction = "ADD_TOKEN" | "REMOVE_TOKEN";
 
 export interface Action {
-  type: NavBarAction | AppModeAction | TokenAction | AuthenticationAction;
+  type: NavBarAction | AppModeAction | AuthenticationAction;
   data?: unknown;
 }
 
@@ -34,6 +33,5 @@ export interface Action {
 export interface StateCombinedFromReducers {
   navbarReducer: Reducer,
   appModeReducer: Reducer,
-  tokenReducer: Reducer,
   authenticationReducer: Reducer
 }
