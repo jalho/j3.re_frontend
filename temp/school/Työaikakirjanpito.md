@@ -21,7 +21,7 @@
 | 27-Jul-2020 | 8 | `c36dd4a`, `0112c60`* | Tyhjensin GitHubin projektinhallintaan kirjattua To do -listaa. Toteutin mm. ensimmäisen GraphQL-mutaation tuen backendiin. |
 | 28-Jul-2020 | 8 | `215157f`, `37c3884`* | Lisäsin käyttäjät projektin skeemaan ja ryhdyin toteuttamaan tunnistautumista niin frontin kuin palvelimenkin puolella. |
 | 29-Jul-2020 | 8 | `af1b0e8`, `a0fbe53`* | Uudelleentoteutin GraphQL-operaatiot käyttäen järkevämpää funktioiden välistä vastuunjakoa. Siirsin salasanojen "tiivistämisen" (*hashing*) clientistä palvelimen puolelle, ja poistin tiivisteet GraphQL-kyselyistä. Motivaatio tiivistämiseen palvelimen puolella tuli [täältä](https://security.stackexchange.com/a/8600/239271). Toteutin käyttäjän tunnistautumisen ja tokenin generoinnin palvelimen puolella. Ynnä muuta kirjautumiseen liittyvää selvittelyä ja yleistä projektinhallintaa. |
-| 30-Jul-2020 | | | |
+| 30-Jul-2020 | 8 | `TODO` | Toteutin tunnistautumisen seurannan niin palvelimen kuin clientinkin puoella. Login-mutaatio palauttaa tokenin lisäksi kirjautuneen käyttäjän tiedot, ja nämä talletetaan clientissä sekä sovelluksen Redux-tilaan, että paikalliseen muistiin (`localStorage.getItem("authentication")`). Client liittää tokenin automaattisesti kaikkiin HTTP-pyyntöihin `authorization`-otsakkeeseen (*header*), minkä palvelin lukee ja dekoodaa jokaisen resolverin kontekstiin. |
 | 31-Jul-2020 | | | |
 | 3-Aug-2020 | | | |
-| **yhteensä**   | 103 | \* [backend](https://github.com/jalho/j3.re_backend) | | 
+| **yhteensä**   | 111 | \* [backend](https://github.com/jalho/j3.re_backend) | |
