@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 // language selection icon
 import { MdTranslate } from "react-icons/md";
@@ -15,12 +15,10 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 
 // own
 import { StateCombinedFromReducers } from "../types";
-import { clearToken, clearAuthenticatedUser } from "../state/actionCreators";
 
 const NavigationBar: React.FC = () => {
   const { t, i18n } = useTranslation();
   const history = useHistory();
-  const dispatch = useDispatch();
   
   const token = useSelector((state: StateCombinedFromReducers) => {
     return state.tokenReducer.token;
@@ -29,15 +27,6 @@ const NavigationBar: React.FC = () => {
   const changeLanguage = (lng: string): void => {
     localStorage.setItem("lng", lng);
     i18n.changeLanguage(lng);
-  };
-
-  /**
-   * Clear token and authenticated user information from Redux state.
-   */
-  const logOut = (): void => {
-    dispatch(clearToken());
-    dispatch(clearAuthenticatedUser());
-    localStorage.removeItem("token");
   };
 
   const emojis = ["🌌", "🌠", "⭐", "✨"];
@@ -55,7 +44,7 @@ const NavigationBar: React.FC = () => {
             <NavDropdown.Item onClick={(): void => history.push("/leave-note")}>{t("Leave a note")}</NavDropdown.Item>
             {
               token
-                ? <NavDropdown.Item onClick={(): void => logOut()}>{t("Log out")}</NavDropdown.Item>
+                ? <NavDropdown.Item onClick={(): void => console.log("TODO!")}>{t("Log out")}</NavDropdown.Item>
                 : <NavDropdown.Item onClick={(): void => history.push("/login")}>{t("Log in")}</NavDropdown.Item>
             }
           </NavDropdown>

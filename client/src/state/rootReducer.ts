@@ -4,20 +4,19 @@ import { State } from "../types";
 import { navbarReducer } from "./reducers/navbarReducer";
 import { appModeReducer } from "./reducers/appModeReducer";
 import { tokenReducer } from "./reducers/tokenReducer";
-import { authenticatedUserReducer } from "./reducers/authenticatedUserReducer";
+import { authenticationReducer } from "./reducers/authenticationReducer";
 
 export const initialState: State = {
   navbarVisible: true,
   appMode: "DEFAULT",
-  token: null,
-  authenticatedUser: null
+  authentication: null
 };
 
 const rootReducer = combineReducers({
   navbarReducer,
   appModeReducer,
   tokenReducer,
-  authenticatedUserReducer
+  authenticationReducer
 });
 
 export default rootReducer;

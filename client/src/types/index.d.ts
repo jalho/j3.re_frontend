@@ -1,36 +1,30 @@
 import { Reducer } from "react";
 
-/**
- * Different options for how to render the app.
- */
-export type AppMode = "DEFAULT" | "EASTER_EGG";
+// app state
+export interface State {
+  navbarVisible: boolean;
+  appMode: AppModeAction;
+  authentication: AuthPayload|null;
+}
 
 export interface User {
   id: string;
   username: string;
 }
 
-/**
- * The form in which the state is to be saved to Redux store.
- */
-export interface State {
-  navbarVisible: boolean;
-  appMode: AppMode;
-  token: string|null;
-  authenticatedUser: User|null;
+export interface AuthPayload {
+  token: string;
+  user: User;
 }
 
-/**
- * All possible options for action type concerning navbar visibility.
- */
-export type ActionTypeNavbar = "TOGGLE_NAVBAR_VISIBILITY" | "SHOW_NAVBAR" | "HIDE_NAVBAR";
-
+// Action types
+export type AppModeAction = "DEFAULT" | "EASTER_EGG";
+export type AuthenticationAction = "SET_AUTHENTICATION" | "CLEAR_AUTHENTICATION";
+export type NavBarAction = "TOGGLE_NAVBAR_VISIBILITY" | "SHOW_NAVBAR" | "HIDE_NAVBAR";
 export type TokenAction = "ADD_TOKEN" | "REMOVE_TOKEN";
 
-export type UserAuthenticationAction = "SET_AUTHENTICATED_USER" | "CLEAR_AUTHENTICATED_USER";
-
 export interface Action {
-  type: ActionTypeNavbar | AppMode | TokenAction | UserAuthenticationAction;
+  type: NavBarAction | AppModeAction | TokenAction | AuthenticationAction;
   data?: unknown;
 }
 
@@ -41,5 +35,5 @@ export interface StateCombinedFromReducers {
   navbarReducer: Reducer,
   appModeReducer: Reducer,
   tokenReducer: Reducer,
-  authenticatedUserReducer: Reducer
+  authenticationReducer: Reducer
 }
