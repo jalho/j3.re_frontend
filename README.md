@@ -32,45 +32,54 @@ Create a `.env` file in the root directory of the client with content of shape:
 <details>
     <summary>Expand</summary>
 
-*as of 21 July 2020*
+*as of 5 August 2020*
 ```
 src
-¦   App.tsx                 # single page app's base
-¦   AppLoader.tsx           # load "App", and meanwhile render "Landing" as fallback
-¦   i18n.ts                 # internationalization of the UI
-¦   index.tsx               # entry point
-¦   react-app-env.d.ts      # CRA types
+¦   App.tsx                             # single page app's base
+¦   AppLoader.tsx                       # load "App", and meanwhile render "Landing" as fallback
+¦   i18n.ts                             # internationalization of the UI
+¦   index.tsx                           # entry point
+¦   react-app-env.d.ts                  # Create React App (CRA) types
 ¦   
-+---components              # components and their styles
++---components                          # components and their styles
 ¦       ...
 ¦       
 +---resources               
-¦       translations.ts     # UI texts in available languages
+¦       translations.ts                 # UI texts in available languages
 ¦       
-+---state                   # Redux utility
-¦       actionCreators.ts   # dispatchable actions
-¦       rootReducer.ts      # combined reducers
-¦       store.ts            # Redux store
++---state                               # Redux utility
+¦   ¦   actionCreators.ts               # dispatchable actions
+¦   ¦   rootReducer.ts                  # combined reducers
+¦   ¦   store.ts                        # Redux store
+¦   ¦   
+¦   +---reducers                        # reducers to be combined in rootReducer
+¦           ...
 ¦       
-+---styles                  # main styles location
-¦       main.scss           # the main Sass file
-¦       _constants.scss     # variables used across stylesheets
-¦       _mixins.scss        # mixins used across stylesheets
++---styles
+¦       main.scss                       # the main Sass file
+¦       _constants.scss                 # variables used across stylesheets
+¦       _mixins.scss                    # mixins used across stylesheets
 ¦       
-+---types                   # own types
-¦       state.d.ts          # types for Redux implementation
++---types
+¦       index.d.ts                      # own types
 ¦       
-+---views                   # modules for different views in the UI
-    +---cv                  # "CV" view and its styles
++---views                               # modules for different views in the UI
+    +---cv
     ¦       ...
     ¦       
-    +---home                # "Home" view, rendered after "Landing"
+    +---home                            # rendered after "landing"
     ¦       ...
     ¦       
-    +---landing             # "Landing" view and its styles
-    ¦       ...             # (shown fixed minimum time and as `Suspense` fallback if needed)
+    +---landing                         # rendered first (for minimum time and as fallback)
+    ¦       ...
     ¦       
-    +---portfolio           # "Portfolio" view
+    +---leave_note
+    ¦       ...
+    ¦       
+    +---login
+    ¦       ...
+    ¦       
+    +---portfolio
             ...
 ```
 </details>
