@@ -51,17 +51,48 @@ export const asAlert = (value: unknown): Alert|null => {
 };
 
 /**
+ * Dispatch notification to UI and set a timeout for clearing it.
+ * @param messageType of notification alert
+ * @param username that is logged in
+ */
+export const notify = (messageType: "still logged in" | "just logged in" | "logged out", username?: string, delay?: number): void => {
+  // set alert
+  switch (messageType) {
+    case "just logged in":
+      store.dispatch(setAlert(
+        {
+          content: `Logged in as ${username}`,
+          variant: "success",
+          visible: true
+        }
+      ));
+      break;
+    case "logged out":
+      store.dispatch(setAlert({
+        content: "Logged out",
+        variant: "success",
+        visible: true
+      }));
+      break;
+    case "still logged in":
+      store.dispatch(setAlert(
+        {
+          content: `Still logged in as ${username}`,
+          variant: "success",
+          visible: true
+        }
+      ));
+      break;
+  }
+  // hide alert after delay
+  setTimeout(() => store.dispatch(hideAlert()), delay || 3000);
+};
+
+/**
  * Remove authentication information from app state and localStorage.
  */
 export const clearAuthInformation = (): void => {
   store.dispatch(clearAuthentication());
   localStorage.removeItem("authentication");
-  store.dispatch(setAlert(
-    {
-      content: "Logged out",
-      variant: "success",
-      visible: true
-    }
-  ));
-  setTimeout(() => store.dispatch(hideAlert()), 3000);
+  notify("logged out");
 };

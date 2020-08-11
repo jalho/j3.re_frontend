@@ -3,13 +3,10 @@ import { Switch, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Alert from "react-bootstrap/Alert";
 
-// components
 import NavigationBar from "./components/NavigationBar";
-
-// types
 import { StateCombinedFromReducers } from "./types";
-
-import { setAuthentication, setAlert, hideAlert } from "./state/actionCreators";
+import { setAuthentication } from "./state/actionCreators";
+import { notify } from "./utils/helpers";
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
@@ -30,14 +27,7 @@ const App: React.FC = () => {
     const authentication = authStringFromStorage ? JSON.parse(authStringFromStorage) : null;
     if (authentication) {
       dispatch(setAuthentication(authentication));
-      dispatch(setAlert(
-        {
-          content: `Still logged in as ${authentication.user.username}`,
-          variant: "success",
-          visible: true
-        }
-      ));
-      setTimeout(() => dispatch(hideAlert()), 3000);
+      notify("still logged in", authentication.user.username);
     }
   }, [dispatch]);
 
