@@ -45,3 +45,9 @@ export interface StateCombinedFromReducers {
   authenticationReducer: Reducer,
   alertReducer: Reducer
 }
+
+export interface Note {
+  id: string;
+  content: string;
+  time: string;
+}

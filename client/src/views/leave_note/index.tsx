@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useQuery } from "@apollo/client";
 
 import { GET_ALL_APPROVED_NOTES } from "../../utils/graphql";
+import { Note } from "../../types";
 
 const LeaveNote: React.FC = () => {
   const { t } = useTranslation();
@@ -10,7 +11,7 @@ const LeaveNote: React.FC = () => {
 
   // create JSX elements of fetched notes
   let noteElements: Array<JSX.Element> = [];
-  if (data) noteElements = data.approvedNotes.map((note: { id: string; time: string; content: string; }) => (
+  if (data) noteElements = data.approvedNotes.map((note: Note) => (
     <div key={note.id} className="note">
       <p>
         <b>{`${new Date(note.time).getUTCDate()}.${new Date(note.time).getUTCMonth()+1}.${new Date(note.time).getUTCFullYear()}`}</b>
