@@ -64,7 +64,8 @@ const App: React.FC = () => {
         </Suspense>
       );
     case "EASTER_EGG":
-      return <EasterEgg />;
+      // prevent flashing the landing view as fallback here too
+      return <Suspense fallback={null}><EasterEgg/></Suspense>;
   }
 
 
