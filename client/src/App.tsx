@@ -1,14 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Alert from "react-bootstrap/Alert";
-
-// views
-import Home from "./views/home";
-import CV from "./views/cv";
-import Portfolio from "./views/portfolio";
-import LeaveNote from "./views/leave_note";
-import Login from "./views/login";
 
 // components
 import NavigationBar from "./components/NavigationBar";
@@ -48,46 +41,34 @@ const App: React.FC = () => {
     }
   }, [dispatch]);
 
+  // import views dynamically ("code splitting")
+  const Home = lazy(() => import("./views/home"));
+  const CV = lazy(() => import("./views/cv"));
+  const Portfolio = lazy(() => import("./views/portfolio"));
+  const LeaveNote = lazy(() => import("./views/leave_note"));
+  const Login = lazy(() => import("./views/login"));
+
   switch (appMode) {
     default:
     case "DEFAULT":
       return (
-        <>
+        <Suspense fallback={null} /* Prevent flashing the landing view as fallback here. */ >
           {navbarVisible && <NavigationBar />}
-
           <div className="view">
-
             {alert &&
               <Alert variant={alert.variant}>
                 {alert.content}
               </Alert>
             }
-    
             <Switch>
-    
-              <Route path="/cv">
-                <CV />
-              </Route>
-    
-              <Route path="/portfolio">
-                <Portfolio />
-              </Route>
-
-              <Route path="/leave-note">
-                <LeaveNote />
-              </Route>
-
-              <Route path="/login">
-                <Login />
-              </Route>
-    
-              <Route path="/">
-                <Home />
-              </Route>
-    
+              <Route path="/cv" component={CV} />
+              <Route path="/portfolio" component={Portfolio} />
+              <Route path="/leave-note" component={LeaveNote} />
+              <Route path="/login" component={Login} />
+              <Route path="/" component={Home} />
             </Switch>
           </div>
-        </>
+        </Suspense>
       );
     case "EASTER_EGG":
       return <div>Easter egg!</div>;
