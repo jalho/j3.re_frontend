@@ -44,9 +44,9 @@ const Login: React.FC = () => {
     if (data && data.login) {
       dispatch(setAuthentication(data.login));
       localStorage.setItem("authentication", JSON.stringify(data.login));
-      notify("just logged in", data.login.user.username);
+      notify(t("Logged in as ") + data.login.user.username);
     }
-  }, [data, dispatch]);
+  }, [data, dispatch, t]);
 
   if (authentication) {
     return (
@@ -55,7 +55,10 @@ const Login: React.FC = () => {
           <span>{t("Currently logged in as")}</span>
           <span id="loggedInUsername">{authentication.user.username}</span>
         </p>
-        <Button onClick={(): void => clearAuthInformation()}>
+        <Button onClick={(): void => {
+          clearAuthInformation();
+          notify(t("Logged out"));
+        }}>
           Log out
         </Button>
       </>

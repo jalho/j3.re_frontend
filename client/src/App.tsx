@@ -2,6 +2,7 @@ import React, { useEffect, lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Alert from "react-bootstrap/Alert";
+import { useTranslation } from "react-i18next";
 
 import NavigationBar from "./components/NavigationBar";
 import { StateCombinedFromReducers } from "./types";
@@ -10,6 +11,7 @@ import { notify } from "./utils/helpers";
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const navbarVisible = useSelector((state: StateCombinedFromReducers) => {
     return state.navbarReducer.navbarVisible;
@@ -27,9 +29,9 @@ const App: React.FC = () => {
     const authentication = authStringFromStorage ? JSON.parse(authStringFromStorage) : null;
     if (authentication) {
       dispatch(setAuthentication(authentication));
-      notify("still logged in", authentication.user.username);
+      notify(t("Still logged in as ") + authentication.user.username);
     }
-  }, [dispatch]);
+  }, [dispatch, t]);
 
   // import views dynamically ("code splitting")
   const Home = lazy(() => import("./views/home"));

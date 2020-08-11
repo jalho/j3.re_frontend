@@ -14,7 +14,7 @@ import Button from "react-bootstrap/Button";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
 // own
-import { clearAuthInformation } from "../utils/helpers";
+import { clearAuthInformation, notify } from "../utils/helpers";
 import { StateCombinedFromReducers } from "../types";
 
 const NavigationBar: React.FC = () => {
@@ -45,7 +45,7 @@ const NavigationBar: React.FC = () => {
             <NavDropdown.Item onClick={(): void => history.push("/leave-note")}>{t("Leave a note")}</NavDropdown.Item>
             {
               authentication
-                ? <NavDropdown.Item onClick={(): void => clearAuthInformation()}>{t("Log out")}</NavDropdown.Item>
+                ? <NavDropdown.Item onClick={(): void => {clearAuthInformation(); notify(t("Logged out")); }}>{t("Log out")}</NavDropdown.Item>
                 : <NavDropdown.Item onClick={(): void => history.push("/login")}>{t("Log in")}</NavDropdown.Item>
             }
           </NavDropdown>
