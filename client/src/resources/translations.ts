@@ -8,6 +8,7 @@ export const translations = {
       "CV": "CV",
       "degree level BSc": "degree level BSc",
       "DUOLINGO JOKE": "Duolingo says I'm the best :D",
+      "Easter egg": "Easter egg",
       "Education": "Education",
       "English": "English",
       "ENGLISH NATIVE": "English", // language name in the language, for language menu
@@ -50,6 +51,7 @@ export const translations = {
       "CV": "Ansioluettelo",
       "degree level BSc": "tutkintotaso LuK",
       "DUOLINGO JOKE": "Duolingo sanoo, että olen paras :D",
+      "Easter egg": "Pääsiäismuna",
       "Education": "Koulutus",
       "English": "englanti",
       "ENGLISH NATIVE": "English", // language name in the language, for language menu

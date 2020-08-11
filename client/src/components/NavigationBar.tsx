@@ -54,7 +54,7 @@ const NavigationBar: React.FC = () => {
               <NavDropdown.Item onClick={(): void => history.push("/login")}>{t("Log in")}</NavDropdown.Item>
             }
             <NavDropdown.Item onClick={(): Action => dispatch(switchAppMode("EASTER_EGG"))}>
-              {eggClickCounter === 5 && "Easter egg"}
+              {eggClickCounter === 5 && t("Easter egg")}
             </NavDropdown.Item>
           </NavDropdown>
         </Nav>
