@@ -20,11 +20,6 @@
     height: c.$fontSizeDefault * 4;
   }
 
-  ul {
-    padding-inline-start: c.$fontSizeDefault;
-    margin: 0 c.$fontSizeDefault c.$fontSizeDefault/2 c.$fontSizeDefault;
-  }
-
   #spokenLanguages {
     @include m.flexCenter();
     display: flex;

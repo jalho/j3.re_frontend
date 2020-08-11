@@ -23,12 +23,10 @@ const CV: React.FC = () => {
             <em className="CV_item_info">
               {t("not yet graduated")}
             </em>
-            <ul>
-              <li>{t("major in computer science")}</li>
-              <li>{t("minor in mathematics")}</li>
-              <li>{t("degree level BSc")}</li>
-              <li>{t("start year 2019")}</li>
-            </ul>
+            <span>{t("major in computer science")}</span>
+            <span>{t("minor in mathematics")}</span>
+            <span>{t("degree level BSc")}</span>
+            <span>{t("start year 2019")}</span>
           </div>
         </div>
 
