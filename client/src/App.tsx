@@ -39,6 +39,7 @@ const App: React.FC = () => {
   const Portfolio = lazy(() => import("./views/portfolio"));
   const LeaveNote = lazy(() => import("./views/leave_note"));
   const Login = lazy(() => import("./views/login"));
+  const EasterEgg = lazy(() => import("./views/easter_egg"));
 
   switch (appMode) {
     default:
@@ -63,7 +64,7 @@ const App: React.FC = () => {
         </Suspense>
       );
     case "EASTER_EGG":
-      return <div>Easter egg!</div>;
+      return <EasterEgg />;
   }
 
 

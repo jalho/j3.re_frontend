@@ -11,6 +11,7 @@
 @use "../views/cv/cv";
 @use "../views/leave_note/leave_note";
 @use "../views/login/login";
+@use "../views/easter_egg/easterEgg";
 
 html {
   @include m.breathingBackground();

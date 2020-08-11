@@ -1,10 +1,10 @@
-import { Action, AppModeAction, Alert } from "../types";
+import { Action, Alert } from "../types";
 
 export const toggleNavbar = (): Action => ({
   type: "TOGGLE_NAVBAR_VISIBILITY"
 });
 
-export const switchAppMode = (mode: AppModeAction): Action => {
+export const switchAppMode = (mode: "DEFAULT" | "EASTER_EGG"): Action => {
   return {
     type: mode
   };
@@ -33,5 +33,11 @@ export const setAlert = (alert: Alert): Action => {
 export const hideAlert = (): Action => {
   return {
     type: "HIDE_ALERT"
+  };
+};
+
+export const increaseEggCounter = (): Action => {
+  return {
+    type: "INCR_COUNTER"
   };
 };

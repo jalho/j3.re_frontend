@@ -6,6 +6,7 @@ export interface State {
   appMode: AppModeAction;
   authentication: AuthPayload|null;
   alert: Alert|null;
+  eggClickCounter: number;
 }
 
 export interface Alert {
@@ -25,7 +26,7 @@ export interface AuthPayload {
 }
 
 // Action types
-export type AppModeAction = "DEFAULT" | "EASTER_EGG";
+export type AppModeAction = "DEFAULT" | "EASTER_EGG" | "INCR_COUNTER" | "RESET_COUNTER";
 export type AuthenticationAction = "SET_AUTHENTICATION" | "CLEAR_AUTHENTICATION";
 export type NavBarAction = "TOGGLE_NAVBAR_VISIBILITY" | "SHOW_NAVBAR" | "HIDE_NAVBAR";
 export type AlertAction = "SET_ALERT" | "HIDE_ALERT";

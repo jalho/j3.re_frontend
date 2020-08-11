@@ -10,7 +10,8 @@ export const initialState: State = {
   navbarVisible: true,
   appMode: "DEFAULT",
   authentication: null,
-  alert: null
+  alert: null,
+  eggClickCounter: 0
 };
 
 const rootReducer = combineReducers({

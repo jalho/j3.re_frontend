@@ -1,0 +1,30 @@
+@use "../../styles/mixins" as m;
+
+#easterEgg {
+  @include m.breathingBackgroundEasterEgg();
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @keyframes scale {
+    0%, 100% {
+      transform: scale(1)
+    }
+    50% {
+      transform: scale(0.8)
+    }
+  }
+  
+  img {
+    animation: scale 3s infinite;
+  }
+
+  a {
+    color: white;
+    font-size: 2em;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    animation: scale 3s infinite;
+  }
+}

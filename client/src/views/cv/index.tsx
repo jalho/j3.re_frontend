@@ -1,18 +1,24 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
 
 import UTU from "../../components/UTU";
 import Header from "../../components/Header";
+import { increaseEggCounter } from "../../state/actionCreators";
 
 const CV: React.FC = () => {
-const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const dispatch = useDispatch();
+  const eggCounter = (): void => {
+    dispatch(increaseEggCounter());
+  };
 
   return (
     <>
       <div id="CV_container" className="view">
         <div>
           <Header text={t("Education")} />
-          <div className="CV_item">
+          <div className="CV_item" onClick={eggCounter}>
             <UTU language={i18n.language} />
             <em className="CV_item_info">
               {t("not yet graduated")}
