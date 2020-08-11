@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import UTU from "../../components/UTU";
 import Header from "../../components/Header";
 import { increaseEggCounter } from "../../state/actionCreators";
+import Card from "../../components/Card";
 
 const CV: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -16,6 +17,7 @@ const CV: React.FC = () => {
   return (
     <>
       <div id="CV_container" className="view">
+        
         <div>
           <Header text={t("Education")} />
           <div className="CV_item" onClick={eggCounter}>
@@ -32,9 +34,7 @@ const CV: React.FC = () => {
 
         <div>
           <Header text={t("Work experience")} />
-          <div className="CV_item">
-            {t("None yet relevant to the field.")}
-          </div>
+          <Card items={[t("None yet relevant to the field.")]}/>
         </div>
 
         <div>
@@ -50,6 +50,7 @@ const CV: React.FC = () => {
             </div>
           </div>
         </div>
+
       </div>
     </>
   );

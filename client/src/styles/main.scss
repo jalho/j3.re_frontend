@@ -12,6 +12,7 @@
 @use "../views/leave_note/leave_note";
 @use "../views/login/login";
 @use "../views/easter_egg/easterEgg";
+@use "../components/Card/card";
 
 html {
   @include m.breathingBackground();
