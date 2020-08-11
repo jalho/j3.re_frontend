@@ -1,7 +1,7 @@
-import { User, AuthPayload } from "../types";
+import { User, AuthPayload, Alert } from "../types";
 import tg from "./typeguards";
 import store from "../state/store";
-import { clearAuthentication } from "../state/actionCreators";
+import { clearAuthentication, setAlert, hideAlert } from "../state/actionCreators";
 
 /**
  * Get backend's URI to be used in Apollo Client or elsewhere.
@@ -40,10 +40,28 @@ export const asAuthPayload = (value: unknown): AuthPayload|null => {
   } else return null;
 };
 
+export const asAlert = (value: unknown): Alert|null => {
+  if (tg.isAlert(value)) {
+    return {
+      variant: value.variant,
+      content: value.content,
+      visible: value.visible
+    };
+  } else return null;
+};
+
 /**
  * Remove authentication information from app state and localStorage.
  */
 export const clearAuthInformation = (): void => {
   store.dispatch(clearAuthentication());
   localStorage.removeItem("authentication");
+  store.dispatch(setAlert(
+    {
+      content: "Logged out",
+      variant: "success",
+      visible: true
+    }
+  ));
+  setTimeout(() => store.dispatch(hideAlert()), 3000);
 };

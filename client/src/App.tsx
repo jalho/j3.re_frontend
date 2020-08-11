@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import Alert from "react-bootstrap/Alert";
 
 // views
 import Home from "./views/home";
@@ -15,7 +16,7 @@ import NavigationBar from "./components/NavigationBar";
 // types
 import { StateCombinedFromReducers } from "./types";
 
-import { setAuthentication } from "./state/actionCreators";
+import { setAuthentication, setAlert, hideAlert } from "./state/actionCreators";
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
@@ -26,12 +27,25 @@ const App: React.FC = () => {
   const appMode = useSelector((state: StateCombinedFromReducers) => {
     return state.appModeReducer.appMode;
   });
+  const alert = useSelector((state: StateCombinedFromReducers) => {
+    return state.alertReducer.alert;
+  });
 
   // get authentication from localStorage on render, if there's any
   useEffect(() => {
     const authStringFromStorage = localStorage.getItem("authentication");
     const authentication = authStringFromStorage ? JSON.parse(authStringFromStorage) : null;
-    if (authentication) dispatch(setAuthentication(authentication));
+    if (authentication) {
+      dispatch(setAuthentication(authentication));
+      dispatch(setAlert(
+        {
+          content: `Still logged in as ${authentication.user.username}`,
+          variant: "success",
+          visible: true
+        }
+      ));
+      setTimeout(() => dispatch(hideAlert()), 3000);
+    }
   }, [dispatch]);
 
   switch (appMode) {
@@ -40,8 +54,14 @@ const App: React.FC = () => {
       return (
         <>
           {navbarVisible && <NavigationBar />}
-          
+
           <div className="view">
+
+            {alert &&
+              <Alert variant={alert.variant}>
+                {alert.content}
+              </Alert>
+            }
     
             <Switch>
     

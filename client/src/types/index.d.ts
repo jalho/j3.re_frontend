@@ -5,6 +5,13 @@ export interface State {
   navbarVisible: boolean;
   appMode: AppModeAction;
   authentication: AuthPayload|null;
+  alert: Alert|null;
+}
+
+export interface Alert {
+  visible: boolean;
+  content: string;
+  variant: string;
 }
 
 export interface User {
@@ -21,9 +28,10 @@ export interface AuthPayload {
 export type AppModeAction = "DEFAULT" | "EASTER_EGG";
 export type AuthenticationAction = "SET_AUTHENTICATION" | "CLEAR_AUTHENTICATION";
 export type NavBarAction = "TOGGLE_NAVBAR_VISIBILITY" | "SHOW_NAVBAR" | "HIDE_NAVBAR";
+export type AlertAction = "SET_ALERT" | "HIDE_ALERT";
 
 export interface Action {
-  type: NavBarAction | AppModeAction | AuthenticationAction;
+  type: NavBarAction | AppModeAction | AuthenticationAction | AlertAction;
   data?: unknown;
 }
 
@@ -33,5 +41,6 @@ export interface Action {
 export interface StateCombinedFromReducers {
   navbarReducer: Reducer,
   appModeReducer: Reducer,
-  authenticationReducer: Reducer
+  authenticationReducer: Reducer,
+  alertReducer: Reducer
 }

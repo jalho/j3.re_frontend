@@ -1,4 +1,4 @@
-import { User, AuthPayload } from "../types";
+import { User, AuthPayload, Alert } from "../types";
 
 const isString = (value: unknown): value is string => {
   if (!value) return false;
@@ -26,8 +26,18 @@ const isAuthPayload = (value: unknown): value is AuthPayload => {
   return true;
 };
 
+const isAlert = (value: unknown): value is Alert => {
+  if (!value) return false;
+  const test = value as Alert;
+  if (!isString(test.content) || !isString(test.variant)) return false;
+  if (test.visible === undefined) return false;
+  if (typeof test.visible !== "boolean") return false;
+  return true;
+};
+
 export default {
   isString,
   isUser,
-  isAuthPayload
+  isAuthPayload,
+  isAlert
 };

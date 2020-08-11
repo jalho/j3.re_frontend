@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 // own
 import { LOGIN } from "../../utils/graphql";
-import { setAuthentication } from "../../state/actionCreators";
+import { setAuthentication, setAlert, hideAlert } from "../../state/actionCreators";
 import { StateCombinedFromReducers } from "../../types";
 import { clearAuthInformation } from "../../utils/helpers";
 
@@ -44,6 +44,14 @@ const Login: React.FC = () => {
     if (data && data.login) {
       dispatch(setAuthentication(data.login));
       localStorage.setItem("authentication", JSON.stringify(data.login));
+      dispatch(setAlert(
+        {
+          content: `Logged in as ${data.login.user.username}`,
+          variant: "success",
+          visible: true
+        }
+      ));
+      setTimeout(() => dispatch(hideAlert()), 3000);
     }
   }, [data, dispatch]);
 
