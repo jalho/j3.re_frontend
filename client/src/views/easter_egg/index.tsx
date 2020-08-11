@@ -2,10 +2,10 @@ import React from "react";
 
 const EasterEgg: React.FC = () => {
   return (
-    <div id="easterEgg">
+    <a id="easterEgg" href="https://www.ipv.fi/">
       <img src="https://www.ipv.fi/img/ipv-logo-web.png" alt="Logo of Imatran Pallo-Veikot"/>
-      <a href="https://www.ipv.fi/">Imatran Pallo-Veikot</a>
-    </div>
+      <span id="IPVtext">Imatran Pallo-Veikot</span>
+    </a>
   );
 };
 

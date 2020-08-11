@@ -4,9 +4,13 @@
   @include m.breathingBackgroundEasterEgg();
   display: flex;
   flex: auto;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+
+  &:hover {
+    text-decoration: none;
+  }
 
   @keyframes scale {
     0%, 100% {
@@ -21,10 +25,11 @@
     animation: scale 3s infinite;
   }
 
-  a {
+  #IPVtext {
     color: white;
-    font-size: 2em;
-    font-family: 'ZCOOL KuaiLe', cursive;
+    font-family: 'ZCOOL KuaiLe';
     animation: scale 3s infinite;
+    letter-spacing: 0.07em;
+    white-space: nowrap;
   }
 }
