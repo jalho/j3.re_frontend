@@ -2,7 +2,7 @@ import React from "react";
 
 interface CardProps {
   infoText?: string;
-  items?: string[];
+  items?: JSX.Element[];
 }
 
 const Card: React.FC<CardProps> = (props: CardProps) => {
@@ -13,7 +13,7 @@ const Card: React.FC<CardProps> = (props: CardProps) => {
           {props.infoText}
         </em>
       )}
-      {props.items && props.items.map((item, idx) => <span key={idx}>{item}</span>)}
+      {props.items && props.items.map((item, idx) => (<div key={idx}>{item}</div>))}
     </div>
   );
 };

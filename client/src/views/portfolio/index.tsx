@@ -34,15 +34,17 @@ const Portfiolio: React.FC = () => {
         <Header text={project.name}/>
         <Card
           items={[
-            project.description ? getDescTranslation(project.description) : "",
+            project.description ?
+              <>{getDescTranslation(project.description)}</> :
+              <>{" "}</>,
             project.startTime ?
-              t("Started in ") + t(project.startTime.split(" ")[0].toLowerCase()) + ` ${project.startTime.split(" ")[1]}.` :
-              "",
+              <>{t("Started in ") + t(project.startTime.split(" ")[0].toLowerCase()) + ` ${project.startTime.split(" ")[1]}.`}</> :
+              <>{" "}</>,
             project.technologies && project.technologies.length > 0 ?
-              t("Used technologies") + `: ${project.technologies.join(", ")}.` :
-              ""
+              <>{t("Used technologies") + `: ${project.technologies.join(", ")}.`}</> :
+              <>{" "}</>
             ]}
-          infoText={project.categories ? project.categories.join(", ").toLowerCase() : ""}
+          infoText={project.categories ? project.categories.join(", ") : ""}
         />
       </div>
     ))}
