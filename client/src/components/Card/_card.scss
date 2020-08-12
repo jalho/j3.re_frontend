@@ -7,8 +7,9 @@
   border-radius: 0.5em;
   border: none;
   padding: c.$fontSizeDefault;
-  margin-bottom: c.$marginDefault;
-  width: fit-content;
+  margin: 0 c.$marginDefault c.$marginDefault c.$marginDefault;
+  max-width: 100%;
+  text-align: center;
 
   .infoText {
     margin-bottom: c.$fontSizeDefault / 3;

@@ -21,3 +21,17 @@ export const LOGIN = gql`
     }
   }
 `;
+
+export const GET_ALL_PROJECTS = gql`
+  query Projects {
+    projects {
+      id
+      name
+      categories
+      description
+      technologies
+      startTime
+      repositories
+    }
+  }
+`;

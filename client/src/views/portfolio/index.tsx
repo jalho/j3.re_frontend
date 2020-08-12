@@ -1,45 +1,32 @@
 import React from "react";
+import { useQuery } from "@apollo/client";
 // import { useTranslation } from "react-i18next";
 
+import { Project } from "../../types";
 import Card from "../../components/Card";
 import Header from "../../components/Header";
+import { GET_ALL_PROJECTS } from "../../utils/graphql";
 
 const Portfiolio: React.FC = () => {
   // const { t } = useTranslation();
+  const { data } = useQuery(GET_ALL_PROJECTS);
 
-  const dummyData = [
-    {
-      title: "Title One",
-      infoText: "Info text one.",
-      items: ["1111111111", "aaaaaaaaaaa", "AAAAAAAAAA"]
-    },
-    {
-      title: "Title Two",
-      infoText: "Info text two.",
-      items: ["22222222222", "bbbbbbbb", "BBBBBBBBBBBBBBBBBB"]
-    },
-    {
-      title: "Title Three",
-      infoText: "Info text three.",
-      items: ["CCCCCCCCCCC", "33333333333", "cccccccccccccccccccc"]
-    },
-    {
-      title: "Title Four",
-      infoText: "Info text four.",
-      items: ["DDDDDDDDDDDDDDDD", "dddddddddddddddd", "444444444"]
-    },
-  ];
-
-  return (
-    <div id="portfolio">
-      {dummyData.map((data, idx) => (
-        <div key={idx} className="item">
-          <Header text={data.title}/>
-          <Card infoText={data.infoText} items={data.items}/>
-        </div>
-      ))}
-    </div>
-  );
+  return <div id="portfolio">
+    {data && data.projects.map((project: Project, idx: number) => (
+      <div key={idx} className="item">
+        <Header text={project.name}/>
+        <Card
+          items={[
+            project.description ? project.description: "",
+            // project.repositories ? project.repositories.toString(): "",
+            project.startTime ? `Started in ${project.startTime.toLowerCase()}.`: "",
+            project.technologies ? `Used technologies: ${project.technologies.join(", ")}.`: ""
+          ]}
+          infoText={project.categories ? project.categories.join(", ").toLowerCase() : ""}
+        />
+      </div>
+    ))}
+  </div>;
 };
 
 export default Portfiolio;
