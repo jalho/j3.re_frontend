@@ -32,7 +32,7 @@ const CV: React.FC = () => {
           </div>
         </div>
 
-        <div>
+        <div className="item">
           <Header text={t("Work experience")} />
           <Card items={[t("None yet relevant to the field.")]}/>
         </div>

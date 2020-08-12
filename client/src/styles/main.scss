@@ -13,6 +13,7 @@
 @use "../views/login/login";
 @use "../views/easter_egg/easterEgg";
 @use "../components/Card/card";
+@use "../views/portfolio/portfolio";
 
 html {
   @include m.breathingBackground();

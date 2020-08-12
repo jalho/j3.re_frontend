@@ -25,6 +25,16 @@ export interface AuthPayload {
   user: User;
 }
 
+export interface Project {
+  id: string!;
+  name: string!;
+  categories?: string[];
+  description?: string;
+  technologies?: string[];
+  startTime?: string;
+  repositories?: string[];
+}
+
 // Action types
 export type AppModeAction = "DEFAULT" | "EASTER_EGG" | "INCR_COUNTER" | "RESET_COUNTER";
 export type AuthenticationAction = "SET_AUTHENTICATION" | "CLEAR_AUTHENTICATION";

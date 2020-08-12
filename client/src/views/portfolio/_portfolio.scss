@@ -1,0 +1,14 @@
+@use "../../styles/mixins" as m;
+
+#portfolio {
+  @include m.flexCenter();
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .item {
+    @include m.flexCenter();
+    width: 30em;
+    max-width: 95vw;
+    overflow: hidden
+  }
+}

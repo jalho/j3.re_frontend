@@ -4,6 +4,10 @@
 #CV_container {
   flex-direction: row;
   flex-wrap: wrap;
+
+  .item {
+    @include m.flexCenter();
+  }
 }
 
 .CV_item {
