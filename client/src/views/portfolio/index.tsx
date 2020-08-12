@@ -33,17 +33,22 @@ const Portfiolio: React.FC = () => {
       <div key={idx} className="item">
         <Header text={project.name}/>
         <Card
-          items={[
-            project.description ?
-              <>{getDescTranslation(project.description)}</> :
-              <>{" "}</>,
-            project.startTime ?
-              <>{t("Started in ") + t(project.startTime.split(" ")[0].toLowerCase()) + ` ${project.startTime.split(" ")[1]}.`}</> :
-              <>{" "}</>,
-            project.technologies && project.technologies.length > 0 ?
-              <>{t("Used technologies") + `: ${project.technologies.join(", ")}.`}</> :
-              <>{" "}</>
-            ]}
+          items={
+            [
+              project.description ?
+                <p><i>{getDescTranslation(project.description)}</i></p> :
+                <></>,
+              project.startTime ?
+                <p>{t("Started in ") + t(project.startTime.split(" ")[0].toLowerCase()) + ` ${project.startTime.split(" ")[1]}.`}</p> :
+                <></>,
+              project.technologies && project.technologies.length > 0 ?
+                <p>{t("Used technologies") + `: ${project.technologies.join(", ")}.`}</p> :
+                <>{" "}</>,
+            ].concat(project.repositories && project.repositories.length > 0 ?
+                project.repositories.map((repo, idx) => <a href={repo} key={idx}>{"repository" + (idx > 0 ? ` ${idx + 1}` : "")}</a>) :
+                <></>
+              )
+          }
           infoText={project.categories ? project.categories.join(", ") : ""}
         />
       </div>
