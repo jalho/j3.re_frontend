@@ -28,7 +28,10 @@ export const GET_ALL_PROJECTS = gql`
       id
       name
       categories
-      description
+      description {
+        en
+        fi
+      }
       technologies
       startTime
       repositories
