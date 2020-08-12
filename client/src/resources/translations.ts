@@ -2,6 +2,7 @@ export const translations = {
 
   "en": {
     "translation": {
+      "autumn": "autumn",
       "Below are some examples fetched from a database.": "Below are some examples fetched from a database.",
       "current": "current",
       "Currently logged in as": "Currently logged in as",
@@ -34,10 +35,15 @@ export const translations = {
       "Portfolio": "Portfolio",
       "Server is not operational.": "Server is not operational.",
       "Spoken languages": "Spoken languages",
+      "spring": "spring",
       "start year 2019": "start year 2019",
+      "Started in ": "Started in ",
       "Still logged in as ": "Still logged in as ",
+      "summer": "summer",
       "Swedish": "Swedish",
+      "Used technologies": "Used technologies",
       "Username": "Username",
+      "winter": "winter",
       "Work experience": "Work experience",
       "Work in progress.": "Work in progress."
     }
@@ -45,6 +51,7 @@ export const translations = {
 
   "fi": {
     "translation": {
+      "autumn": "syksyllä",
       "Below are some examples fetched from a database.": "Alla joitakin esimerkkejä tietokannasta noudettuna.",
       "current": "nykyinen",
       "Currently logged in as": "Nyt kirjautuneena",
@@ -77,10 +84,15 @@ export const translations = {
       "Portfolio": "Työt",
       "Server is not operational.": "Palvelin ei ole käynnissä.",
       "Spoken languages": "Kielitaito",
+      "spring": "keväällä",
       "start year 2019": "aloitusvuosi 2019",
+      "Started in ": "Aloitettu ",
       "Still logged in as ": "Yhä kirjautuneena ",
+      "summer": "kesällä",
       "Swedish": "ruotsi",
+      "Used technologies": "Käytetyt teknologiat",
       "Username": "Käyttäjätunnus",
+      "winter": "talvella",
       "Work experience": "Työkokemus",
       "Work in progress.": "Työn alla."
     }

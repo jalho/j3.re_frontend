@@ -24,8 +24,8 @@
 | 30-Jul-2020 | 8 | `552e7cf`, `cbaf28d`* | Toteutin tunnistautumisen seurannan niin palvelimen kuin clientinkin puoella. Login-mutaatio palauttaa tokenin lisäksi kirjautuneen käyttäjän tiedot, ja nämä talletetaan clientissä sekä sovelluksen Redux-tilaan, että paikalliseen muistiin (`localStorage.getItem("authentication")`). Client liittää tokenin automaattisesti kaikkiin HTTP-pyyntöihin `authorization`-otsakkeeseen (*header*), minkä palvelin lukee ja dekoodaa jokaisen resolverin kontekstiin. |
 | 5-Aug-2020 | 0,5 | `3a107e0`, `d5f8bb3`* | Päivitin projektin rakennekaavion. |
 | 10-Aug-2020 | 0,5 | `3ef1f13` | Kloonasin projektin toiselle tietokoneelle ja siinä prosessissa huomasin, että backendin URI:n määrittelevä `.env` tiedosto oli erehdyksessä joutunut versionhallintaan. Korjasin asian. |
-| 11-Aug-2020 | 8 | `TODO` | Toteutin käyttöliittymään ilmoitukset (*alert*). Lisäsin code splittausta tuomalla näkymät dynaamisesti (*dynamic import*). Toteutin easter eggin, jossa on Imatran Pallo-Veikot. Parantelin tyylejä ja suljin issueita projektinhallinnastani. |
-| 12-Aug-2020 | | | |
+| 11-Aug-2020 | 8 | `65be189` | Toteutin käyttöliittymään ilmoitukset (*alert*). Lisäsin code splittausta tuomalla näkymät dynaamisesti (*dynamic import*). Toteutin easter eggin, jossa on Imatran Pallo-Veikot. Parantelin tyylejä ja suljin issueita projektinhallinnastani. |
+| 12-Aug-2020 | | `TODO` | Toteutin projektien skeeman portfolion sisällön kontekstissa palvelimen ja käyttöliittymän puolella. |
 | 13-Aug-2020 | | | |
 | 14-Aug-2020 | | | |
 | **yhteensä**   | 120 | \* [backend](https://github.com/jalho/j3.re_backend) | |
