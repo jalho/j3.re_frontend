@@ -1,0 +1,11 @@
+@use "../../styles/mixins" as m;
+
+#portfolio {
+  @include m.flexCenter();
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .item {
+    @include m.flexCenter();
+  }
+}

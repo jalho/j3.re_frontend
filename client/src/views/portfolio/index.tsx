@@ -2,6 +2,7 @@ import React from "react";
 // import { useTranslation } from "react-i18next";
 
 import Card from "../../components/Card";
+import Header from "../../components/Header";
 
 const Portfiolio: React.FC = () => {
   // const { t } = useTranslation();
@@ -31,7 +32,12 @@ const Portfiolio: React.FC = () => {
 
   return (
     <div id="portfolio">
-      {dummyData.map((data, idx) => (<Card key={idx} infoText={data.infoText} items={data.items}/>))}
+      {dummyData.map((data, idx) => (
+        <div key={idx} className="item">
+          <Header text={data.title}/>
+          <Card infoText={data.infoText} items={data.items}/>
+        </div>
+      ))}
     </div>
   );
 };
