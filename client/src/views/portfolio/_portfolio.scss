@@ -5,6 +5,7 @@
   @include m.flexCenter();
   flex-direction: row;
   flex-wrap: wrap;
+  text-align: center;
 
   .item {
     @include m.flexCenter();
