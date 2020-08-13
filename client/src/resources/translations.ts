@@ -61,7 +61,8 @@ export const translations = {
       "Waking up server...": "Waking up server...",
       "winter": "winter",
       "Work experience": "Work experience",
-      "Work in progress.": "Work in progress."
+      "Work in progress.": "Work in progress.",
+      "Wrong credentials.": "Wrong credentials."
     }
   },
 
@@ -126,7 +127,8 @@ export const translations = {
       "Waking up server...": "Herätetään palvelinta...",
       "winter": "talvella",
       "Work experience": "Työkokemus",
-      "Work in progress.": "Työn alla."
+      "Work in progress.": "Työn alla.",
+      "Wrong credentials.": "Väärät pääsytiedot."
     }
   }
 

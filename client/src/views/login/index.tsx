@@ -60,6 +60,12 @@ const Login: React.FC = () => {
     }, [loading, t]
   );
 
+  useEffect(
+    () => {
+      if (data && !data.login) notify(t("Wrong credentials."), 3000, "danger");
+    }, [data, t]
+  );
+
   if (authentication) {
     return (
       <>
