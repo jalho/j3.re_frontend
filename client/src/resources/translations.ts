@@ -58,6 +58,7 @@ export const translations = {
       "The server seems to be sleeping. Wait a moment, waking it up...": "The server seems to be sleeping. Wait a moment, waking it up...",
       "Used technologies": "Used technologies",
       "Username": "Username",
+      "Waking up server...": "Waking up server...",
       "winter": "winter",
       "Work experience": "Work experience",
       "Work in progress.": "Work in progress."
@@ -122,6 +123,7 @@ export const translations = {
       "The server seems to be sleeping. Wait a moment, waking it up...": "Palvelin vaikuttaa nukkuvan. Pieni hetki, herätetään...",
       "Used technologies": "Käytetyt teknologiat",
       "Username": "Käyttäjätunnus",
+      "Waking up server...": "Herätetään palvelinta...",
       "winter": "talvella",
       "Work experience": "Työkokemus",
       "Work in progress.": "Työn alla."

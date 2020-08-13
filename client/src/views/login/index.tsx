@@ -15,7 +15,7 @@ const Login: React.FC = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const { t } = useTranslation();
-  const [login, { data }] = useMutation(LOGIN);
+  const [login, { data, loading }] = useMutation(LOGIN);
   const dispatch = useDispatch();
   const authentication = useSelector((state: StateCombinedFromReducers) => {
     return state.authenticationReducer.authentication;
@@ -35,7 +35,8 @@ const Login: React.FC = () => {
    */
   const loginHandler = (e: FormEvent): void => {
     e.preventDefault(); // prevent reloading
-    login({ variables: { username: username, password: password } });
+    login({ variables: { username: username, password: password } })
+      .catch(() => notify(t("Server is not operational."), 6000, "danger"));
     clearFields();
   };
 
@@ -47,6 +48,17 @@ const Login: React.FC = () => {
       notify(t("Logged in as ") + data.login.user.username);
     }
   }, [data, dispatch, t]);
+
+  useEffect(
+    () => {
+      const handle = setTimeout(
+        () => {
+          if (loading) notify(t("Waking up server..."), 6000);
+        }, 1000
+      );
+      return (): void => clearTimeout(handle);
+    }, [loading, t]
+  );
 
   if (authentication) {
     return (

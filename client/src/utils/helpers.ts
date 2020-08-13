@@ -55,12 +55,12 @@ export const asAlert = (value: unknown): Alert|null => {
  * @param content of notification alert
  * @param username that is logged in
  */
-export const notify = (content: string, delay?: number): void => {
+export const notify = (content: string, delay?: number, variant?: string): void => {
   // set alert
   store.dispatch(setAlert(
     {
       content,
-      variant: "success",
+      variant: variant ? variant : "success",
       visible: true
     }
   ));

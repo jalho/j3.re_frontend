@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "@apollo/client";
 
@@ -7,7 +7,19 @@ import { Note } from "../../types";
 
 const LeaveNote: React.FC = () => {
   const { t } = useTranslation();
-  const { data } = useQuery(GET_ALL_APPROVED_NOTES);
+  const { data, loading, error } = useQuery(GET_ALL_APPROVED_NOTES);
+  const [ serverStatusMsg, setServerStatusMsg ] = useState<string>();
+
+  useEffect(
+    () => {
+      if (error) setServerStatusMsg(t("Server is not operational."));
+      setTimeout(
+        () => {
+          if (loading) setServerStatusMsg(t("The server seems to be sleeping. Wait a moment, waking it up..."));
+        }, 1000
+      );
+    }, [loading, t, error]
+  );
 
   // create JSX elements of fetched notes
   let noteElements: Array<JSX.Element> = [];
@@ -28,15 +40,17 @@ const LeaveNote: React.FC = () => {
       </div>
       
       {/* render info text & notes only if there are some notes */}
-      {noteElements.length > 0 
-        && [
+      {noteElements.length > 0 ?
+         [
           <div key="info" id="leaveNoteInfoText">
             <p>
               {t("Below are some examples fetched from a database.")}
             </p>
           </div>,
           ...noteElements
-        ]}
+        ] :
+        <p>{serverStatusMsg}</p>
+      }
     </>
   );
 };
