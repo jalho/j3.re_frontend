@@ -9,10 +9,17 @@ const ContentManagement: React.FC = () => {
   const authentication = useSelector((state: StateCombinedFromReducers) => {
     return state.authenticationReducer.authentication;
   });
+
+  // non authorized view
   if (!authentication || !authentication.user.roles.includes("admin")) {
-    return t("Content management is only available to admins.");
+    return (
+      <div id="contentManagement">
+        <p>{t("Content management is only available to admins.")}</p>
+      </div>
+    );
   }
 
+  // authorized view
   return (
     <div id="contentManagement">
       TODO: ContentManagement
