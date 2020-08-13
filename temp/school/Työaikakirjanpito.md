@@ -26,6 +26,11 @@
 | 10-Aug-2020 | 0,5 | `3ef1f13` | Kloonasin projektin toiselle tietokoneelle ja siinä prosessissa huomasin, että backendin URI:n määrittelevä `.env` tiedosto oli erehdyksessä joutunut versionhallintaan. Korjasin asian. |
 | 11-Aug-2020 | 8 | `65be189` | Toteutin käyttöliittymään ilmoitukset (*alert*). Lisäsin code splittausta tuomalla näkymät dynaamisesti (*dynamic import*). Toteutin easter eggin, jossa on Imatran Pallo-Veikot. Parantelin tyylejä ja suljin issueita projektinhallinnastani. |
 | 12-Aug-2020 | 10 | `7c375b5`, `94d8c23`* | Toteutin projektien skeeman portfolion sisällön kontekstissa palvelimen ja käyttöliittymän puolella. Tein projektinhallinnointia yleisemmässä kontekstissa. |
-| 13-Aug-2020 | | `TODO` | |
+| 13-Aug-2020 | 8 | `TODO`, `e415f2b`* | Parantelin käyttöliittymän viestintää mitä tulee palvelimen tavoitettavuuteen sekä tein pieniä paranteluja, ideointia ja yleistä projektinhallintaa. Laadin alustavan tuen sisällönhallinnalle, sekä suunnittelin rajoitetun pääsyn sinne uusien käyttäjäroolien perusteella. |
 | 14-Aug-2020 | | | |
-| **yhteensä**   | 130 | \* [backend](https://github.com/jalho/j3.re_backend) | |
+| 17-Aug-2020 | | | |
+| 18-Aug-2020 | | | |
+| 19-Aug-2020 | | | |
+| 20-Aug-2020 | | | |
+| 21-Aug-2020 | | | |
+| **yhteensä**   | 138 | \* [backend](https://github.com/jalho/j3.re_backend) | |
