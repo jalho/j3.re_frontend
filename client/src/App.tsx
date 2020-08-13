@@ -40,6 +40,7 @@ const App: React.FC = () => {
   const LeaveNote = lazy(() => import("./views/leave_note"));
   const Login = lazy(() => import("./views/login"));
   const EasterEgg = lazy(() => import("./views/easter_egg"));
+  const ContentManagement = lazy(() => import("./views/content_management"));
 
   switch (appMode) {
     default:
@@ -58,6 +59,7 @@ const App: React.FC = () => {
               <Route path="/portfolio" component={Portfolio} />
               <Route path="/leave-note" component={LeaveNote} />
               <Route path="/login" component={Login} />
+              <Route path="/content-management" component={ContentManagement} />
               <Route path="/" component={Home} />
             </Switch>
           </div>

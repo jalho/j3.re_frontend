@@ -53,9 +53,12 @@ const NavigationBar: React.FC = () => {
               <NavDropdown.Item onClick={(): void => {clearAuthInformation(); notify(t("Logged out")); }}>{t("Log out")}</NavDropdown.Item> :
               <NavDropdown.Item onClick={(): void => history.push("/login")}>{t("Log in")}</NavDropdown.Item>
             }
-            <NavDropdown.Item onClick={(): Action => dispatch(switchAppMode("EASTER_EGG"))}>
-              {eggClickCounter === 5 && t("Easter egg")}
-            </NavDropdown.Item>
+            {eggClickCounter === 5 &&            
+              <NavDropdown.Item onClick={(): Action => dispatch(switchAppMode("EASTER_EGG"))}>{t("Easter egg")}</NavDropdown.Item>
+            }
+            {authentication && authentication.user.roles.includes("admin") &&
+              <NavDropdown.Item onClick={(): void => history.push("/content-management")}>{t("Content management")}</NavDropdown.Item>
+            }
           </NavDropdown>
         </Nav>
       </Navbar>
