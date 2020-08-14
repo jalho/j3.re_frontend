@@ -22,7 +22,7 @@ const ContentManagement: React.FC = () => {
   // authorized view
   return (
     <div id="contentManagement">
-      TODO: ContentManagement
+      {t("Here will be content management tools.")}
     </div>
   );
 };

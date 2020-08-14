@@ -23,6 +23,7 @@ export const translations = {
       "FINNISH NATIVE": "suomi", // language name in the language, for language menu
       "Here's going to be a notes leaving feature. The notes won't be translated, instead they will remain in their original language.": "Here's going to be a notes leaving feature. The notes won't be translated, instead they will remain in their original language.",
       "Here's going to be some sort of CV.": "Here's going to be some sort of CV.",
+      "Here will be content management tools.": "Here will be content management tools.",
       "Here will be summaries of things I have created.": "Here will be summaries of things I have created.",
       "Here will be the main view.": "Here will be the main view.",
       "in order of fluency": "in order of fluency",
@@ -89,6 +90,7 @@ export const translations = {
       "FINNISH NATIVE": "suomi", // language name in the language, for language menu
       "Here's going to be a notes leaving feature. The notes won't be translated, instead they will remain in their original language.": "Tähän tulee viestinjättöominaisuus. Viestejä ei käännetä, vaan ne pysyvät alkuperäisellä kielellään.",
       "Here's going to be some sort of CV.": "Tähän tulee jonkinlainen ansioluettelo.",
+      "Here will be content management tools.": "Sisällönhallintatyökalut tulevat tähän.",
       "Here will be summaries of things I have created.": "Yhteenvedot tekemistäni jutuista tulevat tähän.",
       "Here will be the main view.": "Tähän tulee päänäkymä.",
       "in order of fluency": "sujuvuusjärjestyksessä",
