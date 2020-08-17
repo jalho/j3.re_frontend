@@ -105,8 +105,8 @@ src
 |||||
 | GraphQL | data query language | see *Apollo* | ✔️ |
 | Apollo | GraphQL implementation | [apollographql.com](https://www.apollographql.com/docs/) | ✔️ |
-| MongoDB | database | [docs.mongodb.com](https://docs.mongodb.com/) | ❌ |
-| mongoose | MongoDB implementation | [mongoosejs.com](https://mongoosejs.com/docs/) | ❌ |
+| MongoDB | database | [docs.mongodb.com](https://docs.mongodb.com/) | ✔️ |
+| mongoose | MongoDB implementation | [mongoosejs.com](https://mongoosejs.com/docs/) | ✔️ |
 |||||
 | **miscellaneous** ||||
 |||||
@@ -116,7 +116,6 @@ src
 |||||
 | **deployment** ||||
 |||||
-| Buddy | CI/CD | [buddy.works](https://buddy.works/docs) | ❌ |
 | Vercel | hosting frontend | [vercel.com](https://vercel.com/docs) | ✔️ |
 | Heroku | hosting backend | [devcenter.heroku.com](https://devcenter.heroku.com/) | ✔️ |
 | EuroDNS | domain name registrar | [eurodns.com](https://www.eurodns.com/) | ✔️ |
