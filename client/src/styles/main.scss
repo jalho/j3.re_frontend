@@ -15,6 +15,7 @@
 @use "../components/Card/card";
 @use "../views/portfolio/portfolio";
 @use "../views/content_management/contentManagement";
+@use "../views/check_my_ip/checkMyIP";
 
 html {
   @include m.breathingBackground();
