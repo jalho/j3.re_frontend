@@ -3,6 +3,7 @@
 
 #checkMyIP {
   @include m.flexCenter();
+  text-align: center;
   
   code {
     color: c.$primaryTextColor;
