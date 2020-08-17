@@ -7,7 +7,7 @@ import Card from "../../components/Card";
 import Header from "../../components/Header";
 import { GET_ALL_PROJECTS } from "../../utils/graphql";
 
-const Portfiolio: React.FC = () => {
+const Portfolio: React.FC = () => {
   const { t, i18n } = useTranslation();
   const { data, loading, error } = useQuery(GET_ALL_PROJECTS);
   const [ serverStatusMsg, setServerStatusMsg ] = useState<string>();
@@ -72,4 +72,4 @@ const Portfiolio: React.FC = () => {
   );
 };
 
-export default Portfiolio;
+export default Portfolio;
