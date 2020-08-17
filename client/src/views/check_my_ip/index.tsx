@@ -15,12 +15,12 @@ const CheckMyIP: React.FC = () => {
         loading && <p>{t("The server seems to be sleeping. Wait a moment, waking it up...")}</p>
       }
       {data &&
-        <Card items={
-          [
-            <p key={1}>{t("REQ_ARRIVE_MESSAGE")}</p>,
-            <code key={2}>{data.myIP}</code>
-          ]
-        }/>
+        <Card
+          items={[
+              <code key={2}>{data.myIP}</code>
+          ]}
+          infoText={t("IP_IDENTITY_EXPLANATION")}
+        />
       }
       {
         error && <p>{t("Server is not operational.")}</p> 
