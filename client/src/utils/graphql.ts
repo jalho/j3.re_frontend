@@ -52,3 +52,14 @@ export const GET_MY_IP = gql`
     }
   }
 `;
+
+export const GET_ALL_NOTES = gql`
+  query AllNotes {
+    allNotes {
+      id
+      content
+      time
+      approved
+    }
+  }
+`;

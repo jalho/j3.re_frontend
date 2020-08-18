@@ -2,6 +2,8 @@ export const translations = {
 
   "en": {
     "translation": {
+      "Approve": "Approve",
+      "APPROVED_LABEL": "Approved: ",
       "april": "April",
       "august": "August",
       "autumn": "autumn",
@@ -13,6 +15,7 @@ export const translations = {
       "CV": "CV",
       "december": "December",
       "degree level BSc": "degree level BSc",
+      "Disapprove": "Disapprove",
       "DUOLINGO JOKE": "Duolingo says I'm the best :D",
       "Easter egg": "Easter egg",
       "Education": "Education",
@@ -72,6 +75,8 @@ export const translations = {
 
   "fi": {
     "translation": {
+      "Approve": "Hyväksy",
+      "APPROVED_LABEL": "Hyväksytty: ",
       "april": "huhtikuussa",
       "august": "elokuussa",
       "autumn": "syksyllä",
@@ -83,6 +88,7 @@ export const translations = {
       "CV": "Ansioluettelo",
       "december": "joulukuussa",
       "degree level BSc": "tutkintotaso LuK",
+      "Disapprove": "Epähyväksy",
       "DUOLINGO JOKE": "Duolingo sanoo, että olen paras :D",
       "Easter egg": "Pääsiäismuna",
       "Education": "Koulutus",

@@ -29,7 +29,7 @@
 | 13-Aug-2020 | 8 | `8607015`, `e415f2b`* | Parantelin käyttöliittymän viestintää mitä tulee palvelimen tavoitettavuuteen sekä tein pieniä paranteluja, ideointia ja yleistä projektinhallintaa. Laadin alustavan tuen sisällönhallinnalle, sekä suunnittelin rajoitetun pääsyn sinne uusien käyttäjäroolien perusteella. |
 | 14-Aug-2020 | 1 | `76f8d41`, `3f96580`* | Tyhjensin koodista TODO-kommentteja, ym. projektinhallintaa. |
 | 17-Aug-2020 | 2 | `170f9b1`, `40c56fb`* | Toteutin IP-osoitteentarkistusnäkymän sivulle. |
-| 18-Aug-2020 | | `TODO` | Toteutin lisätietojen haun ja näyttämisen IP-osoitteen kyselyn perusteella käyttäen ip-api.com ja restcountries.eu API:eja. |
+| 18-Aug-2020 | | `TODO` | Toteutin lisätietojen haun ja näyttämisen IP-osoitteen kyselyn perusteella käyttäen ip-api.com ja restcountries.eu API:eja, sekä viestienhallinnan ylläpitäjille niin frontin kuin backin puolella. |
 | 19-Aug-2020 | | | |
 | 20-Aug-2020 | | | |
 | 21-Aug-2020 | | | |

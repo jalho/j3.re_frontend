@@ -1,3 +1,14 @@
+@use "../../styles/mixins" as m;
+
 #contentManagement {
   text-align: center;
+  
+  .noteItem {
+    @include m.flexCenter();
+    padding: 1em;
+
+    .approvalText {
+      font-weight: bold;
+    }
+  }
 }
