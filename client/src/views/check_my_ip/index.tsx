@@ -24,7 +24,7 @@ const CheckMyIP: React.FC = () => {
               <code key={2}>{IPData.ip}</code>,
               IPData.proxy ? <span>{t("proxy address")}</span> : <></>,
               IPData.mobile ? <span>{t("mobile address")}</span> : <></>,
-              IPData.city ? <span>{IPData.city}</span> : <></>,
+              IPData.city && !IPData.mobile ? <span>{IPData.city}</span> : <></>,
               IPData.isp ? <span>{IPData.isp}</span> : <></>,
               IPData.flagURL ? <img src={IPData.flagURL} alt={"Flag of a country"} /> : <></>
           ]}
