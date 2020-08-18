@@ -23,6 +23,17 @@ export const LOGIN = gql`
   }
 `;
 
+export const TOGGLE_NOTE_APPROVAL = gql`
+  mutation ToggleNoteApproval($id: String!) {
+    toggleNoteApproval(id: $id) {
+      id
+      content
+      time
+      approved
+    }
+  }
+`;
+
 export const GET_ALL_PROJECTS = gql`
   query Projects {
     projects {
