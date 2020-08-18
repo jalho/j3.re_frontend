@@ -42,6 +42,13 @@ export const GET_ALL_PROJECTS = gql`
 
 export const GET_MY_IP = gql`
   query MyIP {
-    myIP
+    myIP {
+      ip
+      city
+      isp
+      mobile
+      proxy
+      flagURL
+    }
   }
 `;
