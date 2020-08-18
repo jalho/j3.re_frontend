@@ -15,6 +15,13 @@ const ContentManagement: React.FC = () => {
   });
   const { data } = useQuery(GET_ALL_NOTES);
 
+  /**
+   * Toggle a note's approval. TODO: Implement using a mutation!
+   */
+  const toggleApproval = (noteID: string): void => {
+    console.log("TODO: Toggle approval for note with ID: ", noteID);
+  };
+
   // non authorized view
   if (!authentication || !authentication.user.roles.includes("admin")) {
     return (
@@ -29,12 +36,12 @@ const ContentManagement: React.FC = () => {
     <div id="contentManagement">
       <Card
         infoText="Notes approval"
-        items={!data ? null : data.allNotes.map((note: { content: string; approved: boolean; }, idx: number) => (
+        items={!data ? null : data.allNotes.map((note: { content: string; approved: boolean; id: string; }, idx: number) => (
           <div key={idx} className="noteItem">
             <i>{`${note.content.substring(0, 60)}${note.content.length > 60 ? "..." : ""}`}</i>
             <span className="approvalText"><span>{t("APPROVED_LABEL")}</span><code style={{ color: note.approved ? "lightgreen" : "pink" }}>{note.approved.toString()}</code></span>
             <Button
-              onClick={(): void => console.log("TODO: Implement approval change mutation.")}
+              onClick={(): void => toggleApproval(note.id)}
               variant={note.approved ? "secondary" : undefined}
             >
               {note.approved ? t("Disapprove") : t("Approve")}
