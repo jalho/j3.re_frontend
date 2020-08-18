@@ -15,11 +15,12 @@ const Portfolio: React.FC = () => {
   useEffect(
     () => {
       if (error) setServerStatusMsg(t("Server is not operational."));
-      setTimeout(
+      const timerID = setTimeout(
         () => {
           if (loading) setServerStatusMsg(t("The server seems to be sleeping. Wait a moment, waking it up..."));
         }, 1000
       );
+      return (): void => clearTimeout(timerID);
     }, [loading, t, error]
   );
 

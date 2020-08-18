@@ -51,12 +51,12 @@ const Login: React.FC = () => {
 
   useEffect(
     () => {
-      const handle = setTimeout(
+      const timerID = setTimeout(
         () => {
           if (loading) notify(t("Waking up server..."), 6000);
         }, 1000
       );
-      return (): void => clearTimeout(handle);
+      return (): void => clearTimeout(timerID);
     }, [loading, t]
   );
 
