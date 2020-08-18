@@ -27,6 +27,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  .dropdown-menu {
+    right: 0;
+    left: auto;
+  }
 }
 
 #languageSelector {
