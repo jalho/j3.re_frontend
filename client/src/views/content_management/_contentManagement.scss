@@ -2,11 +2,32 @@
 
 #contentManagement {
   text-align: center;
+
+  flex-direction: row;
+  flex-wrap: wrap;
   
+  .item {
+    @include m.flexCenter();
+  }
+
+  .card  {
+    max-width: 40em;
+
+    .cardItems {
+      @include m.flexCenter();
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      .singleCardItem {
+        max-width: 15em;
+      }
+    }
+  }
+
   .noteItem {
     @include m.flexCenter();
     padding: 1em;
-    max-width: 40em;
+    max-width: 20em;
 
     .approvalText {
       font-weight: bold;

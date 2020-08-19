@@ -40,24 +40,39 @@ const ContentManagement: React.FC = () => {
     );
   }
 
+  const noteVisibleCharsCount = 50;
+
   // authorized view
   return (
-    <div id="contentManagement">
-      <Card
-        infoText={t("NOTES_APPROVAL")}
-        items={!allNotesData ? null : allNotesData.allNotes.map((note: { content: string; approved: boolean; id: string; }, idx: number) => (
-          <div key={idx} className="noteItem">
-            <i>{note.content}</i>
-            <span className="approvalText"><span>{t("APPROVED_LABEL")}</span><code style={{ color: note.approved ? "lightgreen" : "pink" }}>{note.approved.toString()}</code></span>
-            <Button
-              onClick={(): void => toggleApproval(note.id)}
-              variant={note.approved ? "secondary" : undefined}
-            >
-              {note.approved ? t("Disapprove") : t("Approve")}
-            </Button>
-          </div>
-        ))}
-      />
+    <div id="contentManagement" className="view">
+      <div className="item">
+        <Card
+          infoText={t("PROJECTS_VISIBILITY")}
+          items={[<>TODO</>]}
+        />
+      </div>
+      <div className="item">
+        <Card
+          infoText={t("NOTES_APPROVAL")}
+          items={!allNotesData ? null : allNotesData.allNotes.map((note: { content: string; approved: boolean; id: string; }, idx: number) => (
+            <div key={idx} className="noteItem">
+              <i>{note.content.substring(0, noteVisibleCharsCount) + (note.content.length > noteVisibleCharsCount ? "..." : "")}</i>
+              <span className="approvalText">
+                <span>{t("APPROVED_LABEL")}</span>
+                <code style={{ color: note.approved ? "lightgreen" : "pink" }}>
+                  {note.approved.toString()}
+                </code>
+              </span>
+              <Button
+                onClick={(): void => toggleApproval(note.id)}
+                variant={note.approved ? "secondary" : undefined}
+              >
+                {note.approved ? t("Disapprove") : t("Approve")}
+              </Button>
+            </div>
+          ))}
+        />
+      </div>
     </div>
   );
 };

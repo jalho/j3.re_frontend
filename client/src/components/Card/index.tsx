@@ -13,7 +13,9 @@ const Card: React.FC<CardProps> = (props: CardProps) => {
           {props.infoText}
         </em>
       )}
-      {props.items && props.items.map((item, idx) => (<div key={idx}>{item}</div>))}
+      <div className="cardItems">
+        {props.items && props.items.map((item, idx) => (<div key={idx} className="singleCardItem">{item}</div>))}
+      </div>
     </div>
   );
 };
