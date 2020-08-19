@@ -6,6 +6,7 @@
   .noteItem {
     @include m.flexCenter();
     padding: 1em;
+    max-width: 40em;
 
     .approvalText {
       font-weight: bold;

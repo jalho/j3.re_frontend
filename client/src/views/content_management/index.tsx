@@ -13,7 +13,7 @@ const ContentManagement: React.FC = () => {
   const authentication = useSelector((state: StateCombinedFromReducers) => {
     return state.authenticationReducer.authentication;
   });
-  const { data } = useQuery(GET_ALL_NOTES);
+  const { data: allNotesData } = useQuery(GET_ALL_NOTES);
   const [ mutateApproval ] = useMutation(TOGGLE_NOTE_APPROVAL);
 
   /**
@@ -40,9 +40,9 @@ const ContentManagement: React.FC = () => {
     <div id="contentManagement">
       <Card
         infoText="Notes approval"
-        items={!data ? null : data.allNotes.map((note: { content: string; approved: boolean; id: string; }, idx: number) => (
+        items={!allNotesData ? null : allNotesData.allNotes.map((note: { content: string; approved: boolean; id: string; }, idx: number) => (
           <div key={idx} className="noteItem">
-            <i>{`${note.content.substring(0, 60)}${note.content.length > 60 ? "..." : ""}`}</i>
+            <i>{note.content}</i>
             <span className="approvalText"><span>{t("APPROVED_LABEL")}</span><code style={{ color: note.approved ? "lightgreen" : "pink" }}>{note.approved.toString()}</code></span>
             <Button
               onClick={(): void => toggleApproval(note.id)}
