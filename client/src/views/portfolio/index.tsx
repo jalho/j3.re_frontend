@@ -40,33 +40,35 @@ const Portfolio: React.FC = () => {
     }
   };
 
+  // render either the projects or a server status message
   return (
     <div id="portfolio">
       {data ?
-        data.projects.map((project: Project, idx: number) => (
-          <div key={idx} className="item">
-            <Header text={project.name}/>
-            <Card
-              items={
-                [
-                  project.description ?
-                    <p><i>{getDescTranslation(project.description)}</i></p> :
-                    <></>,
-                  project.startTime ?
-                    <p>{t("Started in ") + t(project.startTime.split(" ")[0].toLowerCase()) + ` ${project.startTime.split(" ")[1]}.`}</p> :
-                    <></>,
-                  project.technologies && project.technologies.length > 0 ?
-                    <p>{t("Used technologies") + `: ${project.technologies.join(", ")}.`}</p> :
-                    <>{" "}</>,
-                ].concat(project.repositories && project.repositories.length > 0 ?
-                    project.repositories.map((repo, idx) => <a href={repo} key={idx}>{"repository" + (idx > 0 ? ` ${idx + 1}` : "")}</a>) :
-                    <></>
-                  )
-              }
-              infoText={project.categories ? project.categories.join(", ") : ""}
-            />
-          </div>
-        )) :
+        data.projects
+          .filter((project: Project) => project.visible)
+          .map((project: Project, idx: number) => (
+            <div key={idx} className="item">
+              <Header text={project.name}/>
+              <Card
+                items={
+                  [
+                    project.description ?
+                      <p><i>{getDescTranslation(project.description)}</i></p> :
+                      <></>,
+                    project.startTime ?
+                      <p>{t("Started in ") + t(project.startTime.split(" ")[0].toLowerCase()) + ` ${project.startTime.split(" ")[1]}.`}</p> :
+                      <></>,
+                    project.technologies && project.technologies.length > 0 ?
+                      <p>{t("Used technologies") + `: ${project.technologies.join(", ")}.`}</p> :
+                      <>{" "}</>,
+                  ].concat(project.repositories && project.repositories.length > 0 ?
+                      project.repositories.map((repo, idx) => <a href={repo} key={idx}>{"repository" + (idx > 0 ? ` ${idx + 1}` : "")}</a>) :
+                      <></>
+                    )
+                }
+                infoText={project.categories ? project.categories.join(", ") : ""}
+              />
+            </div>)) :
         <p>{serverStatusMsg}</p>
       }
     </div>

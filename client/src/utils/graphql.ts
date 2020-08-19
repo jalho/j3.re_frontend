@@ -47,6 +47,7 @@ export const GET_ALL_PROJECTS = gql`
       technologies
       startTime
       repositories
+      visible
     }
   }
 `;

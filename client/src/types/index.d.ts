@@ -47,6 +47,7 @@ export interface Project {
   technologies?: string[];
   startTime?: string;
   repositories?: string[];
+  visible: boolean;
 }
 
 // Action types
