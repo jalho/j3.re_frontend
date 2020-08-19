@@ -44,7 +44,7 @@ const ContentManagement: React.FC = () => {
   return (
     <div id="contentManagement">
       <Card
-        infoText="Notes approval"
+        infoText={t("NOTES_APPROVAL")}
         items={!allNotesData ? null : allNotesData.allNotes.map((note: { content: string; approved: boolean; id: string; }, idx: number) => (
           <div key={idx} className="noteItem">
             <i>{note.content}</i>
