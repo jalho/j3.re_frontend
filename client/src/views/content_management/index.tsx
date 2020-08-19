@@ -8,10 +8,6 @@ import { StateCombinedFromReducers } from "../../types";
 import { GET_ALL_NOTES, TOGGLE_NOTE_APPROVAL, GET_ALL_APPROVED_NOTES } from "../../utils/graphql";
 import Card from "../../components/Card";
 
-// TODO: Fix warnings that appear in console as note approval is toggled back and forth...
-// - React warning "Can't perform a React state update on an unmounted component."
-// - Apollo warning "Cache data may be lost when replacing the approvedNotes field of a Query object."
-
 const ContentManagement: React.FC = () => {
   const { t } = useTranslation();
   const authentication = useSelector((state: StateCombinedFromReducers) => {

@@ -24,7 +24,7 @@ const LeaveNote: React.FC = () => {
 
   // create JSX elements of fetched notes
   let noteElements: Array<JSX.Element> = [];
-  if (data) noteElements = data.approvedNotes.map((note: Note) => (
+  if (data && data.approvedNotes) noteElements = data.approvedNotes.map((note: Note) => (
     <div key={note.id} className="note">
       <p>
         <b>{`${new Date(note.time).getUTCDate()}.${new Date(note.time).getUTCMonth()+1}.${new Date(note.time).getUTCFullYear()}`}</b>

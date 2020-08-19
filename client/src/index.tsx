@@ -34,7 +34,20 @@ const authLink = setContext((_, { headers }) => {
 
 const apolloClient = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache({
+    typePolicies: {
+      Query: {
+        fields: {
+          // replace old Approved notes' data in cache with new
+          approvedNotes: {
+            merge(_existing, incoming): Array<unknown> {
+              return incoming;
+            },
+          },
+        },
+      },
+    },
+  })
 });
 
 ReactDOM.render(
