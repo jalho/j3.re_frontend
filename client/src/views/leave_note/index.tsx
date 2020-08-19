@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 
 import { GET_ALL_APPROVED_NOTES } from "../../utils/graphql";
 import { Note } from "../../types";
 
 const LeaveNote: React.FC = () => {
   const { t } = useTranslation();
-  const { data, loading, error } = useQuery(GET_ALL_APPROVED_NOTES);
+  const [getAllApprovedNotes, { data, loading, error }] = useLazyQuery(GET_ALL_APPROVED_NOTES);
   const [ serverStatusMsg, setServerStatusMsg ] = useState<string>();
 
   useEffect(
@@ -21,6 +21,11 @@ const LeaveNote: React.FC = () => {
       return (): void => clearTimeout(timerID);
     }, [loading, t, error]
   );
+
+  // Query all approved notes on mount
+  useEffect(() => {
+    getAllApprovedNotes();
+  }, [getAllApprovedNotes]);
 
   // create JSX elements of fetched notes
   let noteElements: Array<JSX.Element> = [];

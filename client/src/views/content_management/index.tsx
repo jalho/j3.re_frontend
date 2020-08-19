@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { useQuery, useMutation } from "@apollo/client";
+import { useMutation, useLazyQuery } from "@apollo/client";
 import Button from "react-bootstrap/Button";
 
 import { StateCombinedFromReducers } from "../../types";
@@ -13,7 +13,7 @@ const ContentManagement: React.FC = () => {
   const authentication = useSelector((state: StateCombinedFromReducers) => {
     return state.authenticationReducer.authentication;
   });
-  const { data: allNotesData } = useQuery(GET_ALL_NOTES);
+  const [getAllNotes, { data: allNotesData }] = useLazyQuery(GET_ALL_NOTES);
   const [ mutateApproval ] = useMutation(TOGGLE_NOTE_APPROVAL);
 
   /**
@@ -25,6 +25,11 @@ const ContentManagement: React.FC = () => {
       refetchQueries: [{ query: GET_ALL_APPROVED_NOTES }]
     });
   };
+
+  // Query all notes on mount.
+  useEffect(() => {
+    getAllNotes();
+  }, [getAllNotes]);
 
   // non authorized view
   if (!authentication || !authentication.user.roles.includes("admin")) {
