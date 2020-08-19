@@ -4,8 +4,8 @@ import { useTranslation } from "react-i18next";
 import { useMutation, useLazyQuery } from "@apollo/client";
 import Button from "react-bootstrap/Button";
 
-import { StateCombinedFromReducers } from "../../types";
-import { GET_ALL_NOTES, TOGGLE_NOTE_APPROVAL, GET_ALL_APPROVED_NOTES } from "../../utils/graphql";
+import { StateCombinedFromReducers, Project } from "../../types";
+import { GET_ALL_NOTES, TOGGLE_NOTE_APPROVAL, GET_ALL_APPROVED_NOTES , GET_ALL_PROJECTS} from "../../utils/graphql";
 import Card from "../../components/Card";
 
 const ContentManagement: React.FC = () => {
@@ -14,6 +14,7 @@ const ContentManagement: React.FC = () => {
     return state.authenticationReducer.authentication;
   });
   const [getAllNotes, { data: allNotesData }] = useLazyQuery(GET_ALL_NOTES);
+  const [getAllProjects, { data: allProjectsData }] = useLazyQuery(GET_ALL_PROJECTS);
   const [ mutateApproval ] = useMutation(TOGGLE_NOTE_APPROVAL);
 
   /**
@@ -29,7 +30,8 @@ const ContentManagement: React.FC = () => {
   // Query all notes on mount.
   useEffect(() => {
     getAllNotes();
-  }, [getAllNotes]);
+    getAllProjects();
+  }, [getAllNotes, getAllProjects]);
 
   // non authorized view
   if (!authentication || !authentication.user.roles.includes("admin")) {
@@ -48,7 +50,23 @@ const ContentManagement: React.FC = () => {
       <div className="item">
         <Card
           infoText={t("PROJECTS_VISIBILITY")}
-          items={[<>TODO</>]}
+          items={!allProjectsData ? null : allProjectsData.projects.map((project: Project, idx: number) => (
+            <div key={idx} className="projectItem">
+              <i>{project.name}</i>
+              <span className="visibilityText">
+                <span>{t("VISIBILITY_LABEL")}</span>
+                <code style={{ color: project.visible ? "lightgreen" : "pink" }}>
+                  {project.visible.toString()}
+                </code>
+              </span>
+              <Button
+                onClick={(): void => console.log("TODO: Toggle project visibility.")}
+                variant={project.visible ? "secondary" : undefined}
+              >
+                {project.visible ? t("Hide") : t("Show")}
+              </Button>
+            </div>
+          ))}
         />
       </div>
       <div className="item">
