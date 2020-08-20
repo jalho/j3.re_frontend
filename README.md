@@ -34,7 +34,7 @@ Create a `.env` file in the root directory of the client with content of shape:
 
 *as of 20 August 2020*
 ```
-src
+client/src
 ¦   App.tsx                             # single page app's base
 ¦   AppLoader.tsx                       # load "App", and meanwhile render "Landing" as fallback
 ¦   i18n.ts                             # internationalization of the UI
