@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 import { useTranslation } from "react-i18next";
 
 import { Project, Translations } from "../../types";
@@ -9,8 +9,15 @@ import { GET_ALL_PROJECTS } from "../../utils/graphql";
 
 const Portfolio: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const { data, loading, error } = useQuery(GET_ALL_PROJECTS);
+  const [getAllProjects, { data, loading, error }] = useLazyQuery(GET_ALL_PROJECTS);
   const [ serverStatusMsg, setServerStatusMsg ] = useState<string>();
+
+  // query projects on mount
+  useEffect(
+    () => {
+      getAllProjects();
+    }, [getAllProjects]
+  );
 
   useEffect(
     () => {
@@ -23,6 +30,7 @@ const Portfolio: React.FC = () => {
       return (): void => clearTimeout(timerID);
     }, [loading, t, error]
   );
+
 
   /**
    * Choose the appropriate translation of the description based on

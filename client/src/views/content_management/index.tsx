@@ -5,7 +5,13 @@ import { useMutation, useLazyQuery } from "@apollo/client";
 import Button from "react-bootstrap/Button";
 
 import { StateCombinedFromReducers, Project } from "../../types";
-import { GET_ALL_NOTES, TOGGLE_NOTE_APPROVAL, GET_ALL_APPROVED_NOTES , GET_ALL_PROJECTS} from "../../utils/graphql";
+import { 
+  GET_ALL_NOTES,
+  TOGGLE_NOTE_APPROVAL,
+  GET_ALL_APPROVED_NOTES,
+  GET_ALL_PROJECTS,
+  TOGGLE_PROJECT_VISIBILITY
+} from "../../utils/graphql";
 import Card from "../../components/Card";
 
 const ContentManagement: React.FC = () => {
@@ -16,6 +22,7 @@ const ContentManagement: React.FC = () => {
   const [getAllNotes, { data: allNotesData }] = useLazyQuery(GET_ALL_NOTES);
   const [getAllProjects, { data: allProjectsData }] = useLazyQuery(GET_ALL_PROJECTS);
   const [ mutateApproval ] = useMutation(TOGGLE_NOTE_APPROVAL);
+  const [ mutateVisibility ] = useMutation(TOGGLE_PROJECT_VISIBILITY);
 
   /**
    * Toggle a note's approval and refetch approved notes' query to rerender them in other views.
@@ -24,6 +31,16 @@ const ContentManagement: React.FC = () => {
     mutateApproval({
       variables: { id: noteID },
       refetchQueries: [{ query: GET_ALL_APPROVED_NOTES }]
+    });
+  };
+
+  /**
+   * Toggle a project's visibility and refetch all notes' query to rerender them in other views.
+   */
+  const toggleVisibility = (projectID: string): void => {
+    mutateVisibility({
+      variables: { id: projectID },
+      refetchQueries: [{ query: GET_ALL_PROJECTS }]
     });
   };
 
@@ -60,7 +77,7 @@ const ContentManagement: React.FC = () => {
                 </code>
               </span>
               <Button
-                onClick={(): void => console.log("TODO: Toggle project visibility.")}
+                onClick={(): void => toggleVisibility(project.id)}
                 variant={project.visible ? "secondary" : undefined}
               >
                 {project.visible ? t("Hide") : t("Show")}

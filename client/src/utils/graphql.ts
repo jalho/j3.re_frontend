@@ -34,6 +34,15 @@ export const TOGGLE_NOTE_APPROVAL = gql`
   }
 `;
 
+export const TOGGLE_PROJECT_VISIBILITY = gql`
+  mutation ToggleProjectVisibility($id: String!) {
+    toggleProjectVisibility(id: $id) {
+      id
+      visible
+    }
+  }
+`;
+
 export const GET_ALL_PROJECTS = gql`
   query Projects {
     projects {
