@@ -32,7 +32,7 @@ Create a `.env` file in the root directory of the client with content of shape:
 <details>
     <summary>Expand</summary>
 
-*as of 5 August 2020*
+*as of 20 August 2020*
 ```
 src
 ¦   App.tsx                             # single page app's base
@@ -41,8 +41,11 @@ src
 ¦   index.tsx                           # entry point
 ¦   react-app-env.d.ts                  # Create React App (CRA) types
 ¦   
-+---components                          # components and their styles
-¦       ...
++---components                          # components and their styles:
+¦   ¦   ...                             # most of them in this shared directory...
+¦   ¦ 
+¦   +---Card                            # ...except the most recent one was created in its own dir
+¦           ...
 ¦       
 +---resources               
 ¦       translations.ts                 # UI texts in available languages
@@ -62,11 +65,25 @@ src
 ¦       
 +---types
 ¦       index.d.ts                      # own types
+¦   
++---utils
+¦       graphql.ts                      # query documents for GraphQL operations
+¦       helpers.ts                      # miscellaneous helper functions
+¦       typeguards.ts                   # custom type guards for TypeScript
 ¦       
 +---views                               # modules for different views in the UI
+    +---check_my_ip
+    ¦       ...
+    ¦       
+    +---content_management              # render only if authorized as admin
+    ¦       ...
+    ¦     
     +---cv
     ¦       ...
     ¦       
+    +---easter_egg                      # accessible via a hidden button
+    ¦       ...
+    ¦    
     +---home                            # rendered after "landing"
     ¦       ...
     ¦       
@@ -127,6 +144,7 @@ src
 
 #### Video demos on YouTube, starting from latest.
 
- 1. [as of commit `968cf10`](https://youtu.be/XYn0gqTw7MI) - 11 August 2020 **[latest]**
- 2. [as of commit `407f3ad`](https://youtu.be/r0ZoqIL1H2g) - 21 July 2020
- 3. [as of commit `02d9156`](https://youtu.be/w4ucXlW8Zhg) - 16 July 2020
+ 1. [as of commit `211533e`](https://youtu.be/476SoWuWQ_o) - 20 August 2020 **[latest]**
+ 2. [as of commit `968cf10`](https://youtu.be/XYn0gqTw7MI) - 11 August 2020
+ 3. [as of commit `407f3ad`](https://youtu.be/r0ZoqIL1H2g) - 21 July 2020
+ 4. [as of commit `02d9156`](https://youtu.be/w4ucXlW8Zhg) - 16 July 2020
