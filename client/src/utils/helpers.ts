@@ -15,6 +15,17 @@ export const getBackendURI = (): string => {
 };
 
 /**
+ * Get backend's Web Socket URI.
+ */
+export const getBackendWSURI = (): string => {
+  if (process.env.NODE_ENV === "development") return "ws://localhost:4000/graphql";
+
+  const uri = process.env.REACT_APP_BACKEND_WSURI;
+  if (!uri) throw new Error("Environment variable REACT_APP_BACKEND_WSURI missing!");
+  return uri;
+};
+
+/**
  * Return object narrowed down to User, or null if it cannot be done.
  * @param value to narrow down to User
  */

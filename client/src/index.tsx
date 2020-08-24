@@ -2,8 +2,10 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { ApolloProvider, ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
+import { ApolloProvider, ApolloClient, createHttpLink, InMemoryCache, split } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import { getMainDefinition } from "@apollo/client/utilities";
+import { WebSocketLink } from "@apollo/link-ws";
 
 import "./styles/main.scss";
 import AppLoader from "./AppLoader";
@@ -12,10 +14,17 @@ import Landing from "./views/landing";
 import store from "./state/store";
 import "./i18n"; // internationalization
 
-import { getBackendURI } from "./utils/helpers";
+import { getBackendURI, getBackendWSURI } from "./utils/helpers";
 
 const httpLink = createHttpLink({
   uri: getBackendURI()
+});
+
+const wsLink = new WebSocketLink({
+  uri: getBackendWSURI(),
+  options: {
+    reconnect: true
+  }
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -32,8 +41,20 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+const splitLink = split(
+  ({ query }) => {
+    const definition = getMainDefinition(query);
+    return (
+      definition.kind === "OperationDefinition" &&
+      definition.operation === "subscription"
+    );
+  },
+  wsLink,
+  authLink.concat(httpLink)
+);
+
 const apolloClient = new ApolloClient({
-  link: authLink.concat(httpLink),
+  link: splitLink,
   cache: new InMemoryCache({
     typePolicies: {
       Query: {
