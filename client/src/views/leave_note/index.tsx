@@ -1,14 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useLazyQuery } from "@apollo/client";
+import { useLazyQuery, useSubscription, useApolloClient } from "@apollo/client";
 
-import { GET_ALL_APPROVED_NOTES } from "../../utils/graphql";
+import { GET_ALL_APPROVED_NOTES, NOTE_APPROVAL_TOGGLED } from "../../utils/graphql";
 import { Note } from "../../types";
 
 const LeaveNote: React.FC = () => {
   const { t } = useTranslation();
   const [getAllApprovedNotes, { data, loading, error }] = useLazyQuery(GET_ALL_APPROVED_NOTES);
   const [ serverStatusMsg, setServerStatusMsg ] = useState<string>();
+  const client = useApolloClient();
+
+  /**
+   * Get updated approved notes cache.
+   * @param note received in subscription data containing ID and approval status
+   */
+  const getUpdatedApprovedNotesCache = (note: Note): Array<Note> => {
+    let oldCache = client.readQuery({ query: GET_ALL_APPROVED_NOTES });
+    oldCache = oldCache.approvedNotes;
+    // keep other notes
+    const updatedCache: Array<Note> = oldCache.filter((n: Note) => n.id !== note.id);
+    // add updated note if it's approved
+    if (note.approved) {
+      updatedCache.push(note);
+    }
+    return updatedCache;
+  };
 
   useEffect(
     () => {
@@ -26,6 +43,18 @@ const LeaveNote: React.FC = () => {
   useEffect(() => {
     getAllApprovedNotes();
   }, [getAllApprovedNotes]);
+
+  useSubscription(NOTE_APPROVAL_TOGGLED, {
+    onSubscriptionData: ({ subscriptionData }) => {
+      const updatedNote = subscriptionData.data.noteApprovalChanged;
+      client.writeQuery({
+        query: GET_ALL_APPROVED_NOTES,
+        data: {
+          approvedNotes: getUpdatedApprovedNotesCache(updatedNote)
+        }
+      });
+    }
+  });
 
   // create JSX elements of fetched notes
   let noteElements: Array<JSX.Element> = [];

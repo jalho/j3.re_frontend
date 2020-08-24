@@ -72,6 +72,7 @@ export interface StateCombinedFromReducers {
 }
 
 export interface Note {
+  approved: boolean;
   id: string;
   content: string;
   time: string;

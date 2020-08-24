@@ -84,3 +84,14 @@ export const GET_ALL_NOTES = gql`
     }
   }
 `;
+
+export const NOTE_APPROVAL_TOGGLED = gql`
+  subscription {
+    noteApprovalChanged {
+      id
+      content
+      time
+      approved
+    }
+  }
+`;
