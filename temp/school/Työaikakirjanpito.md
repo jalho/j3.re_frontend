@@ -31,6 +31,9 @@
 | 17-Aug-2020 | 2 | `170f9b1`, `40c56fb`* | Toteutin IP-osoitteentarkistusnäkymän sivulle. |
 | 18-Aug-2020 | 8 | `120bf6c`, `99438e4`* | Toteutin lisätietojen haun ja näyttämisen IP-osoitteen kyselyn perusteella käyttäen ip-api.com ja restcountries.eu API:eja, sekä (osittain, ks. frontin commit-viestit) viestienhallinnan ylläpitäjille niin frontin kuin backin puolella. Ym. perus projektinhallinnointia. |
 | 19-Aug-2020 | 5,5 | `9c55031`, `1ebd3e0`* | Korjasin eilisten ominaisuuksien lisäysten jättämät Apollo- ja React-varoitukset konsolissa. Ryhdyin toteuttamaan työkalua portfolion projektien näkyvyyden hallintaan. |
-| 20-Aug-2020 | 2,5 | `TODO` | Toteutin projektien näkyvyyttä hallitsevan työkalun loppuun clientin ja palvelimen puolella. Päivitin projektin rakennekaavion frontin README:ssä, sekä lisäsin uuden videodemon. Etsin nimipäivä-API:a netistä mutta en toistaiseksi vielä löytänyt täydellistä. Esim. [tämä](https://api.abalin.net/) näyttää vain kaksi tämän päivän neljästä nimipäiväsankarista. |
-| 21-Aug-2020 | | | |
+| 20-Aug-2020 | 2,5 | `d0cc6c3`, `0865513`* | Toteutin projektien näkyvyyttä hallitsevan työkalun loppuun clientin ja palvelimen puolella. Päivitin projektin rakennekaavion frontin README:ssä, sekä lisäsin uuden videodemon. Etsin nimipäivä-API:a netistä mutta en toistaiseksi vielä löytänyt täydellistä. Esim. [tämä](https://api.abalin.net/) näyttää vain kaksi tämän päivän neljästä nimipäiväsankarista. |
+| 24-Aug-2020 | | `TODO` | Laitoin sivun päänäkymään sisältöä. |
+| 25-Aug-2020 | | | |
+| 26-Aug-2020 | | | |
+| 27-Aug-2020 | | | |
 | **yhteensä**   | 157 | \* [backend](https://github.com/jalho/j3.re_backend) | |
