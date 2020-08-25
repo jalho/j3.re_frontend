@@ -26,7 +26,7 @@ const CV: React.FC = () => {
               {t("not yet graduated")}
             </em>
             <span>{t("major in computer science")}</span>
-            <span>{t("minor in mathematics")}</span>
+            <span>{t("MINOR_SUBJECT_DESCRIPTION")}</span>
             <span>{t("degree level BSc")}</span>
             <span>{t("start year 2019")}</span>
           </div>
