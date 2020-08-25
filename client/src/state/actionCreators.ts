@@ -41,3 +41,16 @@ export const increaseEggCounter = (): Action => {
     type: "INCR_COUNTER"
   };
 };
+
+export const setInputNote = (noteContent: string): Action => {
+  return {
+    type: "SET_INPUT_NOTE",
+    data: noteContent
+  };
+};
+
+export const clearInputNote = (): Action => {
+  return {
+    type: "CLEAR_INPUT_NOTE"
+  };
+};

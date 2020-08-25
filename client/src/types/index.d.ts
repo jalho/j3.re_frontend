@@ -7,6 +7,11 @@ export interface State {
   authentication: AuthPayload|null;
   alert: Alert|null;
   eggClickCounter: number;
+  inputs: Inputs;
+}
+
+export interface Inputs {
+  newNote: string;
 }
 
 export interface Alert {
@@ -55,9 +60,10 @@ export type AppModeAction = "DEFAULT" | "EASTER_EGG" | "INCR_COUNTER" | "RESET_C
 export type AuthenticationAction = "SET_AUTHENTICATION" | "CLEAR_AUTHENTICATION";
 export type NavBarAction = "TOGGLE_NAVBAR_VISIBILITY" | "SHOW_NAVBAR" | "HIDE_NAVBAR";
 export type AlertAction = "SET_ALERT" | "HIDE_ALERT";
+export type InputAction = "SET_INPUT_NOTE" | "CLEAR_INPUT_NOTE";
 
 export interface Action {
-  type: NavBarAction | AppModeAction | AuthenticationAction | AlertAction;
+  type: NavBarAction | AppModeAction | AuthenticationAction | AlertAction | InputAction;
   data?: unknown;
 }
 
@@ -68,7 +74,8 @@ export interface StateCombinedFromReducers {
   navbarReducer: Reducer,
   appModeReducer: Reducer,
   authenticationReducer: Reducer,
-  alertReducer: Reducer
+  alertReducer: Reducer,
+  inputReducer: Reducer
 }
 
 export interface Note {

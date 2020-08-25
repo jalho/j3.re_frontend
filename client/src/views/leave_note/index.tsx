@@ -1,15 +1,27 @@
 import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { useLazyQuery, useSubscription, useApolloClient } from "@apollo/client";
+import { useLazyQuery, useSubscription, useApolloClient, useMutation } from "@apollo/client";
 
-import { GET_ALL_APPROVED_NOTES, NOTE_APPROVAL_TOGGLED } from "../../utils/graphql";
-import { Note } from "../../types";
+import { GET_ALL_APPROVED_NOTES, NOTE_APPROVAL_TOGGLED, ADD_NOTE } from "../../utils/graphql";
+import { notify } from "../../utils/helpers";
+import { Note, StateCombinedFromReducers } from "../../types";
+import { clearInputNote, setInputNote } from "../../state/actionCreators";
 
 const LeaveNote: React.FC = () => {
   const { t } = useTranslation();
   const [getAllApprovedNotes, { data, loading, error }] = useLazyQuery(GET_ALL_APPROVED_NOTES);
   const [ serverStatusMsg, setServerStatusMsg ] = useState<string>();
   const client = useApolloClient();
+  const dispatch = useDispatch();
+  const [ addNote ] = useMutation(ADD_NOTE);
+
+  const inputs = useSelector((state: StateCombinedFromReducers) => {
+    return state.inputReducer.inputs;
+  });
+  const authentication = useSelector((state: StateCombinedFromReducers) => {
+    return state.authenticationReducer.authentication;
+  });
 
   /**
    * Get updated approved notes cache.
@@ -25,6 +37,28 @@ const LeaveNote: React.FC = () => {
       updatedCache.push(note);
     }
     return updatedCache;
+  };
+
+  /**
+   * Attempt sending note to backend and notify UI accordingly.
+   * @param event submitting form data
+   */
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    addNote({ variables: { content: inputs.newNote } })
+      .then(() => notify(t("Note submitted for manual approval.")))
+      .catch(() => notify(t("Submission failed."), 5000, "danger"));
+    dispatch(clearInputNote()); // clear field at the end
+  };
+
+  /**
+   * Update input field's value to app's state in Redux store.
+   * @param event changing input element's value
+   */
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    event.preventDefault();
+    if (event.target.value.length === 0) dispatch(clearInputNote());
+    else dispatch(setInputNote(event.target.value));
   };
 
   useEffect(
@@ -69,24 +103,30 @@ const LeaveNote: React.FC = () => {
   ));
 
   return (
-    <>
-      <div id="leaveNoteInfoText">
-        <p>{t("Here's going to be a notes leaving feature. The notes won't be translated, instead they will remain in their original language.")}</p>
-      </div>
-      
-      {/* render info text & notes only if there are some notes */}
-      {noteElements.length > 0 ?
-         [
-          <div key="info" id="leaveNoteInfoText">
+    <div id="leaveNote">
+      {
+        !authentication
+          ?
             <p>
-              {t("Below are some examples fetched from a database.")}
+              {t("Note leaving is only allowed for logged in users.")}
             </p>
-          </div>,
-          ...noteElements
-        ] :
-        <p>{serverStatusMsg}</p>
+          :
+            <>
+              <p>{t("Leave a note for manual review before publication.")}</p>
+              
+              <form onSubmit={handleSubmit}>
+                <input type="text" value={inputs.newNote} onChange={handleChange} />
+                <input id="submitNote" type="submit" value={t("Submit") as string} />
+              </form>
+
+              {/* render notes only if there are any */}
+              {noteElements.length > 0 ?
+                noteElements :
+                <p>{serverStatusMsg}</p>
+              }
+            </>
       }
-    </>
+    </div>
   );
 };
 

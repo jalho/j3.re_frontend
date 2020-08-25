@@ -25,7 +25,7 @@ Create a `.env` file in the root directory of the client with content of shape:
 | required for | key | value | note |
 |-|-|-|-|
 | backend use | `REACT_APP_BACKEND_URI` | `https://j3re-backend.herokuapp.com/` | can change |
-| backend Web Socket use | `REACT_APP_BACKEND_WSURI` | `wss://j3re-backend.herokuapp.com/graphql` | Use `wss://` with HTTPS! |
+| backend Web Socket use | `REACT_APP_BACKEND_WSURI` | `wss://j3re-backend.herokuapp.com/graphql` | `wss://` with HTTPS |
 </details>
 
 ## Frontend source structure

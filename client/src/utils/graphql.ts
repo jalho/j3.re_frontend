@@ -95,3 +95,13 @@ export const NOTE_APPROVAL_TOGGLED = gql`
     }
   }
 `;
+
+export const ADD_NOTE = gql`
+  mutation AddNote($content: String!) {
+    addNote(content: $content) {
+      id
+      content
+      time
+    }
+  }
+`;
