@@ -105,26 +105,26 @@ const LeaveNote: React.FC = () => {
   return (
     <div id="leaveNote">
       {
-        !authentication
+        !authentication // submission form available only for logged in users
           ?
-            <p>
-              {t("Note leaving is only allowed for logged in users.")}
-            </p>
+            <>
+              <p>{t("Note leaving is only allowed for logged in users.")}</p>
+            </>
           :
             <>
               <p>{t("Leave a note for manual review before publication.")}</p>
-              
               <form onSubmit={handleSubmit}>
                 <input type="text" value={inputs.newNote} onChange={handleChange} />
                 <input id="submitNote" type="submit" value={t("Submit") as string} />
               </form>
-
-              {/* render notes only if there are any */}
-              {noteElements.length > 0 ?
-                noteElements :
-                <p>{serverStatusMsg}</p>
-              }
             </>
+      }
+      {
+        noteElements.length > 0 // show notes if there are any to show
+          ?
+            noteElements
+          :
+            <p>{serverStatusMsg}</p>
       }
     </div>
   );

@@ -33,7 +33,7 @@
 | 19-Aug-2020 | 5,5 | `9c55031`, `1ebd3e0`* | Korjasin eilisten ominaisuuksien lisäysten jättämät Apollo- ja React-varoitukset konsolissa. Ryhdyin toteuttamaan työkalua portfolion projektien näkyvyyden hallintaan. |
 | 20-Aug-2020 | 2,5 | `d0cc6c3`, `0865513`* | Toteutin projektien näkyvyyttä hallitsevan työkalun loppuun clientin ja palvelimen puolella. Päivitin projektin rakennekaavion frontin README:ssä, sekä lisäsin uuden videodemon. Etsin nimipäivä-API:a netistä mutta en toistaiseksi vielä löytänyt täydellistä. Esim. [tämä](https://api.abalin.net/) näyttää vain kaksi tämän päivän neljästä nimipäiväsankarista. |
 | 24-Aug-2020 | 4,5 | `b6d7e9c`, `ea2b9e5`* | Laitoin sivun päänäkymään sisältöä, eli yleisen kuvauksen sekä linkin oman GitHub-profiiliini. Toteutuin tuen Web Socketeilla toteutetuille Apollon GraphQL subscriptioneille sekä palvelimen että clientin puolella, ja otin sen käyttöön viestien `approved` kenttää muuttavassa sisällönhallintaoperaatiossa. Loin samalla uuden bugin (ks. [issue 8 / backend](https://github.com/jalho/j3.re_backend/issues/8)). |
-| 25-Aug-2020 | 4 | `TODO` | Korjasin eilen luomani bugin. Toteutin viestinjättötoiminnallisuuden clientissäkin. |
+| 25-Aug-2020 | 4,5 | `TODO` | Korjasin eilen luomani bugin. Toteutin viestinjättötoiminnallisuuden clientissäkin. Hallinnoin projektia GitHubissa. |
 | 26-Aug-2020 | | | |
 | 27-Aug-2020 | | | |
-| **yhteensä**   | 165,5 | \* [backend](https://github.com/jalho/j3.re_backend) | |
+| **yhteensä**   | 166 | \* [backend](https://github.com/jalho/j3.re_backend) | |
