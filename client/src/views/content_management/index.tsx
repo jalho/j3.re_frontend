@@ -106,7 +106,7 @@ const ContentManagement: React.FC = () => {
       <div className="item">
         <Card
           infoText={t("NOTES_APPROVAL")}
-          items={!allNotesData ? null : allNotesData.allNotes.map((note: { content: string; approved: boolean; id: string; }, idx: number) => (
+          items={!allNotesData || !allNotesData.allNotes ? null : allNotesData.allNotes.map((note: { content: string; approved: boolean; id: string; }, idx: number) => (
             <div key={idx} className="noteItem">
               <i>{note.content.substring(0, noteVisibleCharsCount) + (note.content.length > noteVisibleCharsCount ? "..." : "")}</i>
               <span className="approvalText">
