@@ -34,6 +34,6 @@
 | 20-Aug-2020 | 2,5 | `d0cc6c3`, `0865513`* | Toteutin projektien näkyvyyttä hallitsevan työkalun loppuun clientin ja palvelimen puolella. Päivitin projektin rakennekaavion frontin README:ssä, sekä lisäsin uuden videodemon. Etsin nimipäivä-API:a netistä mutta en toistaiseksi vielä löytänyt täydellistä. Esim. [tämä](https://api.abalin.net/) näyttää vain kaksi tämän päivän neljästä nimipäiväsankarista. |
 | 24-Aug-2020 | 4,5 | `b6d7e9c`, `ea2b9e5`* | Laitoin sivun päänäkymään sisältöä, eli yleisen kuvauksen sekä linkin oman GitHub-profiiliini. Toteutuin tuen Web Socketeilla toteutetuille Apollon GraphQL subscriptioneille sekä palvelimen että clientin puolella, ja otin sen käyttöön viestien `approved` kenttää muuttavassa sisällönhallintaoperaatiossa. Loin samalla uuden bugin (ks. [issue 8 / backend](https://github.com/jalho/j3.re_backend/issues/8)). |
 | 25-Aug-2020 | 5 | `d2fade6` | Korjasin eilen luomani bugin. Toteutin viestinjättötoiminnallisuuden clientissäkin. Hallinnoin projektia GitHubissa ym. |
-| 26-Aug-2020 | | `TODO` | Synkronoin projektien näkyyvyyden muutokset ja uusien viestien lähetyksen palvelimen ja eri clientien eri näkymien välillä käyttäen Apollon subscriptioneita kuten maanantaina viestien kanssa. |
+| 26-Aug-2020 | 1,5 | `TODO` | Synkronoin projektien näkyyvyyden muutokset ja uusien viestien lähetyksen palvelimen ja eri clientien eri näkymien välillä käyttäen Apollon subscriptioneita kuten maanantaina viestien kanssa. |
 | 27-Aug-2020 | | | |
-| **yhteensä**   | 166,5 | \* [backend](https://github.com/jalho/j3.re_backend) | |
+| **yhteensä**   | 168 | \* [backend](https://github.com/jalho/j3.re_backend) | |
