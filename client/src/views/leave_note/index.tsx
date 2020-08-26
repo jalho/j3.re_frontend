@@ -73,11 +73,12 @@ const LeaveNote: React.FC = () => {
     }, [loading, t, error]
   );
 
-  // Query all approved notes on mount
+  // query all approved notes on mount
   useEffect(() => {
     getAllApprovedNotes();
   }, [getAllApprovedNotes]);
 
+  // update cache when some note's approval status changes
   useSubscription(NOTE_APPROVAL_TOGGLED, {
     onSubscriptionData: ({ subscriptionData }) => {
       const updatedNote = subscriptionData.data.noteApprovalChanged;
