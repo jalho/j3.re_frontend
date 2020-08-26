@@ -131,3 +131,9 @@ export const DELETE_NOTE_BY_ID = gql`
     removeNoteByID(id: $id)
   }
 `;
+
+export const NOTE_DELETED = gql`
+  subscription {
+    noteDeleted
+  }
+`;

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { useLazyQuery, useSubscription, useApolloClient, useMutation } from "@apollo/client";
 
-import { GET_ALL_APPROVED_NOTES, NOTE_APPROVAL_TOGGLED, ADD_NOTE } from "../../utils/graphql";
+import { GET_ALL_APPROVED_NOTES, NOTE_APPROVAL_TOGGLED, ADD_NOTE, NOTE_DELETED } from "../../utils/graphql";
 import { notify } from "../../utils/helpers";
 import { Note, StateCombinedFromReducers } from "../../types";
 import { clearInputNote, setInputNote } from "../../state/actionCreators";
@@ -86,6 +86,21 @@ const LeaveNote: React.FC = () => {
         query: GET_ALL_APPROVED_NOTES,
         data: {
           approvedNotes: getUpdatedApprovedNotesCache(updatedNote)
+        }
+      });
+    }
+  });
+
+  // remove note from UI's approved notes if it was deleted elsewhere
+  useSubscription(NOTE_DELETED, {
+    onSubscriptionData: ({ subscriptionData }) => {
+      const cachedNotesQuery = client.readQuery({ query: GET_ALL_APPROVED_NOTES });
+      const oldNotes: Array<Note> = cachedNotesQuery.approvedNotes;
+      const deletedNoteID = subscriptionData.data.noteDeleted;
+      client.writeQuery({
+        query: GET_ALL_APPROVED_NOTES,
+        data: {
+          approvedNotes: oldNotes ? oldNotes.filter(n => n.id !== deletedNoteID) : new Array<Note>()
         }
       });
     }
