@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useLazyQuery } from "@apollo/client";
+import { useLazyQuery, useSubscription } from "@apollo/client";
 import { useTranslation } from "react-i18next";
 
 import { Project, Translations } from "../../types";
 import Card from "../../components/Card";
 import Header from "../../components/Header";
-import { GET_ALL_PROJECTS } from "../../utils/graphql";
+import { GET_ALL_PROJECTS, PROJECT_VISIBILITY_CHANGED } from "../../utils/graphql";
 
 const Portfolio: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -31,6 +31,9 @@ const Portfolio: React.FC = () => {
     }, [loading, t, error]
   );
 
+  /* Execute projects' subscription. Apollo updates cache automatically
+  sufficiently based on received `id` and `__typename` */
+  useSubscription(PROJECT_VISIBILITY_CHANGED);
 
   /**
    * Choose the appropriate translation of the description based on

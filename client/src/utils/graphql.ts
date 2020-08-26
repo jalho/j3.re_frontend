@@ -105,3 +105,12 @@ export const ADD_NOTE = gql`
     }
   }
 `;
+
+export const PROJECT_VISIBILITY_CHANGED = gql`
+  subscription {
+    projectVisibilityChanged {
+      id
+      visible
+    }
+  }
+`;
