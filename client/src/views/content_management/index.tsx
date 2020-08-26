@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { useMutation, useLazyQuery } from "@apollo/client";
+import { useMutation, useLazyQuery, useSubscription, useApolloClient } from "@apollo/client";
 import Button from "react-bootstrap/Button";
 
-import { StateCombinedFromReducers, Project } from "../../types";
+import { StateCombinedFromReducers, Project, Note } from "../../types";
 import { 
   GET_ALL_NOTES,
   TOGGLE_NOTE_APPROVAL,
   GET_ALL_APPROVED_NOTES,
   GET_ALL_PROJECTS,
-  TOGGLE_PROJECT_VISIBILITY
+  TOGGLE_PROJECT_VISIBILITY,
+  NOTE_ADDED
 } from "../../utils/graphql";
 import Card from "../../components/Card";
 
@@ -23,6 +24,7 @@ const ContentManagement: React.FC = () => {
   const [getAllProjects, { data: allProjectsData }] = useLazyQuery(GET_ALL_PROJECTS);
   const [ mutateApproval ] = useMutation(TOGGLE_NOTE_APPROVAL);
   const [ mutateVisibility ] = useMutation(TOGGLE_PROJECT_VISIBILITY);
+  const client = useApolloClient();
 
   /**
    * Toggle a note's approval and refetch approved notes' query to rerender them in other views.
@@ -49,6 +51,21 @@ const ContentManagement: React.FC = () => {
     getAllNotes();
     getAllProjects();
   }, [getAllNotes, getAllProjects]);
+
+  // update Apollo's cache with the new note
+  useSubscription(NOTE_ADDED, {
+    onSubscriptionData: ({ subscriptionData }) => {
+      // get existing
+      const cachedDataOld = client.readQuery({ query: GET_ALL_NOTES });
+      const existingNotes: Array<Note> = cachedDataOld.allNotes;
+      // add new
+      const addedNote = subscriptionData.data.noteAdded;
+      client.writeQuery({
+        query: GET_ALL_NOTES,
+        data: { allNotes: existingNotes.concat(addedNote) }
+      });
+    }
+  });
 
   // non authorized view
   if (!authentication || !authentication.user.roles.includes("admin")) {

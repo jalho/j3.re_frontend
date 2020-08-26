@@ -114,3 +114,14 @@ export const PROJECT_VISIBILITY_CHANGED = gql`
     }
   }
 `;
+
+export const NOTE_ADDED = gql`
+  subscription {
+    noteAdded {
+      id
+      content
+      time
+      approved
+    }
+  }
+`;

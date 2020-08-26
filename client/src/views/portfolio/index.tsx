@@ -32,7 +32,8 @@ const Portfolio: React.FC = () => {
   );
 
   /* Execute projects' subscription. Apollo updates cache automatically
-  sufficiently based on received `id` and `__typename` */
+  sufficiently based on received `id` and `__typename`, assuming all the
+  projects already exist in cache and just their visibility status in changed. */
   useSubscription(PROJECT_VISIBILITY_CHANGED);
 
   /**
