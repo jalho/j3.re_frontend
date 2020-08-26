@@ -11,7 +11,8 @@ import {
   GET_ALL_APPROVED_NOTES,
   GET_ALL_PROJECTS,
   TOGGLE_PROJECT_VISIBILITY,
-  NOTE_ADDED
+  NOTE_ADDED,
+  DELETE_NOTE_BY_ID
 } from "../../utils/graphql";
 import Card from "../../components/Card";
 
@@ -24,6 +25,7 @@ const ContentManagement: React.FC = () => {
   const [getAllProjects, { data: allProjectsData }] = useLazyQuery(GET_ALL_PROJECTS);
   const [ mutateApproval ] = useMutation(TOGGLE_NOTE_APPROVAL);
   const [ mutateVisibility ] = useMutation(TOGGLE_PROJECT_VISIBILITY);
+  const [ deleteNoteByID ] = useMutation(DELETE_NOTE_BY_ID, { refetchQueries: [ { query: GET_ALL_NOTES } ] });
   const client = useApolloClient();
 
   /**
@@ -44,6 +46,13 @@ const ContentManagement: React.FC = () => {
       variables: { id: projectID },
       refetchQueries: [{ query: GET_ALL_PROJECTS }]
     });
+  };
+
+  const deleteNoteSingleNote = (noteID: string): void => {
+    deleteNoteByID({
+      variables: { id: noteID },
+      refetchQueries: [{ query: GET_ALL_NOTES }, { query: GET_ALL_APPROVED_NOTES }]
+    }).catch(error => console.log(error));
   };
 
   // Query all notes on mount.
@@ -122,6 +131,12 @@ const ContentManagement: React.FC = () => {
                 variant={note.approved ? "secondary" : undefined}
               >
                 {note.approved ? t("Disapprove") : t("Approve")}
+              </Button>
+              <Button
+                onClick={(): void => deleteNoteSingleNote(note.id) }
+                variant="danger"
+              >
+                Delete
               </Button>
             </div>
           ))}

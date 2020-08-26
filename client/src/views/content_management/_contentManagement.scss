@@ -1,4 +1,5 @@
 @use "../../styles/mixins" as m;
+@use "../../styles/constants" as c;
 
 #contentManagement {
   text-align: center;
@@ -31,6 +32,10 @@
 
     .approvalText {
       font-weight: bold;
+    }
+
+    button {
+      margin-top: c.$fontSizeDefault / 2;
     }
   }
 
