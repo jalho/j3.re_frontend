@@ -57,9 +57,11 @@ const ContentManagement: React.FC = () => {
     onSubscriptionData: ({ subscriptionData }) => {
       // get existing
       const cachedDataOld = client.readQuery({ query: GET_ALL_NOTES });
-      const existingNotes: Array<Note> = cachedDataOld.allNotes;
-      // add new
+      const existingNotes: Array<Note> = cachedDataOld.allNotes ? cachedDataOld.allNotes : new Array<Note>();
+      // add new...
       const addedNote = subscriptionData.data.noteAdded;
+      // ...except if it's already added
+      if (existingNotes.find(note => note.id === addedNote.id)) return;
       client.writeQuery({
         query: GET_ALL_NOTES,
         data: { allNotes: existingNotes.concat(addedNote) }

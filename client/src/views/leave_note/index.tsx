@@ -31,7 +31,7 @@ const LeaveNote: React.FC = () => {
     let oldCache = client.readQuery({ query: GET_ALL_APPROVED_NOTES });
     oldCache = oldCache.approvedNotes;
     // keep other notes
-    const updatedCache: Array<Note> = oldCache.filter((n: Note) => n.id !== note.id);
+    const updatedCache: Array<Note> = oldCache ? oldCache.filter((n: Note) => n.id !== note.id) : new Array<Note>();
     // add updated note if it's approved
     if (note.approved) {
       updatedCache.push(note);
