@@ -11,6 +11,8 @@ const CheckMyIP: React.FC = () => {
   const { t } = useTranslation();
   const [ serverStatusMsg, setServerStatusMsg ] = useState<string>();
   
+  /* indicate server status in case loading takes longer than given time
+  (Heroku Free sleeps after 30 minutes of inactivity) */
   useEffect(
     () => {
       if (error) setServerStatusMsg(t("Server is not operational."));
@@ -26,23 +28,23 @@ const CheckMyIP: React.FC = () => {
   let IPData: IPLookupPayload|undefined = undefined;
   if (data) IPData = data.myIP;
 
-  return IPData ? (
-    <div id="checkMyIP">
-      {IPData &&
-        <Card
-          items={[
-              <code key={2}>{IPData.ip}</code>,
-              IPData.proxy ? <span>{t("proxy address")}</span> : <></>,
-              IPData.mobile ? <span>{t("mobile address")}</span> : <></>,
-              IPData.city && !IPData.mobile ? <span>{IPData.city}</span> : <></>,
-              IPData.isp ? <span>{IPData.isp}</span> : <></>,
-              IPData.flagURL ? <img src={IPData.flagURL} alt={"Flag of a country"} /> : <></>
-          ]}
-          infoText={t("IP address")}
-        />
-      }
-    </div>
-  ) : <p id="checkMyIP">{serverStatusMsg}</p>;
+  return IPData
+    ? (<div id="checkMyIP">
+        {IPData &&
+          <Card
+            items={[
+                <code key={2}>{IPData.ip}</code>,
+                IPData.proxy ? <span>{t("proxy address")}</span> : <></>,
+                IPData.mobile ? <span>{t("mobile address")}</span> : <></>,
+                IPData.city && !IPData.mobile ? <span>{IPData.city}</span> : <></>,
+                IPData.isp ? <span>{IPData.isp}</span> : <></>,
+                IPData.flagURL ? <img src={IPData.flagURL} alt={"Flag of a country"} /> : <></>
+            ]}
+            infoText={t("IP address")}
+          />
+        }
+      </div>)
+    : <p id="checkMyIP">{serverStatusMsg}</p>;
 };
 
 export default CheckMyIP;

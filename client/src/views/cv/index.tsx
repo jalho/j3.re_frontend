@@ -10,6 +10,10 @@ import Card from "../../components/Card";
 const CV: React.FC = () => {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
+
+  /**
+   * Count clicks in app state. Used for conditionally making an easter egg accessible.
+   */
   const eggCounter = (): void => {
     dispatch(increaseEggCounter());
   };

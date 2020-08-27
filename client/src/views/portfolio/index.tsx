@@ -19,6 +19,8 @@ const Portfolio: React.FC = () => {
     }, [getAllProjects]
   );
 
+  /* indicate server status in case loading takes longer than given time
+  (Heroku Free sleeps after 30 minutes of inactivity) */
   useEffect(
     () => {
       if (error) setServerStatusMsg(t("Server is not operational."));
@@ -55,8 +57,8 @@ const Portfolio: React.FC = () => {
   // render either the projects or a server status message
   return (
     <div id="portfolio">
-      {data ?
-        data.projects
+      {data
+        ? data.projects
           .filter((project: Project) => project.visible)
           .map((project: Project, idx: number) => (
             <div key={idx} className="item">
@@ -80,9 +82,8 @@ const Portfolio: React.FC = () => {
                 }
                 infoText={project.categories ? project.categories.join(", ") : ""}
               />
-            </div>)) :
-        <p>{serverStatusMsg}</p>
-      }
+            </div>))
+        : <p>{serverStatusMsg}</p>}
     </div>
   );
 };

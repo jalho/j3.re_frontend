@@ -1,19 +1,30 @@
+// external imports
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { useLazyQuery, useSubscription, useApolloClient, useMutation } from "@apollo/client";
 
-import { GET_ALL_APPROVED_NOTES, NOTE_APPROVAL_TOGGLED, ADD_NOTE, NOTE_DELETED } from "../../utils/graphql";
+// own imports
+import {
+  GET_ALL_APPROVED_NOTES,
+  NOTE_APPROVAL_TOGGLED,
+  ADD_NOTE,
+  NOTE_DELETED
+} from "../../utils/graphql";
 import { notify } from "../../utils/helpers";
 import { Note, StateCombinedFromReducers } from "../../types";
 import { clearInputNote, setInputNote } from "../../state/actionCreators";
 
 const LeaveNote: React.FC = () => {
   const { t } = useTranslation();
-  const [getAllApprovedNotes, { data, loading, error }] = useLazyQuery(GET_ALL_APPROVED_NOTES);
   const [ serverStatusMsg, setServerStatusMsg ] = useState<string>();
+  
+  // cache and state management (Apollo and Redux)
   const client = useApolloClient();
   const dispatch = useDispatch();
+
+  // GraphQL operations
+  const [ getAllApprovedNotes, { data, loading, error } ] = useLazyQuery(GET_ALL_APPROVED_NOTES);
   const [ addNote ] = useMutation(ADD_NOTE);
 
   const inputs = useSelector((state: StateCombinedFromReducers) => {
@@ -61,6 +72,8 @@ const LeaveNote: React.FC = () => {
     else dispatch(setInputNote(event.target.value));
   };
 
+  /* indicate server status in case loading takes longer than given time
+  (Heroku Free sleeps after 30 minutes of inactivity) */
   useEffect(
     () => {
       if (error) setServerStatusMsg(t("Server is not operational."));

@@ -1,3 +1,4 @@
+// external imports
 import React, { FormEvent, useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -5,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { useMutation } from "@apollo/client";
 import { useDispatch, useSelector } from "react-redux";
 
-// own
+// own imports
 import { LOGIN } from "../../utils/graphql";
 import { setAuthentication } from "../../state/actionCreators";
 import { StateCombinedFromReducers } from "../../types";
@@ -15,7 +16,11 @@ const Login: React.FC = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const { t } = useTranslation();
+
+  // GraphQL operations
   const [login, { data, loading }] = useMutation(LOGIN);
+
+  // state management (Redux)
   const dispatch = useDispatch();
   const authentication = useSelector((state: StateCombinedFromReducers) => {
     return state.authenticationReducer.authentication;
@@ -49,6 +54,8 @@ const Login: React.FC = () => {
     }
   }, [data, dispatch, t]);
 
+  /* indicate server status in case loading takes longer than given time
+  (Heroku Free sleeps after 30 minutes of inactivity) */
   useEffect(
     () => {
       const timerID = setTimeout(
@@ -60,12 +67,14 @@ const Login: React.FC = () => {
     }, [loading, t]
   );
 
+  // login mutation returns `null` for incorrect credentials instead of e. g. AuthenticationError
   useEffect(
     () => {
       if (data && !data.login) notify(t("Wrong credentials."), 3000, "danger");
     }, [data, t]
   );
 
+  // render either login form or login info & logout button
   if (authentication) {
     return (
       <>
