@@ -145,7 +145,8 @@ client/src
 
 #### Video demos on YouTube, starting from latest.
 
- 1. [as of commit `211533e`](https://youtu.be/476SoWuWQ_o) - 20 August 2020 **[latest]**
- 2. [as of commit `968cf10`](https://youtu.be/XYn0gqTw7MI) - 11 August 2020
- 3. [as of commit `407f3ad`](https://youtu.be/r0ZoqIL1H2g) - 21 July 2020
- 4. [as of commit `02d9156`](https://youtu.be/w4ucXlW8Zhg) - 16 July 2020
+ 1. [as of commit `49b778c`](https://youtu.be/ez-e5bLRhnQ) - 27 August 2020 **[latest]**
+ 2. [as of commit `211533e`](https://youtu.be/476SoWuWQ_o) - 20 August 2020
+ 3. [as of commit `968cf10`](https://youtu.be/XYn0gqTw7MI) - 11 August 2020
+ 4. [as of commit `407f3ad`](https://youtu.be/r0ZoqIL1H2g) - 21 July 2020
+ 5. [as of commit `02d9156`](https://youtu.be/w4ucXlW8Zhg) - 16 July 2020
