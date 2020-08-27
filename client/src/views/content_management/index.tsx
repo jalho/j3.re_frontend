@@ -15,9 +15,11 @@ import {
   TOGGLE_PROJECT_VISIBILITY,
   NOTE_ADDED,
   DELETE_NOTE_BY_ID,
-  ADD_PROJECT
+  ADD_PROJECT,
+  REMOVE_PROJECT_BY_ID
 } from "../../utils/graphql";
 import Card from "../../components/Card";
+import { notify } from "../../utils/helpers";
 
 const ContentManagement: React.FC = () => {
   const { t } = useTranslation();
@@ -42,6 +44,7 @@ const ContentManagement: React.FC = () => {
   const [ mutateVisibility ] = useMutation(TOGGLE_PROJECT_VISIBILITY);
   const [ deleteNoteByID ] = useMutation(DELETE_NOTE_BY_ID);
   const [ addProject ] = useMutation(ADD_PROJECT);
+  const [ removeProjectByID ] = useMutation(REMOVE_PROJECT_BY_ID);
 
   /**
    * Toggle a note's approval and refetch approved notes' query to rerender them in other views.
@@ -91,6 +94,24 @@ const ContentManagement: React.FC = () => {
         repositories: projectRepositories,
         visible: projectVisible,
       }
+    }).catch(error => notify(error.message, 5000, "danger")); // in case one of the required fields is left empty
+  };
+
+  /**
+   * Handle the event of clicking remove project button.
+   * @param id of the project to delete
+   */
+  const deleteProjectHandler = (id: string): void => {
+    // not beautiful, but I don't want to accidentally delete the 3 actual projects I have in the database
+    if (!window.confirm("Are you sure?")) return;
+
+    removeProjectByID({
+      variables: {
+        id
+      },
+      refetchQueries: [
+        { query: GET_ALL_PROJECTS }
+      ]
     });
   };
 
@@ -152,6 +173,12 @@ const ContentManagement: React.FC = () => {
                     variant={project.visible ? "secondary" : undefined}
                   >
                     {project.visible ? t("Hide") : t("Show")}
+                  </Button>
+                  <Button
+                    onClick={(): void => deleteProjectHandler(project.id)}
+                    variant="danger"
+                  >
+                    {t("Delete")}
                   </Button>
                 </div>
             ))

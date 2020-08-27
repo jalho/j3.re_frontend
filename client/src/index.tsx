@@ -69,6 +69,11 @@ const apolloClient = new ApolloClient({
             merge(_existing, incoming): Array<unknown> {
               return incoming;
             }
+          },
+          projects: {
+            merge(_existing, incoming): Array<unknown> {
+              return incoming;
+            }
           }
         },
       },

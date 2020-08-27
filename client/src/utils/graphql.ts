@@ -191,3 +191,9 @@ export const ADD_PROJECT = gql`
     }
   }
 `;
+
+export const REMOVE_PROJECT_BY_ID = gql`
+  mutation RemoveProjectByID($id: String!) {
+    removeProjectByID(id: $id)
+  }
+`;
