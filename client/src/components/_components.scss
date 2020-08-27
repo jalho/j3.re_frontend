@@ -2,25 +2,9 @@
 @use "../styles/mixins" as m;
 
 .header {
-  // alignment and margin
-  @include m.flexCenter();
-  margin-bottom: c.$marginDefault;
-  
-  // SVG element container's height; i. e. header text size really
-  height: c.$fontSizeHeader;
-
-  // background-color: rgba(255, 255, 255, 0.1);
-  // border-radius: 0.5em;
-  
-  // SVG text element
-  svg {
-    text {
-      @include m.disableTextSelection();
-      fill: c.$primaryTextColor;
-
-      font-family: c.$fontHeader;
-    }
-  }
+  width: auto;
+  text-align: center;
+  font-size: c.$fontSizeHeader;
 }
 
 #navbarContainer {

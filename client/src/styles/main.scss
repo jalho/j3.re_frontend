@@ -47,6 +47,6 @@ p {
 .view {
   @include m.flexCenter();
   padding: c.$paddingDefault;
-  width: 100vw;
+  width: 100%;
   flex: auto;
 }
