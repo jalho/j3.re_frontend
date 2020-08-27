@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { useLazyQuery, useSubscription } from "@apollo/client";
+import { useLazyQuery, useSubscription, useApolloClient } from "@apollo/client";
 import { useTranslation } from "react-i18next";
 
 import { Project, Translations } from "../../types";
 import Card from "../../components/Card";
 import Header from "../../components/Header";
-import { GET_ALL_PROJECTS, PROJECT_VISIBILITY_CHANGED } from "../../utils/graphql";
+import { GET_ALL_PROJECTS, PROJECT_VISIBILITY_CHANGED, PROJECT_ADDED } from "../../utils/graphql";
 
 const Portfolio: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const [getAllProjects, { data, loading, error }] = useLazyQuery(GET_ALL_PROJECTS);
   const [ serverStatusMsg, setServerStatusMsg ] = useState<string>();
+
+  // GraphQL operations, Apollo cache
+  const [getAllProjects, { data, loading, error }] = useLazyQuery(GET_ALL_PROJECTS);
+  const client = useApolloClient();
 
   // query projects on mount
   useEffect(
@@ -33,10 +36,33 @@ const Portfolio: React.FC = () => {
     }, [loading, t, error]
   );
 
-  /* Execute projects' subscription. Apollo updates cache automatically
+  /* Execute projects' visibility change subscription. Apollo updates cache automatically
   sufficiently based on received `id` and `__typename`, assuming all the
   projects already exist in cache and just their visibility status in changed. */
   useSubscription(PROJECT_VISIBILITY_CHANGED);
+
+  // update cache when new project is added somewhere
+  useSubscription(PROJECT_ADDED, {
+    onSubscriptionData: ({ subscriptionData }) => {
+      const addedProject: Project = subscriptionData.data.projectAdded;
+      const cachedQuery = client.readQuery({ query: GET_ALL_PROJECTS });
+      let updatedProjects: Array<Project>;
+      if (!cachedQuery.projects) updatedProjects = new Array<Project>(addedProject);
+      else {
+        updatedProjects = cachedQuery.projects;
+        if (!updatedProjects.find(p => p.id === addedProject.id)) {
+          updatedProjects = cachedQuery.projects.concat(addedProject);
+        }
+      }
+
+      client.writeQuery({
+        query: GET_ALL_PROJECTS,
+        data: {
+          projects: updatedProjects
+        }
+      });
+    }
+  });
 
   /**
    * Choose the appropriate translation of the description based on

@@ -137,3 +137,21 @@ export const NOTE_DELETED = gql`
     noteDeleted
   }
 `;
+
+export const PROJECT_ADDED = gql`
+  subscription {
+    projectAdded {
+      id
+      name
+      categories
+      description {
+        en
+        fi
+      }
+      technologies
+      startTime
+      repositories
+      visible
+    }
+  }
+`;
