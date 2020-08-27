@@ -65,6 +65,11 @@ const apolloClient = new ApolloClient({
               return incoming;
             },
           },
+          allNotes: {
+            merge(_existing, incoming): Array<unknown> {
+              return incoming;
+            }
+          }
         },
       },
     },

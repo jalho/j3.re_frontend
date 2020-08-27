@@ -33,7 +33,7 @@ Create a `.env` file in the root directory of the client with content of shape:
 <details>
     <summary>Expand</summary>
 
-*as of 20 August 2020*
+*as of 27 August 2020*
 ```
 client/src
 ¦   App.tsx                             # single page app's base

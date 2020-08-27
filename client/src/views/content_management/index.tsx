@@ -1,9 +1,11 @@
+// external imports
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { useMutation, useLazyQuery, useSubscription, useApolloClient } from "@apollo/client";
 import Button from "react-bootstrap/Button";
 
+// own imports
 import { StateCombinedFromReducers, Project, Note } from "../../types";
 import { 
   GET_ALL_NOTES,
@@ -18,15 +20,15 @@ import Card from "../../components/Card";
 
 const ContentManagement: React.FC = () => {
   const { t } = useTranslation();
-  const authentication = useSelector((state: StateCombinedFromReducers) => {
-    return state.authenticationReducer.authentication;
-  });
-  const [getAllNotes, { data: allNotesData }] = useLazyQuery(GET_ALL_NOTES);
-  const [getAllProjects, { data: allProjectsData }] = useLazyQuery(GET_ALL_PROJECTS);
+  const { authentication } = useSelector((state: StateCombinedFromReducers) => { return state.authenticationReducer; });
+  const client = useApolloClient(); // for cache operations
+
+  // GraphQL operations
+  const [ getAllNotes, { data: allNotesData } ] = useLazyQuery(GET_ALL_NOTES);
+  const [ getAllProjects, { data: allProjectsData } ] = useLazyQuery(GET_ALL_PROJECTS);
   const [ mutateApproval ] = useMutation(TOGGLE_NOTE_APPROVAL);
   const [ mutateVisibility ] = useMutation(TOGGLE_PROJECT_VISIBILITY);
-  const [ deleteNoteByID ] = useMutation(DELETE_NOTE_BY_ID, { refetchQueries: [ { query: GET_ALL_NOTES } ] });
-  const client = useApolloClient();
+  const [ deleteNoteByID ] = useMutation(DELETE_NOTE_BY_ID);
 
   /**
    * Toggle a note's approval and refetch approved notes' query to rerender them in other views.
@@ -52,7 +54,7 @@ const ContentManagement: React.FC = () => {
     deleteNoteByID({
       variables: { id: noteID },
       refetchQueries: [{ query: GET_ALL_NOTES }, { query: GET_ALL_APPROVED_NOTES }]
-    }).catch(error => console.log(error));
+    }).catch();
   };
 
   // Query all notes on mount.
