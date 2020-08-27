@@ -50,6 +50,10 @@ const ContentManagement: React.FC = () => {
     });
   };
 
+  /**
+   * Execute note deletion mutation and refetch respective queries.
+   * @param noteID of the note to be deleted
+   */
   const deleteNoteSingleNote = (noteID: string): void => {
     deleteNoteByID({
       variables: { id: noteID },
@@ -89,6 +93,7 @@ const ContentManagement: React.FC = () => {
     );
   }
 
+  // limit long note content render in content management view for compact UI
   const noteVisibleCharsCount = 50;
 
   // authorized view
@@ -97,51 +102,59 @@ const ContentManagement: React.FC = () => {
       <div className="item">
         <Card
           infoText={t("PROJECTS_VISIBILITY")}
-          items={!allProjectsData ? null : allProjectsData.projects.map((project: Project, idx: number) => (
-            <div key={idx} className="projectItem">
-              <i>{project.name}</i>
-              <span className="visibilityText">
-                <span>{t("VISIBILITY_LABEL")}</span>
-                <code style={{ color: project.visible ? "lightgreen" : "pink" }}>
-                  {project.visible.toString()}
-                </code>
-              </span>
-              <Button
-                onClick={(): void => toggleVisibility(project.id)}
-                variant={project.visible ? "secondary" : undefined}
-              >
-                {project.visible ? t("Hide") : t("Show")}
-              </Button>
-            </div>
-          ))}
+          items={
+            !allProjectsData
+              ? null
+              : allProjectsData.projects.map((project: Project, idx: number) => (
+                <div key={idx} className="projectItem">
+                  <i>{project.name}</i>
+                  <span className="visibilityText">
+                    <span>{t("VISIBILITY_LABEL")}</span>
+                    <code style={{ color: project.visible ? "lightgreen" : "pink" }}>
+                      {project.visible.toString()}
+                    </code>
+                  </span>
+                  <Button
+                    onClick={(): void => toggleVisibility(project.id)}
+                    variant={project.visible ? "secondary" : undefined}
+                  >
+                    {project.visible ? t("Hide") : t("Show")}
+                  </Button>
+                </div>
+            ))
+          }
         />
       </div>
       <div className="item">
         <Card
           infoText={t("NOTES_APPROVAL")}
-          items={!allNotesData || !allNotesData.allNotes ? null : allNotesData.allNotes.map((note: { content: string; approved: boolean; id: string; }, idx: number) => (
-            <div key={idx} className="noteItem">
-              <i>{note.content.substring(0, noteVisibleCharsCount) + (note.content.length > noteVisibleCharsCount ? "..." : "")}</i>
-              <span className="approvalText">
-                <span>{t("APPROVED_LABEL")}</span>
-                <code style={{ color: note.approved ? "lightgreen" : "pink" }}>
-                  {note.approved.toString()}
-                </code>
-              </span>
-              <Button
-                onClick={(): void => toggleApproval(note.id)}
-                variant={note.approved ? "secondary" : undefined}
-              >
-                {note.approved ? t("Disapprove") : t("Approve")}
-              </Button>
-              <Button
-                onClick={(): void => deleteNoteSingleNote(note.id) }
-                variant="danger"
-              >
-                {t("Delete")}
-              </Button>
-            </div>
-          ))}
+          items={
+            !allNotesData || !allNotesData.allNotes
+              ? null
+              : allNotesData.allNotes.map((note: Note, idx: number) => (
+                <div key={idx} className="noteItem">
+                  <i>{note.content.substring(0, noteVisibleCharsCount) + (note.content.length > noteVisibleCharsCount ? "..." : "")}</i>
+                  <span className="approvalText">
+                    <span>{t("APPROVED_LABEL")}</span>
+                    <code style={{ color: note.approved ? "lightgreen" : "pink" }}>
+                      {note.approved.toString()}
+                    </code>
+                  </span>
+                  <Button
+                    onClick={(): void => toggleApproval(note.id)}
+                    variant={note.approved ? "secondary" : undefined}
+                  >
+                    {note.approved ? t("Disapprove") : t("Approve")}
+                  </Button>
+                  <Button
+                    onClick={(): void => deleteNoteSingleNote(note.id) }
+                    variant="danger"
+                  >
+                    {t("Delete")}
+                  </Button>
+                </div>
+          ))
+          }
         />
       </div>
     </div>
