@@ -48,4 +48,11 @@
       font-weight: bold;
     }
   }
+
+  label {
+    display: flex;
+    input {
+      width: 5em;
+    }
+  }
 }

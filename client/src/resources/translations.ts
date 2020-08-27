@@ -2,6 +2,7 @@ export const translations = {
 
   "en": {
     "translation": {
+      "Add project to portfolio": "Add project to portfolio",
       "Approve": "Approve",
       "APPROVED_LABEL": "Approved: ",
       "april": "April",
@@ -88,6 +89,7 @@ export const translations = {
 
   "fi": {
     "translation": {
+      "Add project to portfolio": "Lisää projekti portfolioon",
       "Approve": "Hyväksy",
       "APPROVED_LABEL": "Hyväksytty: ",
       "april": "huhtikuussa",

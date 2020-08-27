@@ -1,5 +1,5 @@
 // external imports
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { useMutation, useLazyQuery, useSubscription, useApolloClient } from "@apollo/client";
@@ -14,14 +14,26 @@ import {
   GET_ALL_PROJECTS,
   TOGGLE_PROJECT_VISIBILITY,
   NOTE_ADDED,
-  DELETE_NOTE_BY_ID
+  DELETE_NOTE_BY_ID,
+  ADD_PROJECT
 } from "../../utils/graphql";
 import Card from "../../components/Card";
 
 const ContentManagement: React.FC = () => {
   const { t } = useTranslation();
   const { authentication } = useSelector((state: StateCombinedFromReducers) => { return state.authenticationReducer; });
+  const { eggClickCounter } = useSelector((state: StateCombinedFromReducers) => { return state.appModeReducer; });
   const client = useApolloClient(); // for cache operations
+
+  // project submit form state
+  const [ projectName, setProjectName ] = useState<string>();
+  const [ projectCategories, setProjectCategories ] = useState<string[]>();
+  const [ projectDescriptionEn, setProjectDescriptionEn ] = useState<string>();
+  const [ projectDescriptionFi, setProjectDescriptionFi ] = useState<string>();
+  const [ projectTechnologies, setProjectTechnologies ] = useState<string[]>();
+  const [ projectRepositories, setProjectRepositories ] = useState<string[]>();
+  const [ projectStartTime, setProjectStartTime ] = useState<string>();
+  const [ projectVisible, setProjectVisible ] = useState<boolean>();
 
   // GraphQL operations
   const [ getAllNotes, { data: allNotesData } ] = useLazyQuery(GET_ALL_NOTES);
@@ -29,6 +41,7 @@ const ContentManagement: React.FC = () => {
   const [ mutateApproval ] = useMutation(TOGGLE_NOTE_APPROVAL);
   const [ mutateVisibility ] = useMutation(TOGGLE_PROJECT_VISIBILITY);
   const [ deleteNoteByID ] = useMutation(DELETE_NOTE_BY_ID);
+  const [ addProject ] = useMutation(ADD_PROJECT);
 
   /**
    * Toggle a note's approval and refetch approved notes' query to rerender them in other views.
@@ -59,6 +72,26 @@ const ContentManagement: React.FC = () => {
       variables: { id: noteID },
       refetchQueries: [{ query: GET_ALL_NOTES }, { query: GET_ALL_APPROVED_NOTES }]
     }).catch();
+  };
+
+  /**
+   * Submit a new project to database.
+   * @param event emitted by submitting form
+   */
+  const submitNewProject = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    addProject({
+      variables: {
+        name: projectName,
+        categories: projectCategories,
+        description_en: projectDescriptionEn,
+        description_fi: projectDescriptionFi,
+        technologies: projectTechnologies,
+        startTime: projectStartTime,
+        repositories: projectRepositories,
+        visible: projectVisible,
+      }
+    });
   };
 
   // Query all notes on mount.
@@ -157,6 +190,47 @@ const ContentManagement: React.FC = () => {
           }
         />
       </div>
+      {
+      /* Project submission tool is quick and dirty, so it's hidden.
+      It is made visible the same way as the easter egg. I'm running out
+      of time to make this more elegant. */
+      eggClickCounter !== 5
+        ? null
+        : <div className="item">
+            <Card
+              infoText={t("Add project to portfolio")}
+              items={[
+                <form key="0" onSubmit={submitNewProject}>
+                  <label>
+                    name: <input type="text" onChange={(event): void => setProjectName(event.target.value)}/>
+                  </label>
+                  <label>
+                    categories: <input type="text" onChange={(event): void => setProjectCategories(new Array<string>(...event.target.value.split(",")))}/>
+                  </label>
+                  <label>
+                    desc en: <input type="text" onChange={(event): void => setProjectDescriptionEn(event.target.value)}/>
+                  </label>
+                  <label>
+                    desc fi: <input type="text" onChange={(event): void => setProjectDescriptionFi(event.target.value)}/>
+                  </label>
+                  <label>
+                    techs: <input type="text" onChange={(event): void => setProjectTechnologies(new Array<string>(...event.target.value.split(",")))}/>
+                  </label>
+                  <label>
+                    repos: <input type="text" onChange={(event): void => setProjectRepositories(new Array<string>(...event.target.value.split(",")))}/>
+                  </label>
+                  <label>
+                    start time: <input type="text" onChange={(event): void => setProjectStartTime(event.target.value)}/>
+                  </label>
+                  <label>
+                    visible: <input type="text" onChange={(event): void => setProjectVisible(event.target.value === "true" ? true : false)}/>
+                  </label>
+                  <input type="submit"/>
+                </form>
+              ]}
+            />
+          </div>
+      }
     </div>
   );
 };

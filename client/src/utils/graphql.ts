@@ -155,3 +155,39 @@ export const PROJECT_ADDED = gql`
     }
   }
 `;
+
+export const ADD_PROJECT = gql`
+  mutation AddProject(
+    $name: String!
+    $categories: [String]
+    $description_en: String
+    $description_fi: String
+    $technologies: [String]
+    $startTime: String
+    $repositories: [String]
+    $visible: Boolean!
+  ) {
+    addProject(
+      name: $name
+      categories: $categories
+      description_en: $description_en
+      description_fi: $description_fi
+      technologies: $technologies
+      startTime: $startTime
+      repositories: $repositories
+      visible: $visible
+    ) {
+      id
+      name
+      categories
+      description {
+        en
+        fi
+      }
+      technologies
+      startTime
+      repositories
+      visible
+    }
+  }
+`;
