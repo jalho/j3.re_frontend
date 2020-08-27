@@ -136,7 +136,7 @@ const ContentManagement: React.FC = () => {
                 onClick={(): void => deleteNoteSingleNote(note.id) }
                 variant="danger"
               >
-                Delete
+                {t("Delete")}
               </Button>
             </div>
           ))}
