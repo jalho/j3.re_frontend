@@ -1,5 +1,5 @@
 ```
-v1.0 (28 Aug 2020)
+v1.1 (work in progress - see milestone v1.1 in GitHub)
 ```
 
 # About
